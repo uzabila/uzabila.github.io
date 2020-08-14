@@ -1,0 +1,80 @@
+html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+footer img {
+  width: 36px;
+  height: 36px;
+  margin: 5px;
+}
+
+.grey-back {
+  background-color: #f7f7f9;
+}
+
+.icons img {
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+}
+
+.img-max img {
+    max-width: 100%;
+    height: auto
+}
+
+mark {
+    background: #fbf9c9;
+    color: #272727;
+}
+
+.draft-marker {
+    background-image: url(/assets/svg/span-back.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 4px;
+    background-position-x: 0;
+}
+
+.numbers span {
+  font-size: 5em;
+  font-weight: 700;
+  color: #bdbdbd;
+}
+
+img.avatar-120 {
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+}
+
+img.avatar-180 {
+  width: 180px;
+  height: 180px;
+  margin: 10px;
+  border: 10px solid #f2f2f2;
+  border-radius: 90px
+}
+
+.current img {
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 768px) {
+
+}
