@@ -14,6 +14,11 @@ footer img {
   margin: 5px;
 }
 
+.copyright img {
+  width: 24px;
+  height: 24px;
+}
+
 .grey-back {
   background-color: #f7f7f9;
 }
@@ -73,6 +78,10 @@ img.avatar-180 {
 .current img {
   width: 150px;
   height: 150px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
