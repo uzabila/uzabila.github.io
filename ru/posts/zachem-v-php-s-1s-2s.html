@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Contact - Sergei Ermilov</title>
+    <title>Зачем в PHP (WordPress) нужны %s, %1$s, %2$s - Сергей Ермилов</title>
 
     <!-- Bootstrap -->  
     <link rel="stylesheet" href="/assets/bootstrap4v/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -36,12 +36,12 @@
 
   </head>
   <body>
+<!-- Header Start -->
 
-    <div class="container-fluid bg-light mb-4">
+<div class="container-fluid bg-light mb-4">
     <div class="container">
     <div class="row">
         <div class="col">
-<!-- Header Start -->
 <header>
 
 
@@ -56,63 +56,91 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="/portfolio.html">My Work.</a>
+                    <a class="nav-link" href="/portfolio.html">Сделано.</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/about.html">About. <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/contact.html">Contact.</a>
+                    <a class="nav-link" href="/about.html">Обо мне. <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/tools.html">Tools.</a>
+                    <a class="nav-link" href="/contact.html">Контакты.</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/tools.html">Сервисы.</a>
                   </li>
                 </ul>
               </div>
             </nav>
 
 </header>
-<!-- Header End -->  
-    </div>
+<!-- Header End -->
+</div>
 </div>
 </div>
 </div>
     
+<div class="container-fluid my-5">
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
-               
-                <h1>Contact me</h1>
-                <p>Have a project for my team or any questions? You can email <span class="draft-marker"><strong>ermilov@mail.com</strong></span>.</p>
-                <p>You can visit my my page on one of the social networks:</p>
-                <ul>
-                  <li><a href="https://github.com/sergeiermilov" title="My GitHub" target="_blank">GitHub</a></li>
-                  <li><a href="https://www.behance.net/sergeiermilov" title="My Behance" target="_blank">Behance</a></li>
-                  <li><a href="https://www.linkedin.com/in/sergeiermilov" title="My LinkedIn" target="_blank">LinkedIn</a></li>
-                </ul>
-                <p>Also you can view my <a href="/portfolio.html">Portfolio</a>.</p>
-                <p>Feel free to contact me and my team if you face any kind of problem regarding technichal stuff.</p>
-                
-                <p><i>Let's get in touch.</i></p>
-                <p><i>Best Regards,<br>Sergei Ermilov.</i></p>
+                <p>&larr; <a href="/ru/">Статьи</a></p>
+                <h1>Зачем в PHP (WordPress) нужны %s, %1$s, %2$s</h1>                
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
 
-               </div>                
+<!-- Article -->
+
+
+    <p>Очень многим начинающим разработчикам рано или поздно попадаются в коде вот такие символы:&nbsp;<strong>%s</strong>,&nbsp;<strong>%1$s</strong>,&nbsp;<strong>%2$s</strong>. Для чего они нужны? Как влияют на код?</p>
+<p>В качестве примера можно рассмотреть такой код:</p>
+<pre>the_content( sprintf(
+    /* translators: %s: Name of current post. */
+    wp_kses( __( 'Continue reading %s &lt;span class="meta-nav"&gt;&amp;rarr;&lt;/span&gt;', 'humescores' ), array( 'span' =&gt; array( 'class' =&gt; array() ) ) ),
+    the_title( '&lt;span class="screen-reader-text"&gt;"', '"&lt;/span&gt;', false )
+    ) );
+</pre>
+<p>Фрагмент кода позаимствован из темы «underscores». Чтобы понимать как работают&nbsp;<strong>%s</strong>,&nbsp;<strong>%1$s</strong>,&nbsp;<strong>%2$s</strong>, мы разберем один пример, который приводят разработчики на PHP:</p>
+<pre>&lt;?php
+$num = 5;
+$location = 'дереве';
+ 
+$format = '%d обезьян сидят на %s';
+echo sprintf($format, $num, $location);
+?&gt;
+</pre>
+<p>Ознакомьтесь в руководстве PHP с функцией&nbsp;<a href="https://www.php.net/manual/function.sprintf.php" target="_blank" rel="noopener noreferrer">sprintf</a>.</p>
+<p>Аргумент&nbsp;<strong>%2$s</strong>&nbsp;указывает очередность:</p>
+<pre>&lt;?php
+$format = 'На %2$s сидят %1$d обезьян';
+echo sprintf($format, $num, $location);
+</pre>
+<p>Но многие предпочитают такому методу вставлять переменные в тело текстовой строки.</p>
+
+<!-- END Article -->
+
             </div>
+        </div>
     </div>
-    
+</div>
+
+   
 <!-- Footer Start -->
 <footer>
 <div class="container-fluid bg-light mt-4">
     <div class="container">
-        <div class="row py-4">
+        <div class="row align-items-center py-4">
 
-                <div class="col-sm-8 col-xs-12 text-center text-sm-left copyright">
+                <div class="col-sm-4 col-xs-12 text-center text-sm-left copyright">
                     <img src="/assets/svg/smlogo.svg" alt="Sergei Ermilov"> Copyright &copy; Sergei Ermilov
+                </div>
+                <div class="col-sm-4 my-auto text-center">
+                    <a href="/" class="language language_ru" rel="noopener">In English</a>
                 </div>
                 <div class="col-sm-4 col-xs-12 text-center text-sm-right">
 
                     <a href="https://github.com/sergeiermilov" title="My GitHub" target="_blank"><img src='/assets/svg/gh.svg' alt="My GitHub" title="My GitHub"></a>
-                    
+                                        
                     <a href="https://www.behance.net/sergeiermilov" title="My Behance" target="_blank"><img src='/assets/svg/bh.svg' alt="My Behance" title="My Behance"></a>
 
                 </div>

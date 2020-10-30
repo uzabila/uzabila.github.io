@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon (Mobile and Desktop) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Боремся с “Updating failed. You are probably offline.” - Сергей Ермилов</title>
+
+    <!-- Bootstrap -->  
+    <link rel="stylesheet" href="/assets/bootstrap4v/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Main Style.CSS -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160822348-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-160822348-7');
+    </script>
+
+
+  </head>
+  <body>
+<!-- Header Start -->
+
+<div class="container-fluid bg-light mb-4">
+    <div class="container">
+    <div class="row">
+        <div class="col">
+<header>
+
+
+            <nav class="navbar navbar-expand-lg navbar-light">
+
+              <a class="navbar-brand h1" href="/"><img src="/assets/svg/smlogo.svg" width="20" height="20" alt="Sergei Ermilov"> Sergei Ermilov.</a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/portfolio.html">Сделано.</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/about.html">Обо мне. <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Контакты.</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/tools.html">Сервисы.</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+</header>
+<!-- Header End -->
+</div>
+</div>
+</div>
+</div>
+    
+<div class="container-fluid my-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+              <p>&larr; <a href="/ru/">Статьи</a></p>
+                <h1>Боремся с “Updating failed. You are probably offline.”</h1>                
+            </div>            
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+<!-- Article -->
+
+<p>С недавнего времени столкнулся с проблемой, когда в WordPress при сохранении черновика появляется надпись “updating failed. you are probably offline” (рус. – обновление не удалось). И да, эта проблема часто возникает у тех, кто пользуется Gutenberg.</p>
+
+<p>Буквально недавно я каким-то образом проникся этим редактором, хотя всё предыдущее время постоянно ставил плагин “Classic Editor”, который возвращал старый добрый вордпрессовский редактор.</p>
+
+<p>Для решения “updating failed” пришлось копать весть Google, но большинство решений сводилось к тому, чтобы установить плагин “Classic Editor” и не мучиться.</p>
+
+<p>Но скажем честно, классический редактор – это костыль. Так как со временем все перейдут на новый Gutenberg, т.к. он удобнее априори.</p>
+
+<p>Итак, если вы хотите быстрое решение в виде костыля – бежим и устанавливаем плагин <a href="https://wordpress.org/plugins/classic-editor/" target="_blank" rel="noreferrer noopener">Classic Editor</a>.</p>
+
+<p>Ну а тем, кто хочет разобраться – я подскажу направление куда копать.</p>
+
+<p>Реальная проблема заключается в SSL и здесь два варианта:</p>
+
+<ol><li>Установлен непонятный SSL</li><li>Криво сделана переадресация на HTTPS.</li></ol>
+
+<p><strong>Первый вариант</strong> – редкий и скорее всего для решения достаточно написать хостеру и попросить проверить всё ли нормально с сертификатом и правильно ли он установлен.</p>
+
+<p>Если хостер скажет, что всё окай, то переходим ко второму варианту.</p>
+
+<p><strong>Второй вариант</strong> заключается в том, что есть, скажем так, конфликт переадресаций. Обычно после установки WordPress на сайт с SSL в настройках мы прописываем HTTPS, плюс у WP есть внутренняя умная переадресация. Но также есть редирект на сервере с HTTP на HTTPS.</p>
+
+<p>И когда всё настроено криво, то при редактировании статей мы получаем ошибку “Mixed content”, которую можно увидеть в консоли (например):</p>
+
+<p class="text-center"><a href="/ru/images/mixed-content-wp.jpg" target="_blank"><img src="/ru/images/mixed-content-wp.jpg" alt="Mixed content"></a></p>
+
+<p>Какие действия можно предпринять?</p>
+
+<p>1. После установки SSL на сервер мы прописываем в настройках (<strong>Настройки</strong> -&gt; <strong>Общие</strong>) адрес Адрес WordPress (URL) и Адрес сайта (URL) с HTTPS.</p>
+
+<p>2. Можно более жестко прописать в корне сайта в файле wp-config.php строки:</p>
+
+<pre>define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST'] . '/');
+define('WP_HOME', 'https://' . $_SERVER['HTTP_HOST'] . '/');
+</pre>
+
+<p>Если вы пропишете эти строки, то не сможете редактировать адреса через настройки.</p>
+
+<p>3. Устанавливаем плагин <a href="https://ru.wordpress.org/plugins/really-simple-ssl/" target="_blank" rel="noreferrer noopener">Really Simple SSL</a> и активизируем его. Включаем редиректы в нем.</p>
+
+<p>4. Далее мы можем прописать в файле .htaccess следующие строчки:</p>
+
+<pre>&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+&lt;/IfModule&gt;</pre>
+
+<p>Зачем они нужны? Очень часто при установке SSL и настройки переадресации с HTTP на HTTPS мы забываем делать переадресацию, например, с WWW на без-WWW, т.е. когда URL <strong>https://www.site.ru</strong> редиректит на <strong>https://site.ru</strong>. Эти строчки выше прописываются в htaccess с этой целью.</p>
+
+<p>Конечно, вы должны понимать, что случаи бывают разные и как правило лучше всего обращаться к хостеру, но если у вас на сервере Apache, то решение выше вполне может вам подойти.</p>
+
+
+<!-- END Article -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+<!-- Footer Start -->
+<footer>
+<div class="container-fluid bg-light mt-4">
+    <div class="container">
+        <div class="row align-items-center py-4">
+
+                <div class="col-sm-4 col-xs-12 text-center text-sm-left copyright">
+                    <img src="/assets/svg/smlogo.svg" alt="Sergei Ermilov"> Copyright &copy; Sergei Ermilov
+                </div>
+                <div class="col-sm-4 my-auto text-center">
+                    <a href="/" class="language language_ru" rel="noopener">In English</a>
+                </div>
+                <div class="col-sm-4 col-xs-12 text-center text-sm-right">
+
+                    <a href="https://github.com/sergeiermilov" title="My GitHub" target="_blank"><img src='/assets/svg/gh.svg' alt="My GitHub" title="My GitHub"></a>
+                                        
+                    <a href="https://www.behance.net/sergeiermilov" title="My Behance" target="_blank"><img src='/assets/svg/bh.svg' alt="My Behance" title="My Behance"></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer End -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="/assets/bootstrap4v/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
