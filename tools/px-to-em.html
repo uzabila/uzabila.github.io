@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Contact - Sergei Ermilov</title>
+    <title>PX to EM</title>
 
     <!-- Bootstrap -->  
     <link rel="stylesheet" href="/assets/bootstrap4v/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -36,18 +36,18 @@
 
   </head>
   <body>
+<!-- Header Start -->
 
-    <div class="container-fluid bg-light mb-4">
+<div class="container-fluid bg-light mb-4">
     <div class="container">
     <div class="row">
         <div class="col">
-<!-- Header Start -->
 <header>
 
 
             <nav class="navbar navbar-expand-lg navbar-light">
 
-              <a class="navbar-brand h1" href="/"><img src="/assets/svg/logo.svg" width="24" height="24" alt="Sergei Ermilov"> Sergei Ermilov.</a>
+              <a class="navbar-brand h1" href="/"><img src="/assets/svg/smlogo.svg" width="20" height="20" alt="Sergei Ermilov"> Sergei Ermilov.</a>
 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -61,10 +61,10 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/about.html">About. <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item active">
+                  <li class="nav-item">
                     <a class="nav-link" href="/contact.html">Contact.</a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                     <a class="nav-link" href="/tools.html">Tools.</a>
                   </li>
                 </ul>
@@ -72,39 +72,83 @@
             </nav>
 
 </header>
-<!-- Header End -->  
-    </div>
+<!-- Header End -->
+</div>
 </div>
 </div>
 </div>
     
-    <div class="container">
-        <div class="row">
-            <div class="col">
-               
-                <h1>Contact me</h1>
-                <p>Have a project for my team or any questions? You can email <span class="draft-marker"><strong>ermilov@mail.com</strong></span>.</p>
-                <p>You can visit my my page on one of the social networks:</p>
-                <ul>
-                  <li><a href="https://github.com/sergeiermilov" title="My GitHub" target="_blank">GitHub</a></li>
-                  <li><a href="https://www.behance.net/sergeiermilov" title="My Behance" target="_blank">Behance</a></li>
-                  <li><a href="https://www.linkedin.com/in/sergeiermilov" title="My LinkedIn" target="_blank">LinkedIn</a></li>
-                </ul>
-                <p>Also you can view my <a href="/portfolio.html">Portfolio</a>.</p>
-                <p>Feel free to contact me and my team if you face any kind of problem regarding technichal stuff.</p>
-                
-                <p><i>Let's get in touch.</i></p>
-                <p><i>Best Regards,<br>Sergei Ermilov.</i></p>
-
-               </div>                
+    <div class="container-fluid my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h1>PX to EM (CSS)</h1>
+                    <p>I offer you a convenient PX to EM conversion calculator for Front-end developers and designers.</p>              
+                </div>
             </div>
+            <div class="row my-4">
+                <div class="col-sm-8 offset-sm-2 col-xs-12">
+                   
+<div class="container-px-em">    
+              <div class="basefont">
+                <p>basefont:</p><input type="text" class="chosen" value="16" placeholder="16">px</div>
+              <div class="px-em">
+                <div class="px"><input type="text" class="input px-input" placeholder="0" />
+                  <div class="text">px</div>
+                </div>
+                <div class="em"><input type="text" class="input em-input" placeholder="0" />
+                  <div class="text">em</div>
+                </div>
+              </div>
+</div>
+<script>
+var px = document.querySelector(".px-input");
+var em = document.querySelector(".em-input");
+var bf = document.querySelector(".chosen");
+var pxValue = px.value;
+var basefont = bf.value;
+px.addEventListener("keyup", function() {
+  basefont = bf.value;
+  pxValue = px.value;
+  calculatePXtoEM(pxValue, basefont);
+});
+
+em.addEventListener("keyup", function() {
+  basefont = bf.value;
+  emValue = em.value;
+  calculateEMtoPX(emValue, basefont);
+});
+
+function calculatePXtoEM(givenPx, basefont) {
+  console.log(givenPx);
+  if (basefont === "") {
+    basefont = 16;
+  }
+  var returnEm = givenPx / basefont;
+  em.value = returnEm;
+}
+
+function calculateEMtoPX(givenEm, basefont) {
+  console.log(givenEm);
+  if (basefont === "") {
+    basefont = 16;
+  }
+  var returnPx = givenEm * basefont;
+  px.value = returnPx;
+}
+</script>
+
+
+                </div>
+            </div>
+        </div>
     </div>
-    
+   
 <!-- Footer Start -->
 <footer>
 <div class="container-fluid bg-light mt-4">
     <div class="container">
-        <div class="row py-4">
+        <div class="row align-items-center py-4">
 
                 <div class="col-sm-8 col-xs-12 text-center text-sm-left copyright">
                     <img src="/assets/svg/smlogo.svg" alt="Sergei Ermilov"> Copyright &copy; Sergei Ermilov
@@ -112,7 +156,7 @@
                 <div class="col-sm-4 col-xs-12 text-center text-sm-right">
 
                     <a href="https://github.com/sergeiermilov" title="My GitHub" target="_blank"><img src='/assets/svg/gh.svg' alt="My GitHub" title="My GitHub"></a>
-                    
+                                        
                     <a href="https://www.behance.net/sergeiermilov" title="My Behance" target="_blank"><img src='/assets/svg/bh.svg' alt="My Behance" title="My Behance"></a>
 
                 </div>

@@ -129,3 +129,7 @@ select {
 .select:hover::after {
   background-color: #336699;
 }
+
+.backhome {padding:.5em 1em;font-size:.8em;background-color: white;font-weight: 600}
+.backhome a{color:black;text-decoration: none;}
+.backhome a:hover{color:#007dd7;text-decoration: none;}
