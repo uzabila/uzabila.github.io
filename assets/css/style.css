@@ -1,3 +1,71 @@
+/* FONTS */
+@font-face {
+  font-family: 'Circe';
+  src: url('/assets/fonts/Circe-Regular.eot');
+  src: local('Circe'), local('Circe-Regular'),
+    url('/assets/fonts/Circe-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/Circe-Regular.woff') format('woff'),
+    url('/assets/fonts/Circe-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/assets/fonts/Circe-ExtraLight.eot');
+  src: local('Circe ExtraLight'), local('Circe-ExtraLight'),
+    url('/assets/fonts/Circe-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/Circe-ExtraLight.woff') format('woff'),
+    url('/assets/fonts/Circe-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/assets/fonts/Circe-Thin.eot');
+  src: local('Circe Thin'), local('Circe-Thin'),
+    url('/assets/fonts/Circe-Thin.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/Circe-Thin.woff') format('woff'),
+    url('/assets/fonts/Circe-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/assets/fonts/Circe-Light.eot');
+  src: local('Circe Light'), local('Circe-Light'),
+    url('/assets/fonts/Circe-Light.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/Circe-Light.woff') format('woff'),
+    url('/assets/fonts/Circe-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/assets/fonts/Circe-Bold.eot');
+  src: local('Circe Bold'), local('Circe-Bold'),
+    url('/assets/fonts/Circe-Bold.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/Circe-Bold.woff') format('woff'),
+    url('/assets/fonts/Circe-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circe';
+  src: url('/assets/fonts/Circe-ExtraBold.eot');
+  src: local('Circe ExtraBold'), local('Circe-ExtraBold'),
+    url('/assets/fonts/Circe-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/Circe-ExtraBold.woff') format('woff'),
+    url('/assets/fonts/Circe-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* END FONTS*/
 html {
     padding: 0;
     margin: 0;
@@ -6,6 +74,8 @@ html {
 body {
     padding: 0;
     margin: 0;
+    font-family: 'Circe', 'Segoe UI';
+    font-weight: 500;
 }
 
 img {
@@ -13,10 +83,141 @@ img {
   height: auto
 }
 
+.maxwidth {
+  max-width: 1600px;
+  padding: 0 35px;
+  zoom: 1;
+  display: block;
+  margin: auto;
+}
+
+.homepage-subtitle {
+  font-size: 2.4em;
+  font-weight: 800
+}
+
+.gradient-line {
+  width:100%;
+  height: 15px;
+  background: rgb(249,23,132);
+  background: linear-gradient(90deg, rgba(249,23,132,1) 0%, rgba(160,51,190,1) 100%);
+}
+
+p {
+  font-weight: 400;
+  font-size: 1.2em
+}
+
+h1, h2, h3 {
+  font-weight: 800
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5em
+}
+
+.navbar-brand img {margin: -3px 4px 0 0;}
+
+.slider-title {
+  font-weight: 800;
+  font-size: 4.5em;
+  line-height: 1em;  
+}
+
+.slider-text {
+  font-size:1.6em;
+}
+
+.slider-image {
+  width: 270px;
+  height: 270px;
+  border: double 18px transparent;
+  border-radius: 135px;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #f71684,#3020ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.work {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.work-image{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.work-text {
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    background-color: #efefef;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: -190px;
+    position: relative;
+    z-index: 2;
+    padding: 20px;    
+}
+.work-text__title {
+  font-weight: 800;
+  font-size: 2.8em;
+}
+
+.portfolio {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.portfolio-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.portfolio-text {
+  position: absolute;
+  z-index: 2;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color:#000;
+  font-weight: 800;
+  font-size: 2.8em;
+  bottom: 20px;  
+}
+
+.homepage-subtitle__link {
+  margin-left: 30px;
+}
+
 footer img {
-  width: 36px;
-  height: 36px;
-  margin: 5px;
+  width: 64px;
+  height: 64px;
+  margin: 10px;
+}
+
+.footer {
+  font-size: 1.3em;
+}
+
+.icons-image {
+  padding:30px;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #fff;
+  margin: 20px;
+}
+
+.icons-image img {
+  width: 130px;
+  height: 130px; 
+}
+
+.dark-back {
+  background-color: #121212;
+  color: #dadada;
 }
 
 .copyright img {
@@ -27,11 +228,9 @@ footer img {
 .grey-back {
   background-color: #f7f7f9;
 }
-
-.icons img {
-  width: 64px;
-  height: 64px;
-  margin: 10px;
+.blue-back {
+  background-color: #2b53d6;
+  color: #fff;
 }
 
 h1,
@@ -60,24 +259,15 @@ mark {
     background-position-x: 0;
 }
 
-.numbers span {
-  font-size: 5em;
+.numbers {
+  font-size: 3.5em;
+  line-height: 1em;
   font-weight: 700;
-  color: #bdbdbd;
+  color: #2b53d6;
 }
 
-img.avatar-120 {
-  width: 120px;
-  height: 120px;
-  margin: 10px;
-}
-
-img.avatar-180 {
-  width: 180px;
-  height: 180px;
-  margin: 10px;
-  border: 1px solid #f2f2f2;
-  border-radius: 90px
+.numbers span {
+  color: #000;  
 }
 
 .current img {
@@ -87,7 +277,7 @@ img.avatar-180 {
 
 .navbar-light .navbar-nav .nav-link {
   font-weight: 600;
-  font-size: 1.1em
+  font-size: 1.2em
 }
 
 .no-border {
@@ -175,5 +365,7 @@ code {
 
 /* media */
 @media (max-width: 768px) {
-
+ .slider-title {
+  font-size:2.8em;
+ }
 }
