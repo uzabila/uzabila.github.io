@@ -381,7 +381,7 @@ nav ul li ul li a {
   justify-content: space-between;
 }
 .form {
-  flex-basis: 46%;
+  flex-basis: 26%;
 }
 .form_button {
   background-color: #007dd7;
