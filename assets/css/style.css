@@ -426,10 +426,16 @@ nav ul li ul li a {
 }
 .social__link {
   text-decoration: none;
-  margin-left: 1em;
+  margin-right: 1em;
+}
+.social__link:last-child {
+  margin-right: 0;
+}
+.form-mail__text {
+  margin-bottom: 1em;
 }
 .map {
-  flex-basis: 48%;
+  flex-basis: 68%;
 }
 .slick-slider {
   display: flex;
