@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://sergeiermilov.com/sitemap.xml
+Sitemap: https://sergeiermilov.github.io/sitemap.xml
