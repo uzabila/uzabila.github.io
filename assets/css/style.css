@@ -747,6 +747,49 @@ code {
   height: 24px;
 }
 
+/* tech icons*/
+.info-icons {
+  margin: 0 auto;
+}
+.info-icons a {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  border-radius: 27px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.35;
+  padding: 11px 21px 14px 56px;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border: 0;
+  margin: 10px;
+  color: #222;
+  text-decoration: none;
+  /*-webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,.07);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.07);*/
+}
+.info-icons a:hover {
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.23);
+  text-decoration: none;
+}
+.info-icons img {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 13px;
+  top: 8px;
+  border-radius: 36px;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+}
+.info-icons a:hover img {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+/* end tech icons*/
+
 /* media */
 @media (max-width: 768px) {
   .slider-title {

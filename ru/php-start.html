@@ -25,7 +25,8 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Всё о цифровой фотосъемке - Сергей Ермилов</title>
+    <title>PHP для начинающих - Сергей Ермилов</title>
+    <meta name="description" content="Большое руководство для тех, кто планирует заниматься PHP разработкой.">
 
     <!-- Bootstrap -->  
     <link rel="stylesheet" href="/assets/bootstrap4v/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -95,32 +96,32 @@
 
               <p>В качестве примера можно рассмотреть такой код:</p>
 
-<pre><code>the_content( sprintf(
+<pre>the_content( sprintf(
 /* translators: %s: Name of current post. */
 wp_kses( __( 'Continue reading %s &lt;span class="meta-nav">&rarr;&lt;/span>', 'humescores' ), array( 'span' => array( 'class' => array() ) ) ),
 the_title( '&lt;span class="screen-reader-text">"', '"&lt;/span>', false )
 ) );
-</code></pre>
+</pre>
 
               <p>Фрагмент кода позаимствован из темы «underscores». Чтобы понимать как работают&nbsp;<strong>%s</strong>,&nbsp;<strong>%1$s</strong>,&nbsp;<strong>%2$s</strong>, мы разберем один пример, который приводят разработчики на PHP:</p>
 
-<pre><code>&lt;?php
+<pre>&lt;?php
 $num = 5;
 $location = 'дереве';
     
 $format = '%d обезьян сидят на %s';
 echo sprintf($format, $num, $location);
 ?>
-</code></pre>
+</pre>
 
               <p>Ознакомьтесь в руководстве PHP с функцией&nbsp;<a href="https://www.php.net/manual/function.sprintf.php" target="_blank" rel="noopener noreferrer">sprintf</a>.</p>
 
               <p>Аргумент&nbsp;<strong>%2$s</strong>&nbsp;указывает очередность:</p>
 
-<pre><code>&lt;?php
+<pre>&lt;?php
 $format = 'На %2$s сидят %1$d обезьян';
 echo sprintf($format, $num, $location);
-</code></pre>
+</pre>
 
               <p>Но многие предпочитают такому методу вставлять переменные в тело текстовой строки.</p>
 
