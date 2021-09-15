@@ -28,11 +28,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://sergeiermilov.github.io/tools.html</loc>
-  <lastmod>2021-02-11T13:38:17+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://sergeiermilov.github.io/projects/arduinoplus.html</loc>
   <lastmod>2021-02-11T13:38:16+00:00</lastmod>
   <priority>0.80</priority>
@@ -73,7 +68,22 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://sergeiermilov.github.io/frontend/</loc>
+  <loc>https://sergeiermilov.github.io/frontend/cosmocs/</loc>
+  <lastmod>2021-02-11T13:38:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://sergeiermilov.github.io/frontend/eqonom/</loc>
+  <lastmod>2021-02-11T13:38:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://sergeiermilov.github.io/frontend/tennis/</loc>
+  <lastmod>2021-02-11T13:38:16+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://sergeiermilov.github.io/frontend/revenis/</loc>
   <lastmod>2021-02-11T13:38:16+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -302,16 +312,4 @@
   <lastmod>2021-02-11T13:38:16+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-<url>
-  <loc>https://sergeiermilov.github.io/tool/html-colors.html</loc>
-  <lastmod>2021-02-11T13:38:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://sergeiermilov.github.io/tool/px-to-em.html</loc>
-  <lastmod>2021-02-11T13:38:17+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
 </urlset>
