@@ -277,16 +277,10 @@ footer img {
 }
 
 .icons-image {
-  padding: 1em;
-  box-sizing: border-box;
-  display: inline-block;
+  margin: 1.25em;
   background-color: #fff;
-  margin: 20px;
-}
-
-.icons-image img {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
 }
 
 .dark-back {
@@ -843,4 +837,11 @@ pre {
     float: none;
     display: block;
   }
+}
+
+@media screen and (max-width: 575.98px) {
+  .icons-image {
+    width: 120px;
+    height: 120px;
+  } 
 }
