@@ -27,6 +27,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Web Design and Development - Sergei Ermilov</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
     <!-- Bootstrap -->  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -82,11 +84,11 @@
     <div class="maxwidth">
         <div class="row py-5">
             <div class="col-lg-6 offset-lg-1 my-auto">               
-                <h1 class="slider-title pb-3">Web and Mobile Design.</h1>
-                <p class="slider-text">I design, create and develop Web and Mobile Applications, Wordpress Sites and Shops</p>          
+                <h1 class="slider-title pb-3 animate__animated animate__fadeInDown">Web and Mobile Design.</h1>
+                <p class="slider-text animate__animated animate__fadeInLeft">I design, create and develop Web and Mobile Applications, Wordpress Sites and Shops</p>          
             </div>
             <div class="col-lg-4 my-auto text-center outer_circle">
-                <img class="slider-image inner_circle" src="/assets/img/sme360.png" alt="Sergei Ermilov">
+                <img class="slider-image inner_circle animated-avatar" src="/assets/img/sme360.png" alt="Sergei Ermilov">
             </div>
         </div>        
     </div>
@@ -141,50 +143,74 @@
                 <h2 class="homepage-subtitle mb-5">My Work. <a class="homepage-subtitle__link" href="/portfolio.html"><img src="/assets/svg/arrow.svg" alt="My Work"></a></h2>
             </div>
         </div>
-        <div class="row imgmax">
+        <div class="row imgmax scroll-animations">
 
-            <div class="col-lg-4 mb-4 portfolio">
+            <div class="col-lg-4 mb-4 portfolio animate__animated">
                 <a href="/projects/hockeychooser.html">             
                     <div class="portfolio-image">
                         <img src="/projects/hockeychooser/hockeychooser-720.png" alt="HockeyChooser.com">
+                        <div class="portfolio-info">
+                            <h4>HockeyChooser</h4>
+                            <a href="/projects/hockeychooser.html" class="details-link" title="More Details"><img src="/assets/svg/link.svg" alt="" width="24px" height="24px"></a>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-lg-4 mb-4 portfolio">
+            <div class="col-lg-4 mb-4 portfolio animate__animated">
                 <a href="/projects/arduinoplus.html">             
                     <div class="portfolio-image">
                         <img src="/assets/img/arduinoplus.png" alt="ArduinoPlus">
+                        <div class="portfolio-info">
+                            <h4>ArduinoPlus</h4>
+                            <a href="/projects/arduinoplus.html" class="details-link" title="More Details"><img src="/assets/svg/link.svg" alt="" width="24px" height="24px"></a>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-lg-4 mb-4 portfolio">
+            <div class="col-lg-4 mb-4 portfolio animate__animated">
                 <a href="/projects/pensiolog.html">             
                     <div class="portfolio-image">
                         <img src="/assets/img/pensiolog.png" alt="Pensiolog">
+                        <div class="portfolio-info">
+                            <h4>Pensiolog</h4>
+                            <a href="/projects/pensiolog.html" class="details-link" title="More Details"><img src="/assets/svg/link.svg" alt="" width="24px" height="24px"></a>
+                        </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-lg-4 mb-4 portfolio">
+            <div class="col-lg-4 mb-4 portfolio animate__animated">
                 <a href="/projects/tennisbrand.html">             
                     <div class="portfolio-image">
                         <img src="/assets/img/work-tennis.png" alt="Tennis">
+                        <div class="portfolio-info">
+                            <h4>Tennis</h4>
+                            <a href="/projects/tennisbrand.html" class="details-link" title="More Details"><img src="/assets/svg/link.svg" alt="" width="24px" height="24px"></a>
+                        </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 mb-4 portfolio">
+            <div class="col-lg-4 mb-4 portfolio animate__animated">
                 <a href="/projects/fiziotera.html">
                     <div class="portfolio-image">
                         <img src="/assets/img/fiziotera.png" alt="Fiziotera">
+                        <div class="portfolio-info">
+                            <h4>Fiziotera</h4>
+                            <a href="/projects/fiziotera.html" class="details-link" title="More Details"><img src="/assets/svg/link.svg" alt="" width="24px" height="24px"></a>
+                        </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-4 mb-4 portfolio">
+            <div class="col-lg-4 mb-4 portfolio animate__animated">
                 <a href="/projects/smotri-delai.html">
                     <div class="portfolio-image">
                         <img src="/assets/img/smotridelai.png" alt="SmotriDelai">
+                        <div class="portfolio-info">
+                            <h4>SmotriDelai</h4>
+                            <a href="/projects/smotri-delai.html" class="details-link" title="More Details"><img src="/assets/svg/link.svg" alt="" width="24px" height="24px"></a>
+                        </div>
                     </div>
                 </a>
             </div>        
@@ -256,6 +282,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Check if element is scrolled into view
+            function isScrolledIntoView(elem) {
+                var docViewTop = $(window).scrollTop();
+                var docViewBottom = docViewTop + $(window).height();
+
+                var elemTop = $(elem).offset().top;
+                var elemBottom = elemTop + $(elem).height();
+
+                return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+            }
+            // If element is scrolled into view, fade it in
+            $(window).scroll(function() {
+                $('.scroll-animations .animate__animated').each(function() {
+                if (isScrolledIntoView(this) === true) {
+                    $(this).addClass('animate__pulse');
+                }
+                });
+            });
+            });
+    </script>
     
 </body>
 </html>
