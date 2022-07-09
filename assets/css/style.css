@@ -1,0 +1,56 @@
+body {
+
+}
+
+.customer {
+  width: 60px;
+  height: 60px;
+}
+
+.customer {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.3s;
+}
+
+.customer:hover {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.description {
+    font-size: 1.25em;
+    line-height: 1.45em;
+}
+
+label {
+    color: #333;
+}
+
+.help-block.with-errors {
+    color: #ff5050;
+    margin-top: 5px;
+}
+
+.btn-close {
+    float: right;
+    font-size: 1em;
+    font-weight: 700;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.bg-grey {
+  background-color: #f8f9fa;
+}
+
+/*
+* MEDIA
+*/
+
+@media (min-width: 992px) {
+  .text-xl {
+    font-size: 4.5rem !important;
+  }
+}
