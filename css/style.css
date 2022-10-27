@@ -101,12 +101,15 @@ body {
 
 @media (min-width: 992px) {
 	body {
-		font-size: 18px;
-		
+		font-size: 18px;		
 		background-image: url('/images/bg.png');
 		background-repeat: repeat-y;
 		background-size: 18% auto;
 		background-position: center;
+	}
+
+	.text-xl {
+		font-size: 3em;
 	}
 }
 	
