@@ -43,6 +43,14 @@ a.no-border {
 	margin-right: 4px;
 }
 
+sup {
+	font-size: 13px;
+	font-weight: 400;
+	vertical-align: top;
+	position: relative;
+	top: 6px; 
+}
+
 .bg-main {
 	background-color: #ecf4f9;
 }
