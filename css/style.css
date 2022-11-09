@@ -1,82 +1,54 @@
-/* FONTS */
-@font-face {
-	font-family: "Circe";
-	src: url("/fonts/Circe-Regular.eot");
-	src: local("Circe"), local("Circe-Regular"),
-		url("/fonts/Circe-Regular.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/Circe-Regular.woff") format("woff"),
-		url("/fonts/Circe-Regular.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Circe";
-	src: url("/fonts/Circe-ExtraLight.eot");
-	src: local("Circe ExtraLight"), local("Circe-ExtraLight"),
-		url("/fonts/Circe-ExtraLight.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/Circe-ExtraLight.woff") format("woff"),
-		url("/fonts/Circe-ExtraLight.ttf") format("truetype");
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Circe";
-	src: url("/fonts/Circe-Thin.eot");
-	src: local("Circe Thin"), local("Circe-Thin"),
-		url("/fonts/Circe-Thin.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/Circe-Thin.woff") format("woff"),
-		url("/fonts/Circe-Thin.ttf") format("truetype");
-	font-weight: 100;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Circe";
-	src: url("/fonts/Circe-Light.eot");
-	src: local("Circe Light"), local("Circe-Light"),
-		url("/fonts/Circe-Light.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/Circe-Light.woff") format("woff"),
-		url("/fonts/Circe-Light.ttf") format("truetype");
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Circe";
-	src: url("/fonts/Circe-Bold.eot");
-	src: local("Circe Bold"), local("Circe-Bold"),
-		url("/fonts/Circe-Bold.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/Circe-Bold.woff") format("woff"),
-		url("/fonts/Circe-Bold.ttf") format("truetype");
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: "Circe";
-	src: url("/fonts/Circe-ExtraBold.eot");
-	src: local("Circe ExtraBold"), local("Circe-ExtraBold"),
-		url("/fonts/Circe-ExtraBold.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/Circe-ExtraBold.woff") format("woff"),
-		url("/fonts/Circe-ExtraBold.ttf") format("truetype");
-	font-weight: 800;
-	font-style: normal;
-}
-
-html {
-    height: 100%;
-}
-
 body {
-	font-family: "Circe", "Segoe UI";
-	font-weight: 500;
-    height: 100%;	
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	border-bottom: 1px solid;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	border-bottom: 1px solid #fff;
+}
+
+.main-menu a, .social-container a, .social-links a {
+	border: none;
+	text-decoration: none;
+	color: black;
+}
+
+.main-menu a:hover, .social-container a:hover, .social-links a:hover {
+	border: none;
+	text-decoration: none;
+	color: #565656
+}
+
+.active-item {
+	border-bottom: 1px solid #000!important;
+	text-decoration: none;
+}
+
+a.no-border {
+	border: none!important;
+	text-decoration: none;
+}
+
+.site-name {
+	line-height: 1;
+}
+
+.site-logo {
+	margin-top: -8px;
+	margin-right: 4px;
 }
 
 .bg-main {
 	background-color: #ecf4f9;
+}
+
+.avatar-image {
+	border: 5px solid #ecf4f9;
 }
 
 .bg-list {
@@ -99,26 +71,49 @@ body {
 	border: 0
 }
 
+.fw-600 {
+	font-weight: 600;
+}
+
 .social-container {
 	display: none;
 }
 
+.main-menu__link {
+	color: #fff;
+	background-color: #000;
+	text-decoration: none;
+	font-weight: bold;
+	margin: 10px;
+	padding: 8px 16px 6px 16px;
+	border-radius: 25px;
+	transition: all 0.35s ease-out;
+}
+.main-menu__link:hover {
+	color: #fff;
+	background-color: #0066ff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.active {
+	color: #fff;
+	background-color: #0066ff;
+}
+
+.draft-marker {
+	background-image: url('/images/span-back.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 0 4px;
+	background-position-x: 0;
+}
+
+.text-xl {
+	font-size: 3em;
+}
+
 @media (min-width: 992px) {
-	body {
-		font-size: 18px;		
-		background-image: url('/images/bg.png');
-		background-repeat: repeat-y;
-		background-size: 18% auto;
-		background-position: center;
-	}
-
-	.text-xl {
-		font-size: 3em;
-	}
-
-	/**
-	* SOCIAL LINKS
-	*/
 
 	.social-container {
 		display: block;
@@ -143,4 +138,3 @@ body {
 		height: 100%;
 	}
 }
-	
