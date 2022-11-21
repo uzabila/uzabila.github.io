@@ -121,6 +121,11 @@ sup {
 	font-size: 3em;
 }
 
+.mw-100 {
+	max-width: 100px!important;
+	height: auto;
+}
+
 @media (min-width: 992px) {
 
 	.social-container {
