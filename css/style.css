@@ -122,6 +122,12 @@ sup {
 	height: auto;
 }
 
+.footer-logo {
+	color: black;
+	font-weight: 700;
+	font-size: 20px;
+}
+
 @media (min-width: 992px) {
 
 	.social-container {
