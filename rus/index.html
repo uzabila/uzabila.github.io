@@ -9,180 +9,270 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ec4c62">
-	<meta name="msapplication-TileColor" content="#000000">
-	<meta name="theme-color" content="#000000">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
 
-    <title>Uzabila</title>
+    <title>Uzabila &mdash; Веб-дизайн, фронтенд и WordPress разработка</title>
   </head>
-<body>
+<body class="position-relative">
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-12 text-end">
-			<small><a href="/" class="link-secondary">English</a></small>
-		</div>
-	</div>
-</div>
+<!-- navbar section -->
+<section class="navbar-section py-3 py-md-5">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+		<a class="navbar-brand d-flex gap-3 align-items-center" href="./">
+			<img src="../assets/images/sergei-foto.jpg" alt="" width="48" height="48" class="d-inline-block align-middle">
+			<div class="logo-block"><span class="fw-bold">Сергей Ермилов</span><br><span class="small-font">Uzabila</span></div>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
 
-<div class="container">
-	<div class="row my-3 my-md-5">
-		<div class="col-12 text-center">
-			<p><a href="/rus/" class="logo-link"><img src="../images/sergei-foto.jpg" alt="Sergei aka Uzabila" title="Sergei aka Uzabila" width="210" height="210" class="align-middle site-logo"></a></p>
-			<h1 class="fw-bold site-name">Uzabila<sup></sup></h1>
-			<p>Сергей</p>
-			<p class="text-center"><a href="#contacts" class="btn btn-outline-dark btn-lg">Контакты</a></p>
-		</div>				
-	</div>
-</div>
+				<li class="nav-item">
+					<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+				</li>
 
-<div class="divider-50"></div>
+				<li class="nav-item">
+					<a class="nav-link" href="#about">Обо мне</a>
+				</li>
 
-<div class="container">
-	<div class="row mb-5">
-
-		<div class="col-12 col-md-8 offset-md-2">
-			<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5 text-center">Обо мне</h2>
-			<p>Привет! Я Сергей (Uzabila). Графический дизайнер, верстальщик и WordPress энтузиаст. Я придумываю дизайн, создаю и разрабатываю веб- и мобильные приложения, лендинги и сайты, улучшаю проекты и их юзабилити.</p>
-			<p>У меня накопился большой опыт в области дизайна, HTML, CSS, JS, WordPress, юзабилити и PHP. Я использую:</p>
-			<p class="text-center">
-				<img src="../images/php.svg" alt="PHP" title="PHP" width="24" height="24" class="me-2">
-				<img src="../images/js.svg" alt="Javascript" title="Javascript" width="24" height="24" class="me-2">
-				<img src="../images/vsc.svg" alt="Visual Studio Code" title="Visual Studio Code" width="24" height="24" class="me-2">
-				<img src="../images/git.svg" alt="Git" title="Git" width="24" height="24" class="me-2">
-				<img src="../images/wp.svg" alt="Wordpress" title="Wordpress" width="24" height="24" class="me-2">
-				<img src="../images/linux.svg" alt="Linux" title="Linux" width="24" height="24" class="me-2">
-				<img src="../images/mysql.svg" alt="MySQL" title="MySQL" width="24" height="24" class="me-2">
-				<img src="../images/html.svg" alt="HTML" title="HTML" width="24" height="24" class="me-2">
-				<img src="../images/css3.svg" alt="CSS" title="CSS" width="24" height="24" class="me-2">
-				<img src="../images/bootstrap.svg" alt="Bootstrap" title="Bootstrap" width="24" height="24" class="me-0">
-			</p>
-		</div>
-	</div>
-</div>
-
-<div class="divider-50"></div>
-
-<div class="container">
-	<div class="row mb-5">
-		<div class="col-12 col-md-8 offset-md-2 my-auto">
-			<h2 class="fw-bold text-center mb-5">Портфолио</h2>
-			<p class="text-center"><a href="https://dribbble.com/uzabila" target="_blank" class="me-5">Dribbble</a> <a href="https://www.behance.net/uzabila" target="_blank">Behance</a></p>
-			<p class="text-center">Рейтинг на Кворк: <b>5.0</b></p>
-			<div class="card my-auto">					
-				<div class="card-body text-center">
-					<p><img src="../images/stars.svg" alt="Kwork" width="120" height="22"></p>
-					<p><img src="../images/kwork-word-125-24.svg" alt="Kwork" width="62" height="12"></p>
-					<h5 class="card-title">Uzabila</h5>
-					<a href="https://kwork.com/user/uzabila" class="btn btn-outline-dark" target="_blank">Смотреть профиль</a>
-				</div>
+				<li class="nav-item">
+					<a class="nav-link" href="#work">Услуги</a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="#contacts">Контакты</a>
+				</li>
+			</ul>
+			<div class="dropdown-lang ms-auto">
+			  <button onclick="myFunction()" class="dropbtn">Русский <i class="bi bi-arrow-90deg-down"></i></button>
+			  <div id="myDropdown" class="dropdown-content">
+			    <a href="../">English <i class="bi bi-arrow-up-right-square"></i></a>
 			  </div>
-		</div>
-	</div>		
-</div>
-<div class="container">
-	<div class="row mb-5">
-		<div class="col-12 col-md-2 offset-md-3 text-center">
-			<h3 class="h1 fw-bold">13+</h3>
-			<span>лет опыта</span>
-		</div>
-		<div class="col-12 col-md-2 text-center">
-			<h3 class="h1 fw-bold">60+</h3>
-			<span>проектов</span>
-		</div>
-		<div class="col-12 col-md-2 text-center">
-			<h3 class="h1 fw-bold">24/7</h3>
-			<span>поддержка клиентов</span>
-		</div>
-	</div>
-</div>
+			</div>
 
-<div class="divider-50"></div>
+		</div>
+		</div>
+	</nav>
+</section>
+<!-- end navbar section -->
 
-<div class="container">
-	<div class="row">
-		<div class="col-12 col-md-8 offset-md-2 text-center">
-			<h2 class="fw-bold">101 совет интернет-магазинам</h2>
-			<a href="101book.html"><img src="/images/101-book.jpg" alt="101 совет интернет-магазинам" class="img-fluid" /></a>
-		</div>
-	</div>
-</div>
-
-<div class="divider-50"></div>
-
-<div class="container">
-	<div class="row mb-5 gy-3">
-		<div class="col-12">
-			<h2 class="fw-bold mb-5 text-center">Могу сделать для вас</h2>
-		</div>
-
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/translations/19054082/sdelayu-perevod-s-angliyskogo-na-russkiy?ref=330782" target="_blank"><img src="../images/01-translate-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/logo/19571219/sozdam-professionalniy-vektorniy-logotip?ref=330782" target="_blank"><img src="../images/02-vector-logo-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/frontend/23000506/sdelayu-html-stranitsu-iz-psd-ili-figma-na-bootstrap-5?ref=330782" target="_blank"><img src="../images/03-psd-to-html-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/website-development/23508559/sozdam-professionalniy-sayt-na-wordpress?ref=330782" target="_blank"><img src="../images/04-wordpress-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/website-development/26976376/sozdam-lending-na-html-css-i-bootstrap-5?ref=330782" target="_blank"><img src="../images/07-landing-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/frontend/26978728/sozdam-adaptivniy-frontend-na-bootstrap?ref=330782" target="_blank"><img src="../images/08-frontend-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-		
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/vector-tracing/19571296/otrisuyu-v-vektore-elektricheskie-skhemy?ref=330782" target="_blank"><img src="../images/05-electric-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/web-plus-mobile-design/19571173/sozdam-ikonki-ili-favikonki-dlya-sayta?ref=330782" target="_blank"><img src="../images/06-icon-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-
-		<div class="col-12 col-md-3">
-			<a href="https://kwork.ru/illustrations/19526671/sozdam-vektorniy-portret-ili-avatar?ref=330782" target="_blank"><img src="../images/09-cartoon-RU.jpg" alt="" class="img-fluid"></a>
-		</div>
-	</div>		
-</div>
-
-<div class="divider-50"></div>
-
-<section id="contacts">
+<!-- new hero section -->
+<section class="hero-section py-5 mb-5">
 	<div class="container">
 		<div class="row mb-5">
-			<div class="col-12 text-center">
-				<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5">Контакты</h2>
+			<div class="col-12">
+				<h1 class="mb-4 text-xxl fw-600">Я помогу вам с <span class="gradient-title fw-800">веб-дизайном</span>, версткой и WordPress-разработкой</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				Сейчас я нахожусь в <b><i>Черногории</i></b> <img src="../assets/svg/montenegro.svg" alt="Montenegro" width="90" height="45">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end new hero section -->
 
-				<p>Есть проект для меня или просто хотите что-то спросить?</p>
-				<p>Напишите на <strong>uzabila@yandex.ru</strong> или посетите мою страницу на <a href="https://kwork.com/user/uzabila">Кворк</a>.</p>	
-				<p class="text-center social-links pt-4">
-					<a href="https://github.com/uzabila" target="_blank" title="GitHub" class="me-2"><img src="../images/gh.svg" alt="GitHub" width="32" height="32"></a>
-					<a href="https://www.behance.net/uzabila" target="_blank" title="Behance" class="me-2"><img src="../images/bh.svg" alt="Behance" width="32" height="32"></a> 
-					<a href="https://dribbble.com/uzabila" target="_blank" title="Dribbble" class="me-0"><img src="../images/dribbble.svg" alt="Dribbble" width="32" height="32"></a>
+<!-- hero section -->
+<!-- <section class="hero-section py-5 mb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 text-center">
+				<p><a href="./" class="logo-link"><img src="./assets/images/sergei-foto.jpg" alt="Sergei aka Uzabila" title="Sergei aka Uzabila" width="210" height="210" class="align-middle site-logo"></a></p>
+				<h1 class="mb-4">I will help you with web design, frontend and&nbsp;WordPress development</h1>
+				<h2 class="fw-bold site-name">Uzabila</h1>
+				<p>Sergei Ermilov</p>
+			</div>
+		</div>
+	</div>
+</section> -->
+<!-- end hero section -->
+
+<!-- about section -->
+<section id="about" class="about-section py-5 mb-5">
+	<div class="container">
+		<div class="row mb-5">
+
+			<div class="col-12 col-md-7">
+				<p class="description-text mb-4">
+					Привет! Я Сергей под ником <b>Uzabila</b>. Графический дизайнер, Frontend-разработчик и энтузиаст WordPress. Я придумываю <b>дизайн</b>, создаю и <b>разрабатываю</b> сайты, посадочные страницы и веб-приложения, улучшаю проекты и их юзабилити.
 				</p>
+
+				<p class="mb-5">У меня большой опыт в дизайне, HTML, CSS, JS, WordPress, юзабилити, PHP. Большой опыт в проектировании и разработке сайтов на CMS Wordpress.</p>
+				
+				<div class="d-flex align-items-center justify-content-between">
+					<div class="text-center">
+						<h3 class="h1 fw-bold">16+</h3>
+						<span>лет<br>опыта</span>
+					</div>
+					<div class="text-center">
+						<h3 class="h1 fw-bold">60+</h3>
+						<span>успешных<br>проектов</span>
+					</div>
+					<div class="text-center">
+						<h3 class="h1 fw-bold">24/7</h3>
+						<span>поддержка<br>клиентов</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 offset-md-1">
+				<p>Я использую:</p>
+				<p class="main-links">
+					<a href="#">HTML</a>, <a href="#">CSS</a>, <a href="#">Bootstrap 5</a>, <a href="#">Javascript</a>, <a href="#">PHP</a>, <a href="#">MySQL</a> <a href="#">Wordpress</a>, <a href="#">Git</a>, <a href="#">Linux</a>, 
+				</p>
+				<p>Для разработки:</p>
+				<p class="main-links"><a href="#">VSCode</a>, <a href="#">Sublime Text</a>, <a href="#">Notepad++</a></p>
+				<p>Для дизайна:</p>
+				<p class="main-links"><a href="#">Photoshop</a>, <a href="#">Illustrator</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end about section -->
+
+<!-- rating section -->
+<section class="rating-section mb-5 py-4">
+	<div class="container">
+
+		<div class="row mb-5">
+
+			<div class="col-12 col-md-4">
+				<h2 class="fw-bold">Фрилансер на 5 звезд</h2>
+			</div>
+
+			<div class="col-12 col-md-4">
+
+				<div class="card my-auto mb-4">					
+					<div class="card-body text-center">
+						<p><img src="../assets/images/fiverr-stars.svg" alt="Kwork" width="130" height="24"></p>
+						<p><img src="../assets/images/fiverr-word-80-24.svg" alt="Kwork" width="120" height="36"></p>
+						<h5 class="card-title fw-bold">Uzabila</h5>
+
+						<p class="text-center">Рейтинг на Fiverr: <b>5.0</b></p>
+						<p class="text-center">Выполнено заказов: <b>29</b></p>
+						<p class="text-center">Отзывов: <b>21</b></p>	
+						<a href="https://www.fiverr.com/uzabila" class="btn btn-outline-dark btn-lg" target="_blank">Профиль</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-4">
+
+				<div class="card my-auto mb-4">					
+					<div class="card-body text-center">
+						<p><img src="../assets/images/stars.svg" alt="Kwork" width="120" height="22"></p>
+						<p><img src="../assets/images/kwork-word-125-24.svg" alt="Kwork" width="155" height="30"></p>
+						<h5 class="card-title fw-bold">Uzabila</h5>
+
+						<p class="text-center">Рейтинг на Kwork: <b>5.0</b></p>
+						<p class="text-center">Выполнено заказов: <b>29</b></p>
+						<p class="text-center">Отзывов: <b>21</b></p>
+						<a href="https://kwork.com/user/uzabila" class="btn btn-outline-dark btn-lg" target="_blank">Профиль</a>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>		
+	</div>
+</section>
+<!-- end rating section -->
+
+<!-- end rating section -->
+<section class="do-section mb-5" id="work">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-12">
+				<h2 class="fw-700">Могу сделать</h2>
+				<p>Я использую свою страсть и навыки для создания цифровых продуктов с отличным пользовательским опытом.</p>
+			</div>
+		</div>
+		<div class="row g-5">
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/translations/19054082/sdelayu-perevod-s-angliyskogo-na-russkiy?ref=330782" target="_blank"><img src="../assets/images/01-translate-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/logo/19571219/sozdam-professionalniy-vektorniy-logotip?ref=330782" target="_blank"><img src="../assets/images/02-vector-logo-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/frontend/23000506/sdelayu-html-stranitsu-iz-psd-ili-figma-na-bootstrap-5?ref=330782" target="_blank"><img src="../assets/images/03-psd-to-html-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/website-development/23508559/sozdam-professionalniy-sayt-na-wordpress?ref=330782" target="_blank"><img src="../assets/images/04-wordpress-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/website-development/26976376/sozdam-lending-na-html-css-i-bootstrap-5?ref=330782" target="_blank"><img src="../assets/images/07-landing-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/frontend/26978728/sozdam-adaptivniy-frontend-na-bootstrap?ref=330782" target="_blank"><img src="../assets/images/08-frontend-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+			
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/vector-tracing/19571296/otrisuyu-v-vektore-elektricheskie-skhemy?ref=330782" target="_blank"><img src="../assets/images/05-electric-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/web-plus-mobile-design/19571173/sozdam-ikonki-ili-favikonki-dlya-sayta?ref=330782" target="_blank"><img src="../assets/images/06-icon-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+
+			<div class="col-12 col-md-4">
+				<a href="https://kwork.ru/illustrations/19526671/sozdam-vektorniy-portret-ili-avatar?ref=330782" target="_blank"><img src="../assets/images/09-cartoon-RU.jpg" alt="" class="img-fluid"></a>
+			</div>
+
+		</div>		
+	</div>
+</section>
+
+<section id="contacts" class="py-5">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-12 col-md-6">
+				<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5"><span class="gradient-title fw-800">Связь со мной</span> <i class="bi bi-arrow-right pot"></i></h2>
+
+				<p class="main-links">Я готов к работе. У вас есть проект для меня, вопросы или вы хотите сделать заказ? Вы можете написать мне на электронную почту или посетить мою страницу на <a href="https://kwork.ru/user/uzabila?ref=330782" target="_blank">Кворке</a>.</p>
+
+				<p class="social-links pt-4">
+					<a href="https://github.com/uzabila" target="_blank" title="GitHub" class="me-2"><img src="../assets/images/gh.svg" alt="GitHub" width="24" height="24"></a>
+					<a href="https://www.behance.net/uzabila" target="_blank" title="Behance" class="me-2"><img src="../assets/images/bh.svg" alt="Behance" width="24" height="24"></a> 
+					<a href="https://dribbble.com/uzabila" target="_blank" title="Dribbble" class="me-0"><img src="../assets/images/dribbble.svg" alt="Dribbble" width="24" height="24"></a>
+				</p>
+				
+			</div>
+			<div class="col-12 col-md-6 text-start text-md-end">
+				<h3 class="fw-bold h1">uzabila@yandex.ru</h3>
 			</div>
 		</div>	
 	</div>
 </section>
 
-<div class="container">
-	<div class="row py-5">
-		<div class="col-12 text-center">
-			<p><a href="/" class="link-secondary">English</a></p>
-			<p>&copy; 2023. Uzabila</p>
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">85310, Будва, Черногория</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../assets/images/sergei-foto.jpg" alt="Sergei Ermilov" width="68" height="68">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">2008 - 2024 &copy; Uzabila.com</span>
+			</div>
 		</div>
 	</div>
-</div>
+</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/app.js"></script>
 
   </body>
 </html>

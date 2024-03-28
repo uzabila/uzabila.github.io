@@ -13,165 +13,264 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/style.css">
-    <title>Uzabila</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="./assets/css/style.css">
+
+    <title>Uzabila &mdash; Web-design, Frontend and WordPress Dev</title>
   </head>
-<body>
+<body class="position-relative">
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-12 text-end">
-			<small><a href="/rus/" class="link-secondary">Русский</a></small>
-		</div>
-	</div>
-</div>
+<!-- navbar section -->
+<section class="navbar-section py-3 py-md-5">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+		<a class="navbar-brand d-flex gap-3 align-items-center" href="./">
+			<img src="./assets/images/sergei-foto.jpg" alt="" width="48" height="48" class="d-inline-block align-middle">
+			<div class="logo-block"><span class="fw-bold">Sergei Ermilov</span><br><span class="small-font">Uzabila</span></div>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
 
-<div class="container">
-	<div class="row my-3 my-md-5">
-		<div class="col-12 text-center">
-			<p><a href="/" class="logo-link"><img src="images/sergei-foto.jpg" alt="Sergei aka Uzabila" title="Sergei aka Uzabila" width="210" height="210" class="align-middle site-logo"></a></p>
-			<h1 class="fw-bold site-name">Uzabila<sup></sup></h1>
-			<p>Sergei</p>
-			<p class="text-center"><a href="#contacts" class="btn btn-outline-dark btn-lg">Contacts</a></p>
-		</div>
-	</div>
-</div>
+				<li class="nav-item">
+					<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="./assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+				</li>
 
-<div class="divider-50"></div>
+				<li class="nav-item">
+					<a class="nav-link" href="#about">About</a>
+				</li>
 
-<div class="container">
-	<div class="row mb-5">
-
-		<div class="col-12 col-md-8 offset-md-2">
-			<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5 text-center">About</h2>
-			<p>Hi! I'm Sergei aka Uzabila. Graphic Designer, Frontend-developer and WordPress enthusiast. I design, create and develop websites, landing pages and web applications, improve projects and its usability.</p>
-			<p>I have a strong experience in Design, HTML, CSS, JS, WordPress, Usability, PHP, and I'm using:</p>
-			<p class="text-center">
-				<img src="images/php.svg" alt="PHP" title="PHP" width="24" height="24" class="me-2">
-				<img src="images/js.svg" alt="Javascript" title="Javascript" width="24" height="24" class="me-2">
-				<img src="images/vsc.svg" alt="Visual Studio Code" title="Visual Studio Code" width="24" height="24" class="me-2">
-				<img src="images/git.svg" alt="Git" title="Git" width="24" height="24" class="me-2">
-				<img src="images/wp.svg" alt="Wordpress" title="Wordpress" width="24" height="24" class="me-2">
-				<img src="images/linux.svg" alt="Linux" title="Linux" width="24" height="24" class="me-2">
-				<img src="images/mysql.svg" alt="MySQL" title="MySQL" width="24" height="24" class="me-2">
-				<img src="images/html.svg" alt="HTML" title="HTML" width="24" height="24" class="me-2">
-				<img src="images/css3.svg" alt="CSS" title="CSS" width="24" height="24" class="me-2">
-				<img src="images/bootstrap.svg" alt="Bootstrap" title="Bootstrap" width="24" height="24" class="me-0">
-			</p>
-		</div>
-	</div>
-</div>
-
-<div class="divider-50"></div>
-
-<div class="container">
-	<div class="row mb-5">
-		<div class="col-12 col-md-8 offset-md-2 my-auto">
-			<h2 class="fw-bold text-center mb-5">My Portfolio</h2>
-			<p class="text-center"><a href="https://dribbble.com/uzabila" target="_blank" class="me-5">Dribbble</a> <a href="https://www.behance.net/uzabila" target="_blank">Behance</a></p>
-			<p class="text-center">Rating on Fiverr: <b>5.0</b></p>
-			<div class="card my-auto">					
-				<div class="card-body text-center">
-					<p><img src="images/fiverr-stars.svg" alt="Kwork" width="130" height="24"></p>
-					<p><img src="images/fiverr-word-80-24.svg" alt="Kwork" width="60" height="18"></p>
-					<h5 class="card-title">Uzabila</h5>
-					<a href="https://www.fiverr.com/uzabila" class="btn btn-outline-dark" target="_blank">See Profile</a>
-				</div>
+				<li class="nav-item">
+					<a class="nav-link" href="#work">Work</a>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="#contacts">Contacts</a>
+				</li>
+			</ul>
+			<div class="dropdown-lang ms-auto">
+			  <button onclick="myFunction()" class="dropbtn">English <i class="bi bi-arrow-90deg-down"></i></button>
+			  <div id="myDropdown" class="dropdown-content">
+			    <a href="./rus/">Русский <i class="bi bi-arrow-up-right-square"></i></a>
+			  </div>
 			</div>
-		</div>
-	</div>		
-</div>
-<div class="container">
-	<div class="row mb-5">
-		<div class="col-12 col-md-2 offset-md-3 text-center">
-			<h3 class="h1 fw-bold">13+</h3>
-			<span>years of experience</span>
-		</div>
-		<div class="col-12 col-md-2 text-center">
-			<h3 class="h1 fw-bold">60+</h3>
-			<span>completed projects</span>
-		</div>
-		<div class="col-12 col-md-2 text-center">
-			<h3 class="h1 fw-bold">24/7</h3>
-			<span>Support for customers online</span>
-		</div>
-	</div>
-</div>
 
-<div class="divider-50"></div>
+		</div>
+		</div>
+	</nav>
+</section>
+<!-- end navbar section -->
 
-<div class="container">
-	<div class="row mb-5 gy-3">
-		<div class="col-12">
-			<h2 class="fw-bold mb-5 text-center">I Can Do for You</h2>
-		</div>
-
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/share/xme7aq" target="_blank"><img src="images/01-translate.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/share/3Zalkk" target="_blank"><img src="images/02-vector-logo.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/share/RdNvKx" target="_blank"><img src="images/03-psd-to-html.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/share/qyeNpZ" target="_blank"><img src="images/04-wordpress.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/share/V6kLqz" target="_blank"><img src="images/07-bootstrap.jpg" alt="" class="img-fluid"></a>
-		</div>
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/share/7k5Apa" target="_blank"><img src="images/08-frontend.jpg" alt="" class="img-fluid"></a>
-		</div>
-		
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/s/Z5eL7Y" target="_blank"><img src="images/05-electric.jpg" alt="" class="img-fluid"></a>
-		</div>
-
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/s/D9ad8a" target="_blank"><img src="images/06-icon.jpg" alt="" class="img-fluid"></a>
-		</div>
-
-		<div class="col-12 col-md-3">
-			<a href="https://www.fiverr.com/s/qGgkEX" target="_blank"><img src="images/09-cartoon.jpg" alt="" class="img-fluid"></a>
-		</div>
-
-	</div>		
-</div>
-
-<div class="divider-50"></div>
-
-<section id="contacts">
+<!-- new hero section -->
+<section class="hero-section py-5 mb-5">
 	<div class="container">
 		<div class="row mb-5">
-			<div class="col-12 text-center">
-				<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5">Contacts</h2>
+			<div class="col-12">
+				<h1 class="mb-4 text-xxl fw-600">I will help you with <span class="gradient-title fw-800">web-design</span>, frontend and&nbsp;WordPress development</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				Currently based in <b><i>Montenegro</i></b> <img src="./assets/svg/montenegro.svg" alt="Montenegro" width="90" height="45">
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end new hero section -->
 
-				<p>Have a project for me, any questions, or wish to make an order?</p>
-				<p>You can email to <strong>sergeiuzabila@gmail.com</strong> or visit <a href="https://www.fiverr.com/uzabila">my Fiverr page</a>.</p>	
-				<p class="text-center social-links pt-4">
-					<a href="https://github.com/uzabila" target="_blank" title="GitHub" class="me-2"><img src="images/gh.svg" alt="GitHub" width="32" height="32"></a>
-					<a href="https://www.behance.net/uzabila" target="_blank" title="Behance" class="me-2"><img src="images/bh.svg" alt="Behance" width="32" height="32"></a> 
-					<a href="https://dribbble.com/uzabila" target="_blank" title="Dribbble" class="me-0"><img src="images/dribbble.svg" alt="Dribbble" width="32" height="32"></a>
+<!-- hero section -->
+<!-- <section class="hero-section py-5 mb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-8 offset-md-2 text-center">
+				<p><a href="./" class="logo-link"><img src="./assets/images/sergei-foto.jpg" alt="Sergei aka Uzabila" title="Sergei aka Uzabila" width="210" height="210" class="align-middle site-logo"></a></p>
+				<h1 class="mb-4">I will help you with web design, frontend and&nbsp;WordPress development</h1>
+				<h2 class="fw-bold site-name">Uzabila</h1>
+				<p>Sergei Ermilov</p>
+			</div>
+		</div>
+	</div>
+</section> -->
+<!-- end hero section -->
+
+<!-- about section -->
+<section id="about" class="about-section py-5 mb-5">
+	<div class="container">
+		<div class="row mb-5">
+
+			<div class="col-12 col-md-7">
+				<p class="description-text mb-4">Hi! I'm Sergei aka <b>Uzabila</b>. Graphic Designer, Frontend-developer and WordPress enthusiast. I <b>design</b>, create and <b>develop</b> websites, landing pages and web applications, improve projects and its usability.</p>
+
+				<p class="mb-5">I have a strong experience in Design, HTML, CSS, JS, WordPress, Usability, PHP. Highly experienced in designing & developing custom Wordpress websites.</p>
+				
+				<div class="d-flex align-items-center justify-content-between">
+					<div class="text-center">
+						<h3 class="h1 fw-bold">16+</h3>
+						<span>years<br>of experience</span>
+					</div>
+					<div class="text-center">
+						<h3 class="h1 fw-bold">60+</h3>
+						<span>completed<br>projects</span>
+					</div>
+					<div class="text-center">
+						<h3 class="h1 fw-bold">24/7</h3>
+						<span>Support for<br>customers online</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 offset-md-1">
+				<p>I'm using:</p>
+				<p class="main-links">
+					<a href="#">HTML</a>, <a href="#">CSS</a>, <a href="#">Bootstrap 5</a>, <a href="#">Javascript</a>, <a href="#">PHP</a>, <a href="#">MySQL</a> <a href="#">Wordpress</a>, <a href="#">Git</a>, <a href="#">Linux</a>, 
 				</p>
+				<p>Dev Tools:</p>
+				<p class="main-links"><a href="#">VSCode</a>, <a href="#">Sublime Text</a>, <a href="#">Notepad++</a></p>
+				<p>Design Tools:</p>
+				<p class="main-links"><a href="#">Photoshop</a>, <a href="#">Illustrator</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end about section -->
+
+<!-- rating section -->
+<section class="rating-section mb-5 py-4">
+	<div class="container">
+
+		<div class="row mb-5">
+
+			<div class="col-12 col-md-4">
+				<h2 class="fw-bold">Five star freelancer</h2>
+			</div>
+
+			<div class="col-12 col-md-4">
+
+				<div class="card my-auto mb-4">					
+					<div class="card-body text-center">
+						<p><img src="./assets/images/fiverr-stars.svg" alt="Kwork" width="130" height="24"></p>
+						<p><img src="./assets/images/fiverr-word-80-24.svg" alt="Kwork" width="120" height="36"></p>
+						<h5 class="card-title fw-bold">Uzabila</h5>
+
+						<p class="text-center">Rating on Fiverr: <b>5.0</b></p>
+						<p class="text-center">Orders completed: <b>29</b></p>
+						<p class="text-center">Total reviews: <b>21</b></p>	
+						<a href="https://www.fiverr.com/uzabila" class="btn btn-outline-dark btn-lg" target="_blank">See Profile</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-4">
+
+				<div class="card my-auto mb-4">					
+					<div class="card-body text-center">
+						<p><img src="../assets/images/stars.svg" alt="Kwork" width="120" height="22"></p>
+						<p><img src="../assets/images/kwork-word-125-24.svg" alt="Kwork" width="155" height="30"></p>
+						<h5 class="card-title fw-bold">Uzabila</h5>
+
+						<p class="text-center">Rating on Kwork: <b>5.0</b></p>
+						<p class="text-center">Orders completed: <b>29</b></p>
+						<p class="text-center">Total reviews: <b>21</b></p>
+						<a href="https://kwork.com/user/uzabila" class="btn btn-outline-dark btn-lg" target="_blank">See Profile</a>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>		
+	</div>
+</section>
+<!-- end rating section -->
+
+<!-- end rating section -->
+<section class="do-section mb-5" id="work">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-12">
+				<h2 class="fw-700">I Can do for you</h2>
+				<p>I use my passion and skills to create digital products and experiences. </p>
+			</div>
+		</div>
+		<div class="row g-5">
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/share/xme7aq" target="_blank"><img src="./assets/images/01-translate.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/share/3Zalkk" target="_blank"><img src="./assets/images/02-vector-logo.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/share/RdNvKx" target="_blank"><img src="./assets/images/03-psd-to-html.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/share/qyeNpZ" target="_blank"><img src="./assets/images/04-wordpress.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/share/V6kLqz" target="_blank"><img src="./assets/images/07-bootstrap.jpg" alt="" class="img-fluid"></a>
+			</div>
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/share/7k5Apa" target="_blank"><img src="./assets/images/08-frontend.jpg" alt="" class="img-fluid"></a>
+			</div>
+			
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/s/Z5eL7Y" target="_blank"><img src="./assets/images/05-electric.jpg" alt="" class="img-fluid"></a>
+			</div>
+
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/s/D9ad8a" target="_blank"><img src="./assets/images/06-icon.jpg" alt="" class="img-fluid"></a>
+			</div>
+
+			<div class="col-12 col-md-4">
+				<a href="https://www.fiverr.com/s/qGgkEX" target="_blank"><img src="./assets/images/09-cartoon.jpg" alt="" class="img-fluid"></a>
+			</div>
+
+		</div>		
+	</div>
+</section>
+
+<section id="contacts" class="py-5">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-12 col-md-6">
+				<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5"><span class="gradient-title fw-800">Get in touch</span> <i class="bi bi-arrow-right pot"></i></h2>
+
+				<p class="main-links">I am available for work in 2024. Have a project for me, any questions, or wish to make an order? You can email or visit my <a href="https://www.fiverr.com/uzabila" target="_blank">Fiverr</a> page.</p>
+
+				<p class="social-links pt-4">
+					<a href="https://github.com/uzabila" target="_blank" title="GitHub" class="me-2"><img src="./assets/images/gh.svg" alt="GitHub" width="24" height="24"></a>
+					<a href="https://www.behance.net/uzabila" target="_blank" title="Behance" class="me-2"><img src="./assets/images/bh.svg" alt="Behance" width="24" height="24"></a> 
+					<a href="https://dribbble.com/uzabila" target="_blank" title="Dribbble" class="me-0"><img src="./assets/images/dribbble.svg" alt="Dribbble" width="24" height="24"></a>
+				</p>
+				
+			</div>
+			<div class="col-12 col-md-6 text-start text-md-end">
+				<h3 class="fw-bold h1">uzabila@yandex.com</h3>
 			</div>
 		</div>	
 	</div>
 </section>
 
-<div class="container">
-	<div class="row py-5">
-		<div class="col-12 text-center">
-			<p><a href="/rus/" class="link-secondary">Русский</a></p>
-			<p>&copy; 2023. Uzabila</p>
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">23 XVI St, Budva 85310, Montenegro</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="./assets/images/sergei-foto.jpg" alt="Sergei Ermilov" width="68" height="68">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">2008 - 2024 &copy; Uzabila.com</span>
+			</div>
 		</div>
 	</div>
-</div>
+</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./assets/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/js/app.js"></script>
 
   </body>
 </html>
