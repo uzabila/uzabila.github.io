@@ -600,6 +600,40 @@ sup {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 
+.gradient-button {
+    background: linear-gradient(240deg, #fbb8d8 0%, #d349f4 22.02%, #7983f3 51.32%, #2a9dd2 81.46%, #2476f2 99.8%);
+    box-shadow: 0px 0.125em 0.25em 0px rgba(0, 0, 0, 0.1), 0px 0.625em 0.625em 0px rgba(0, 0, 0, 0.1), 0px 0.25em 0.5em 0px rgba(0, 0, 0, 0.1), 0px 0.625em 0.625em 0px rgba(255, 255, 255, 0.2) inset;
+    --padding: 0.125em;
+    border-radius: calc(0.5em + calc(1* var(--padding)));
+    display: inline-block;
+    padding: var(--padding);
+    font-size: 1.375em;
+    text-decoration: none;
+    position: relative;
+    transition-property: background, box-shadow, color, transform;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 200ms ease-out;
+}
+
+.gradient-button  > span {
+    border-radius: 0.5em;
+    display: flex;
+    font-weight: 500;
+    padding: 0.375em 1.5em 0.5em;
+    position: relative;
+    color: white;
+    font-family: 'Gilroy', sans-serif;
+}
+
+.gradient-button:hover {
+    box-shadow: 0px 0.25em 0.75em 0px rgba(0, 0, 0, 0.05), 0px 1.25em 1.75em 0px rgba(0, 0, 0, 0.05), 0px 0.5em 1.5em 0px rgba(0, 0, 0, 0.05), 0px 0.625em 0.625em 0px rgba(255, 255, 255, 0.2) inset;
+    transform: scale3d(1.06, 1.06, 1) translate3d(0, -4%, 0);
+}
+
 /*
  * MEDIA
  */
