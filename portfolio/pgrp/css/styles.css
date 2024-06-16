@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-display: swap;
+    font-family: 'Inconsolata Condensed Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/InconsolataCondensedRegular.eot');
+    /* IE9 Compat Modes */
+    src: url('../fonts/InconsolataCondensedRegular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('../fonts/InconsolataCondensedRegular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('../fonts/InconsolataCondensedRegular.woff') format('woff'),
+        /* Modern Browsers */
+        url('../fonts/InconsolataCondensedRegular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('../fonts/InconsolataCondensedRegular.svg#Abel') format('svg');
+    /* Legacy iOS */
+}
+
+body {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    font-family: "Inconsolata Condensed Regular";
+}
+
+h1 {
+    font-family: "Inconsolata Condensed Regular";
+    font-weight: 700;
+}
+
+.blue-back {
+    background-color: #00171F;
+}
+
+.container {
+    max-width: 936px;
+}
+
+.grey-back-block {
+    height: 35px;
+    background-color: #1B1D1D;
+    border-bottom: 1px solid #000000;
+}
+
+.navbar {
+    border-bottom: 1px solid #000000;
+    height: 74px;
+}
+
+.bg-dark {
+    background-color: #1B1D1D !important;
+}
+
+.navbar a {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.logo {
+    position: relative;
+    width: 145px;
+    height: 0;
+}
+
+.logo .wrapper {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 100%;
+    border-bottom: 1px solid #000000;
+    text-align: center;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    min-width: 118px;
+    padding: 0.5em;
+    margin-left: 15px;
+}
+
+.navbar-left,
+.navbar-right {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-left li,
+.navbar-right li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.navbar-left li:last-child,
+.navbar-right li:last-child {
+    margin-right: 0;
+}
+
+.package-block {
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    border-top: 1px solid #00A8E8;
+}
+
+.package-block__days {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 50%;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000000;
+    background-color: #00A8E8;
+    padding: 3px 0;
+}
+
+.package-block-title {
+    color: #FFFFFF;
+    background-color: #003459;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    letter-spacing: 0em;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.package-block-price {
+    border-top: 2px solid #D9D9D9;
+    border-bottom: 1px solid #000000;
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.pacckage-small-title {
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.pacckage-small-title__item {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #d9d9d9;
+    color: #00171F;
+    width: 50%;
+    padding: 3px 0;
+}
+
+.package-block-button {
+    background-color: #007EA7;
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.accordion {
+    width: 50%;
+    background-color: #D9D9D9;
+    color: #FF5C00;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    float: left;
+    border: none;
+    padding: 3px;
+}
+
+.panel {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    color: #ffffff;
+    background-color: #00171F;
+    border: 1px solid #00171F;
+    min-height: 410px;
+    border-radius: 0;
+}

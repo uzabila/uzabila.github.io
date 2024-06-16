@@ -351,13 +351,13 @@ a.no-border {
 	margin-right: 4px;
 }
 
-sup {
+/* sup {
 	font-size: 13px;
 	font-weight: 400;
 	vertical-align: top;
 	position: relative;
 	top: 18px; 
-}
+} */
 
 .bg-main {
 	background-color: #ecf4f9;
@@ -598,7 +598,15 @@ sup {
 .dropdown-content a:hover {background-color: #ffffff;}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+
+.column {
+    display: none; /* Hide all elements by default */
+  }
+
+.show {
+    display: block;
+}
+
 
 .gradient-button {
     background: linear-gradient(240deg, #fbb8d8 0%, #d349f4 22.02%, #7983f3 51.32%, #2a9dd2 81.46%, #2476f2 99.8%);
