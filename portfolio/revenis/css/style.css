@@ -1,0 +1,206 @@
+body{}
+h1,h2,h3,h4,h5,h6{font-weight: 400}
+.black-back{background-color:black}
+.white-back{background-color: white}
+.light-grey-back{background-color:#edf0f1}
+.dark-grey-back{background-color: #424242;color:white;}
+.dark-grey-back a{text-decoration: none;color:white}
+.dark-grey-back a:hover{text-decoration: underline;}
+.wood-back{
+    background-size: cover;
+    background-image: url("http://revenis.com/ru/imgs/woodback.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    color:white;
+}
+.wood-back h1{font-size:3em;padding:30px 0;}
+.wood-back p {padding:0;font-size: 1.4em;font-weight: 300}
+.wood-back span{font-size:.6em}
+
+.img-max img{max-width:100%;height: auto}
+
+.buffer-padding-5{padding-top:5px;padding-bottom:5px}
+.buffer-padding-10{padding-top:10px;padding-bottom:10px}
+.buffer-padding-30{padding-top:30px;padding-bottom:30px}
+.buffer-padding-50{padding-top:50px;padding-bottom:50px}
+
+.bottom-padding-30{padding-bottom:30px;}
+
+.left-right-20{padding-left:20px;padding-right: 20px;}
+
+/* FOOTER */
+footer { background-color:#212121;color:white}
+.logofooter { margin-bottom:10px; font-size:25px; color:#fff; font-weight:700;}
+
+.footerleft p { color:#fff; font-size:12px !important; font-family: 'Open Sans', sans-serif; margin-bottom:15px;}
+.footerleft p i { width:20px; color:#999;}
+
+.footer-ul { list-style-type:none;  padding-left:0px; margin-left:2px;}
+.footer-ul li { line-height:29px; font-size:12px;}
+.footer-ul li a { color:#a0a3a4; text-decoration: none }
+.footer-ul i { margin-right:10px;}
+.footer-ul li a:hover {color:#c73f89;text-decoration: none }
+
+ .icon-ul { list-style-type:none !important; margin:0px; padding:0px;}
+ .icon-ul li { line-height:75px; width:100%; float:left;}
+ .icon { float:left; margin-right:5px;}
+ 
+ 
+ .copyright { min-height:40px; background-color:#000000;font-size:14px}
+ .copyright p {color:#FFF; padding:10px 0; margin-bottom:0px;}
+.copyright a{color: white;text-decoration: underline}
+.copyright a:hover{color: white;text-decoration: none}
+ .footer-heading { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px;}
+ .post p { font-size:12px; color:#FFF; line-height:20px;}
+ .post p span { display:block; color:#8f8f8f;}
+ .post a { color:#ffffff; text-decoration: none }
+ .post a:hover {color:#c73f89;text-decoration: none }
+
+    .social-icons a{color:#a0a3a4;text-decoration: none}
+    .social-icons a:hover{color:#c73f89;text-decoration: none}
+
+/* END FOOTER */
+
+/* CONTACT */
+
+.regularform input,.regularform textarea {
+	margin-bottom:15px;
+	padding:15px;
+	border:1px solid #ddd;
+	font-size:13px;
+}
+.regularform input[type=submit] {
+	border:0;
+}
+.regularform textarea {
+	height:150px;
+}
+.regularform input.norightborder {
+	border-right:0;
+}
+.done {
+	display:none;
+}
+input.error,textarea.error {
+	border:1px solid red;
+}
+/* */
+
+/* ===================================
+1. Header
+==================================== */
+
+.navbar-default {
+    background-color: #ffffff;
+}
+.navbar-default img{vertical-align: top}
+
+header .navbar-nav > li {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.navbar-default .navbar-nav>li>a {
+    text-transform: uppercase;font-weight: 700;
+}
+
+header .navbar-collapse ul.navbar-nav {
+    float: right;
+    margin-right: 0;
+}
+
+.top-top-menu{/*font-size: 12px*/}
+.top-top-menu a{border-bottom:1px dashed #000000;text-decoration: none;color:#000000}
+.top-top-menu a:hover{border-bottom:1px dashed #f5f5f5;text-decoration: none}
+
+/* ===================================
+1. END Header
+==================================== */
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{font-weight:bold}
+.nav-tabs>li>a{color:black}
+.tab-pane{padding:20px;line-height: 1.8em}
+.tab-pane a{color:black}
+
+
+/* ===================================
+2. VIDEO
+==================================== */
+
+#background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(http://revenis.com/ru/vds/noted.jpg) no-repeat;
+    background-size: cover;
+    margin: 0;padding: 0;
+}
+.uptext{padding:130px 0 160px;text-align: center;/*background-color: rgba(0, 0, 0, 0.2);*/}
+.uptext img{max-width: 100%;height: auto}
+.uptext p{font-size: 1.2em;color: white;padding:8px 0 0}
+.uptext h1, .uptext h4, .uptext a{color: white;}
+
+/* ===================================
+2. END VIDEO
+==================================== */
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+
+
+
+.btn-primary{background-color:#c73f89;border:0}
+.btn-primary:hover{background-color:#f065a5}
+.btn-primary:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: #c73f89!important;
+    border:0;
+}
+.btn-primary:active, .btn-primary.active{
+    color: #fff;
+    background-color: #c73f89!important;
+    border: 0;
+}
+
+
+p.home-tab-phone{font-size:1.8em;padding:10px 0}
+
+i.goals-icon{float:left;padding:0 10px 0 0;color:#c73f89}
+i.fa-check-square-o{color:#c73f89}
+
+.text-xs-left { text-align: left; }
+.text-xs-right { text-align: right; }
+.text-xs-center { text-align: center; }
+.text-xs-justify { text-align: justify; }
+
+@media (min-width: 768px) {
+  .text-sm-left { text-align: left; }
+  .text-sm-right { text-align: right; }
+  .text-sm-center { text-align: center; }
+  .text-sm-justify { text-align: justify; }
+    }
+
+@media (min-width: 992px) {
+  .text-md-left { text-align: left; }
+  .text-md-right { text-align: right; }
+  .text-md-center { text-align: center; }
+  .text-md-justify { text-align: justify; }
+}
+
+@media (min-width: 1200px) {
+  .text-lg-left { text-align: left; }
+  .text-lg-right { text-align: right; }
+  .text-lg-center { text-align: center; }
+  .text-lg-justify { text-align: justify; }
+}

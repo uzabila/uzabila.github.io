@@ -6,37 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
 
-    <title>InoPost.ru</title>
+    <title>ИноПост</title>
   </head>
   <body>
+
+<!-- TOP BUTTON -->
+<style>.topbackbutton {position:fixed;left:45px;bottom:45px;z-index:9999;background-image: linear-gradient(to right, #4776E6, #8E54E9);border-radius:99px;padding:20px 25px 20px 16px;box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);}</style>
+<a href="../../rus/portfolio.html" title="Вернуться в портфолио"><div class="topbackbutton"><img src="../../assets/svg/back-white.svg" alt="Вернуться в портфолио" title="Вернуться в портфолио" width="38" height="38"></div></a>
+<!-- END TOP BUTTON -->
 
 <div>
     <div class="theme__shadow__circle"></div>
     <div class="theme__shadow__circle shadow__right"></div>
 </div>
 
-<header class="border-bottom py-3 bg-header">
-  <nav class="navbar navbar-expand-lg navbar-dark">
+<header>
+  <div class="container">
+    <div class="row py-3">
+      <div class="col-12 text-center d-flex justify-content-between align-items-center">
+        <a href="#"><img src="./assets/user.svg" alt="Вход на сайт" width="32" height="32"></a>
+        <a href="./"><img src="./assets/inopost.svg" alt="Инопост" width="239" height="35"></a>
+        <div><a href="#"><img src="./assets/search.svg" alt="Поиск" width="32" height="32"></a> <span class="restrict-label">18+</span></div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-header">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="@"><img src="./assets/ip.svg" alt="ИноПост" width="32" height="32" class="d-inline-block"> 
-      Инопост
-      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'digger' ); ?>">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav fw-normal ms-md-auto">
-          <li class="menu-item nav-item"><a title="Посты" href="#" class="nav-link">Посты</a></li>
-          <li class="menu-item nav-item"><a title="Новости" href="#" class="nav-link">Новости</a></li>
-          <li class="menu-item nav-item"><a title="База" href="#" class="nav-link">База</a></li>
-          <li class="menu-item nav-item"><a title="Темы" href="#" class="nav-link">Темы</a></li>
+        <ul class="navbar-nav fw-normal mx-auto">
+          <li class="menu-item nav-item"><a title="Посты" href="#" class="nav-link mx-3">Все материалы</a></li>
+          <li class="menu-item nav-item"><a title="Новости" href="#" class="nav-link mx-3">Новости</a></li>
+          <li class="menu-item nav-item"><a title="Авторское" href="#" class="nav-link mx-3">Авторское</a></li>
+          <li class="menu-item nav-item"><a title="База" href="#" class="nav-link mx-3">База</a></li>
+          <li class="menu-item nav-item"><a title="Темы" href="#" class="nav-link mx-3">Темы</a></li>
         </ul>
-        <div class="ms-md-auto">
-          <a href="#"><img src="./assets/search-white.svg" alt="Поиск по сайту" width="24" height="24" class="ms-md-3 align-middle"></a>
-        </div>
       </div>
     </div>
   </nav>
@@ -46,21 +55,104 @@
 <!-- MAIN CONTENT -->
 <!-- ------------ -->
 
-<section class="my-3 my-md-5 py-3">
+<section class="py-3">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-8 offset-md-2">
-        <h1 class="mb-4 fw-bold">Самое интересное из <span class="text-primary fw-bold">ино</span>странных блогов в&nbsp;переводе на русский</h1> 
+      <div class="col-12 text-center">
+        <h1 class="h6">ИноПост - самое интересное из <span class="text-primary fw-bold">ино</span>странных блогов в&nbsp;переводе на русский</h1> 
       </div>
     </div>
   </div>
 </section>
 
-<section class="mb-4">
+<style>
+  .header__ticker {
+    color: rgba(0, 0, 0, .5);
+    display: flex;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    flex: 0 1 605px;
+    margin-right: 0;
+    margin-bottom: 17px;
+    margin-top: -5px;
+}
+
+.header__ticker .js-marquee {
+    display: flex;
+}
+
+.header__ticker .js-marquee-wrapper {
+    display: flex;
+}
+.ticker-header__exchange {
+    margin: 0 20px 0 0;
+    display: flex;
+}
+
+.ticker-header__exchange span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.ticker-header__exchange span::after {
+    content: "";
+    height: 13px;
+    width: 2px;
+    background: #ccc;
+    margin: 0 10px;
+}
+
+.ticker-header__exchange span:last-child::after {
+    content: "";
+    background: 0 0;
+}
+
+@keyframes marqueeAnimation { 
+  100% 
+  {
+    transform: translateX(-378.987px)
+  }
+}
+</style>
+
+<section class="mb-3">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <h2><span class="text-primary">Новое</span> на сайте</h2>
+      <div class="col-12 col-md-9">
+        <p><img src="./assets/reuters-ua.jpg" alt="" class="img-fluid"></p>
+        <p><small><span class="text-muted">Reuters | Великобритания</span></small></p>
+        <h2>"Склонить Россию": обнародованы итоги первого дня "саммита мира" по Украине</h2>
+        <p>Агентство Reuters ознакомилось с проектом итогового документа швейцарского "саммита мира", подготовленного в субботу, и приводит его полный текст. Во второй день участники конференции планируют достигнуть консенсуса в оценке действий России на Украине.</p>
+        <p><small><span class="text-muted">16.06.2024 | 22 комм.</span></small></p>
+      </div>
+      <div class="col-12 col-md-3">
+
+        <div class="header__ticker ticker-header">
+          <div style="width: 100000px; transform: translateX(0px); animation: 14.6231s linear 1s infinite normal none running marqueeAnimation;" class="js-marquee-wrapper">
+            <div class="js-marquee" style="margin-right: 20px; float: left;">
+              <div class="ticker-header__exchange currency">
+                <span>$ 89.07 </span>
+                <span>€ 95.15 </span>
+                <span>BTC 66,606.30 $</span>
+              </div>
+            </div>
+            <div class="js-marquee" style="margin-right: 20px; float: left;">
+              <div class="ticker-header__exchange currency">
+                <span>$ 89.07 </span>
+                <span>€ 95.15 </span>
+                <span>BTC 66,606.30 $</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="fw-bold text-uppercase ff-roboto">Новости <span class="text-primary">партнеров</span></p>
+        <p class="exclusive">Байден застыл на сцене и не смог уйти оттуда самостоятельно<br><small><span class="text-muted">20:03</span></small></p>
+        <p class="partners-news">В Кремле ответили, до какого момента Россия будет создавать санитарную зону<br><small><span class="text-muted">19:20</span></small></p>
+        <p class="partners-news">Губернатор Ростовской области впервые отреагировал на захват заложников<br><small><span class="text-muted">14:15</span></small></p>
+        <p class="partners-news">KP.RU: Лепс собрался под венец с 18-летней студенткой<br><small><span class="text-muted">13:16</span></small></p>       
+
       </div>
     </div>
   </div>
@@ -319,24 +411,37 @@
             </div>
           </div>
         </div>
-
-                    <nav class="pagination-links" role="navigation">            
-            <div class="nav-next"></div>
-            <div class="nav-previous"><a href="#" class="page-link">Ранее &rarr;</a></div>
-        </nav>
-
-    <div class="pagination-container">
-      <ul class="pagination">
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="nopage">…</li>
-        <li class="page-item"><a class="page-link" href="#">16</a></li>
-      </ul></div>
-      <span class="text-muted"><small>Страница 1 из 16</small></span>
     </div>
   </div>  
 </section>
+
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-12">
+      <nav class="pagination-links" role="navigation">            
+        <div class="nav-next"></div>
+        <div class="nav-previous"><a href="#" class="page-link">Ранее &rarr;</a></div>
+      </nav>
+    </div>
+    
+
+    <div class="col-12">
+      <div class="pagination-container">
+        <ul class="pagination">
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="nopage">…</li>
+          <li class="page-item"><a class="page-link" href="#">16</a></li>
+        </ul>
+      </div>
+    </div>   
+
+    <div class="col-12">
+      <span class="text-muted"><small>Страница 1 из 16</small></span>
+    </div>
+  </div>
+</div>
 
 <!-- ------------ -->
 <!-- MAIN CONTENT -->
@@ -371,36 +476,6 @@
 </footer>
 <!-- END FOOTER SECTION -->
 
-<div class="container">
-  <div class="row py-5">
-    <div class="col-12 text-end">
-      <a href="https://uzabila.ru" target="_blank"><img src="./assets/uzabila.svg" alt="Uzabila" height="40" width="205"></a>
-    </div>
-  </div>
-</div>
-
-  <script type="text/javascript">
-    function addLink() {
-      var body_element = document.getElementsByTagName('body')[0];
-      var selection;
-      selection = window.getSelection();
-      var pagelink = "<br /><br /> Источник: <a href='"+document.location.href+"'>"+document.location.href+"</a><br />";
-      var copytext = selection + pagelink;
-      var newdiv = document.createElement('div');
-      newdiv.style.position='absolute';
-      newdiv.style.left='-99999px';
-      body_element.appendChild(newdiv);
-      newdiv.innerHTML = copytext;
-      selection.selectAllChildren(newdiv);
-      window.setTimeout(function() {
-      body_element.removeChild(newdiv);
-      },0);
-    }
-    document.oncopy = addLink;
-  </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
