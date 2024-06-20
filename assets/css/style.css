@@ -351,6 +351,27 @@ a.no-border {
 	margin-right: 4px;
 }
 
+.sort-sortIcon {
+    transform: scale(-1, 1);
+}
+
+.sort-arrows {
+    fill: currentColor;
+    height: 1em;
+    box-sizing: border-box;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    vertical-align: middle;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 16px;
+    color: rgba(0, 0, 0, 1);
+    display: inline-block;
+    box-sizing: content-box;
+}
+
 /* sup {
 	font-size: 13px;
 	font-weight: 400;
