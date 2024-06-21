@@ -93,8 +93,8 @@
 
     <!-- POSTS -->
     <div class="container" id="posts">
-        <div class="row">
-            <div class="col-12 col-md-8 offset-md-2">
+        <div class="row pb-3 mb-5 border-bottom">
+            <div class="col-12">
                 <h1>Сниппеты</h1>
             </div>
         </div>
@@ -102,9 +102,25 @@
     <!-- END POSTS -->
 
     <div class="container" id="portfolio">
-        <div class="row">
-            <div class="col-12 col-md-8 offset-md-2">
-                Скоро всё будет
+        <div class="row gy-5">
+            <div class="col-12 col-md-6">
+                <h2 class="h4 mb-4">
+                    Регулярное выражение для выделения тега «img»
+                </h2>
+                <p>Одна из постоянных задач при копировании и чистке чужого кода, или парсинге - выделение определенных тегов, которые потом нужно, например, удалить. Постоянно использую следующее регулярное выражение в редакторе кода <strong>Sublime Text 3</strong>, когда надо выделить тег <code>img</code> от <code><</code> и до <code>></code>:</p>
+                <pre style="font-family:monospace;color: rgb(68, 68, 68); background-color: rgb(243, 243, 243); font-weight: 400; "><span style="color: rgb(136, 0, 0); font-weight: 700;">&lt;img\s[^&gt;</span>]*?<span style="color: rgb(68, 68, 68); font-weight: 700;">src</span>\s*=\s*['\<span style="color: rgb(136, 0, 0); font-weight: 400;">"]([^'\"]*?)['\"][^&gt;]*?&gt;</span></pre>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <h2 class="h4 mb-4">
+                    Регулярное выражение для ссылок
+                </h2>
+                <p>
+                    Ниже приведу пример регулярного выражения, которое я использую в Sublime Text 3 для выделения на странице всех ссылок <code>href</code>. Пример: <code>&lt;a href="https://google.com"&gt;GOOGLE&lt;/a&gt;</code>.                    
+                </p>
+                <pre style="font-family:monospace;color: rgb(68, 68, 68); background-color: rgb(243, 243, 243); font-weight: 400; "><span style="color: rgb(136, 0, 0); font-weight: 700;">&lt;a[^&gt;</span>]+<span style="color: rgb(68, 68, 68); font-weight: 700;">href</span>=\<span style="color: rgb(136, 0, 0); font-weight: 400;">"(.*?)\"[^&gt;]*&gt;(.*?)&lt;/a&gt;</span></pre>
+                <p>Если надо выделять только открывающий тег целиком, то используем:</p>
+                <pre style="font-family:monospace;color: rgb(68, 68, 68); background-color: rgb(243, 243, 243); font-weight: 400; "><span style="color: rgb(136, 0, 0); font-weight: 700;">&lt;a[^&gt;</span>]+<span style="color: rgb(68, 68, 68); font-weight: 700;">href</span>=\<span style="color: rgb(136, 0, 0); font-weight: 400;">"(.*?)\"[^&gt;]*&gt;</span></pre>
             </div>
         </div>
     </div>
