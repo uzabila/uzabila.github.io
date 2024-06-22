@@ -1,0 +1,334 @@
+/*
+ * Gutallinin Styles
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Source Sans 3', sans-serif; 
+}
+
+.main-color {
+    color: #bea88b;
+}
+
+a.main-color-link {
+    color: #bea88b!important;
+    text-decoration: none;
+}
+a.main-color-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h1, h2 {
+    font-weight: 900;
+}
+
+/*
+ * NAVBAR
+ */
+
+.navbar-dark .navbar-nav .nav-link {
+    font-weight: normal;
+}
+
+.nav-right {
+    font-weight: bold;
+}
+
+/*
+ * hero section
+ */
+
+.hero-section {
+    padding: 80px 0;
+    background-image: url(../img/hero-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
+.hero-section h1 {
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.about-section {
+    max-width: 1320px;
+    margin:auto;
+    font-size: 24px;
+}
+
+.about-section__item {
+    width: 100%;
+}
+
+.about-section__first,
+.about-section__second,
+.about-section__third {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 163px;
+}
+
+.about-section__first {
+    background-image: url('../img/pluses-1.jpg');
+}
+.about-section__second {
+    background-image: url('../img/pluses-2.jpg');
+}
+.about-section__third {
+    background-image: url('../img/pluses-3.jpg');
+}
+
+.phone-section {
+    font-size: 23px
+}
+
+.slogan-section {
+    padding: 2em 0;
+    color: #000000;
+}
+
+.slogan-section h2 {
+    font-weight: 900;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.service-section {
+    background-color: #f9f6f2;
+    padding: 60px 0;
+}
+
+.service-section__item {
+    font-weight: 600;
+    font-size: 18px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 8px;
+}
+
+.service-section__item:hover {
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 3px 8px;
+    cursor: pointer;
+}
+
+.service-section__price {
+    color: #bea88b;
+    font-size: 24px;
+}
+
+.sale-section {
+    padding: 30px 0 50px;
+}
+
+.sale-percent {
+    font-size: 130px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.sale-text {
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.15;
+}
+
+.info-section {
+    padding: 60px 0;
+}
+
+.info-section__item h3 {
+    font-size: 23px;
+    font-weight: 900;
+    padding: 20px 0;
+}
+
+.info-section__item p {
+    font-size: 20px;
+}
+
+.before-after-section {
+    background-color: #efefef;
+    padding: 50px 0;
+}
+
+.before-after-section img.ba-image {
+    border: 5px solid #ffffff /*#bea88b*/;
+    box-shadow: rgba(50, 50, 93, 0.13) 0px 6px 12px -2px, rgba(0, 0, 0, 0.15) 0px 3px 7px -3px;
+}
+
+.before-after-section img.ba-image:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    cursor: pointer;
+}
+
+.before-after-section p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+svg.right-arrow {
+    width: 24px;
+    height: 24px;
+}
+
+.map-section p {
+    font-size: 24px;
+}
+
+.map-section h3 {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.map-section__social {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+a.contact-phone {
+    color: #000000;
+    text-decoration: none;
+}
+
+a.contact-phone:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+footer {
+    padding: 100px 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgba(255,255,255,1);
+    font-size: 24px;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: rgba(255,255,255,.7);
+}
+
+.copyright {
+    font-size: 18px;
+    font-weight: 200;
+    color: #ffffff;
+}
+
+.slogan-section h2,
+.service-section h2,
+.map-section h2,
+.info-section h2,
+.before-after-section h2 {
+    font-size: 30px;
+}
+
+@media (min-width: 992px) {
+
+    .nav-right {
+        font-size: 19px;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+        font-size: 22px;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 1.5em!important;
+        padding-left: 1.5em!important;
+    }
+
+    .hero-section {
+        padding: 150px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 72px;
+    }
+
+    .hero-description {
+        font-size: 36px;
+    }
+
+    .slogan-section h2,
+    .service-section h2,
+    .map-section h2,
+    .info-section h2,
+    .before-after-section h2 {
+        font-size: 60px;
+    }
+
+    .about-section__item {
+        width: 50%;
+    }
+
+    .about-section__first,
+    .about-section__second,
+    .about-section__third {
+        height: 333px;
+    }
+
+    .phone-section {
+        font-size:30px;
+    }
+
+    .sale-section {
+        padding: 50px 0;
+    }
+
+    .sale-percent {
+        font-size: 172px;
+        font-weight: 900;
+    }
+
+    .sale-text {
+        color: white;
+        font-size: 60px;
+        font-weight: 900;
+        line-height: 1.15;
+    }
+
+    svg.right-arrow {
+        width: 48px;
+        height: 48px;
+    }
+
+    .info-section__item h3 {
+        font-size: 36px;
+        font-weight: 900;
+    }
+
+    .map-section h3 {
+        font-weight: 900;
+        font-size: 48px;
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 769px) {
+    .about-section__first,
+    .about-section__second,
+    .about-section__third {
+        height: 333px;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .flex-container {
+        flex-direction: column;
+    }
+    .info-section__item img {
+        max-width: 150px;
+        height: auto;
+    }
+}
