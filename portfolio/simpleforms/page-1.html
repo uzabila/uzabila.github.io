@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- TOP BUTTON -->
+<style>.topbackbutton {position:fixed;left:45px;bottom:45px;z-index:9999;background-image: linear-gradient(to right, #4776E6, #8E54E9);border-radius:99px;padding:20px 25px 20px 16px;box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);}</style>
+<a href="../../rus/portfolio.html" title="Вернуться в портфолио"><div class="topbackbutton"><img src="../../assets/svg/back-white.svg" alt="Вернуться в портфолио" title="Вернуться в портфолио" width="38" height="38"></div></a>
+<!-- END TOP BUTTON -->
+ 
+    <!-- MAIN BLOCK -->
+    <div class="main-block">
+        <p class="text-center"><small><a href="./">&larr; Terug naar alle formulieren</a></small></p>
+        <h2 class="main-title text-center">Welkom bij de Wandeltocht vragenlijst.</h2>
+        <div class="form-code-block">
+            <h2 class="form-title">Spelcode</h2>
+            <p class="form-info mb-1">Voer de 4 cijferige code in</p>
+            <form>
+                <div class="segmented-input mb-1 p-1">
+                    <input class="code-inputs" maxlength="4" value="" placeholder="">
+                </div>
+                <div class="code-form-row mb-1 clear">
+                    <input name="radiobtn" id="radiobtn" type="radio" class="code-radio-btn" data-title="Versie 1">
+                    <input name="radiobtn" id="radiobtn" type="radio" class="code-radio-btn" data-title="Versie 2" checked>
+                </div>
+                <div>
+                    <button class="red-button">Ga door</button>
+                </div>
+            </form>
+            <div class="clearboth"></div>
+        </div>
+    </div>
+    <!-- END MAIN BLOCK -->
+    <!-- FOOTER BLOCK -->
+    <div class="footer-block">
+        <div class="footer-inside">
+            <div class="footer-inside-left">Wandeltocht</div>
+            <div class="footer-inside-right"><img src="./img/doe-logo.svg" alt="Doe" class="footer-inside__logo"></div>
+        </div>
+    </div>
+    <!-- END FOOTER BLOCK -->
+    <script src="./js/jquery.min.js"></script>
+    <script>
+    $(".code-inputs").keyup(function() {
+        if (this.value.length == this.maxLength) {
+            var $next = $(this).next('.code-inputs');
+            if ($next.length) {
+                $(this).next('.code-inputs').focus();
+            } else {
+                $(this).blur();
+            }
+        } else if (this.value.length == 0) {
+            var $next = $(this).prev('.code-inputs');
+            if ($next.length) {
+                $(this).prev('.code-inputs').focus();
+            } else {
+                $(this).blur();
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

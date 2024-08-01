@@ -1,0 +1,248 @@
+/*
+* STYLES FOR JOBLIST
+*/
+
+#myInput {
+  background-image: url('/img/searchicon.png'); /* Добавить значок поиска для ввода */
+  background-position: 10px 12px; /* Расположите значок поиска */
+  background-repeat: no-repeat; /* Не повторяйте изображение значка */
+  width: 100%; /* Полная ширина */
+  font-size: 16px; /* Увеличить размер шрифта */
+  padding: 12px 20px 12px 40px; /* Добавить немного отступов */
+  border: 1px solid #ddd; /* Добавить серую границу */
+  margin-bottom: 12px; /* Добавить некоторое пространство под входом */
+}
+
+.region-table tr td {
+  padding: 1.5em;
+}
+
+.selectize-dropdown-content {
+  cursor: pointer;
+}
+
+.selectedOption {
+  background-color: #dfdfdf;
+  padding: .2em .5em;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: .8em;
+  color: #777;
+}
+.clear-filters .fas {
+  color: #000;
+}
+
+.remote-yes {
+  background-color: #efefef;
+  color: #636d77;
+  padding: .2em .4em;
+  font-weight: bold;
+  font-size: .8em;
+  border-radius: 5px;
+}
+
+.share-job {
+  text-decoration: none;
+  font-size: .85em;
+  color: #0F72EE;
+  font-weight: 600;
+}
+
+.share-job .fas {
+  color: #0F72EE;
+}
+
+.bottom-menu {
+  font-size: .9em;
+  font-weight: 600;
+}
+
+.bottom-menu a {
+  text-decoration: none;
+}
+
+.bottom-menu a:after {
+    margin: 0 8px;
+    content: '\B7';
+}
+
+.bottom-menu a:last-child:after {
+    margin: 0;
+    content: '';
+}
+
+.copyright {
+  font-size: .9em;
+}
+
+.copyright a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.copyright a:after {
+    margin: 0 8px;
+    content: '\B7';
+}
+
+.copyright a:last-child:after {
+    margin: 0;
+    content: '';
+}
+
+.required-fields {
+  font-size: .85em;
+  color: #636d77;
+}
+
+.clear-button {
+  font-size: 14px;
+  color: #ababab;
+  text-decoration: none;
+}
+
+.clear-button:hover {
+  color: #ababab;
+  text-decoration: none;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+.phone-label {
+  display: block;
+}
+
+.autofill-text {
+  font-weight: 600;
+  color: black;
+  text-transform: uppercase;
+}
+
+.region-table tr td:last-child {
+  white-space: nowrap;
+}
+
+/*
+* YES NO TOGGLE
+*/
+
+.toggle-wrapper {
+  position: relative;
+  width: 11.25rem;
+  height: 2.8125rem;
+  font-size: 0.75rem;
+}
+
+.toggle {
+  display: none;
+}
+
+.foux-toggle {
+  position: relative;
+  width: 11.25rem;
+  height: 2.8125rem;
+  border-radius: 10px;
+  margin: 0;
+  background-color: #efefef;
+}
+.foux-toggle:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 5.625rem;
+  height: 2.8125rem;
+  background-color: #bdbdbd;
+  z-index: 3;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.toggle:checked ~ .foux-toggle:before {
+  border-color: #00a5b5;
+  left: 5.625rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.toggle--label:after, .toggle--label:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transition: opacity 0.05s;
+}
+
+.toggle--label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  line-height: 2.8125rem;
+  cursor: pointer;
+  z-index: 12;
+  letter-spacing: 0.0625rem;
+  font-weight: 400;
+  font-size: 14px;
+}
+.toggle--label:before {
+  content: "\2715 \0020 No";
+  left: 25%;
+  transform: translateX(-50%);
+  color: black;
+  opacity: 1;
+  font-weight: bold;
+}
+.toggle--label:after {
+  content: "\2713 \0020 Yes";
+  position: absolute;
+  right: 0;
+  left: 75%;
+  transform: translateX(-50%);
+  color: black;
+  opacity: 1;
+  font-weight: bold;
+}
+.toggle:checked + .toggle--label:after {
+  transition-duration: 0.05s;
+}
+
+/*
+* BOOTSTRAP TABS STYLING
+*/
+
+.nav-link {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .85em;
+  color: #88929e;
+  padding: 0 0 1em;
+  margin: 1em 1em 0;
+}
+
+.nav-link.active {
+  border-bottom: 3px solid #0F72EE;
+  color: #0F72EE!important;
+}
+
+/*
+* END BOOTSTRAP TABS STYLING
+*/
+
+@media (max-width: 575.98px) {
+  .region-table {
+    overflow-x: auto;
+  }
+  .region-table tr td:nth-child(1) {
+    min-width: 220px;
+  }
+}

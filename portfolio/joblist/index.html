@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="./vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="./vendor/selectize/selectize.bootstrap3.min.css" rel="stylesheet" />
+    <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+<!-- TOP BUTTON -->
+<style>.topbackbutton {position:fixed;left:45px;bottom:45px;z-index:9999;background-image: linear-gradient(to right, #4776E6, #8E54E9);border-radius:99px;padding:20px 25px 20px 16px;box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.2);}</style>
+<a href="../../rus/portfolio.html" title="Вернуться в портфолио"><div class="topbackbutton"><img src="../../assets/svg/back-white.svg" alt="Вернуться в портфолио" title="Вернуться в портфолио" width="38" height="38"></div></a>
+<!-- END TOP BUTTON -->
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="row pb-1">
+            <div class="col-12 text-center">
+                <h1>Join our team and discover the best of yourself</h1>
+                <p>Have the freedom to shape your career and be proud of the work you do.</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-12"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..."class="rounded-3"></div>
+
+            <div class="col-12 col-md-3">
+                <select id="regionDropdown" onchange="handleRegionChange(event)">
+                    <option value="" selected="selected">Location</option>
+                    <option value="India">India</option>                    
+                    <option value="Bengaluru, Karnataka, India">Bengaluru, Karnataka, India</option>
+                    <option value="Gurugram, Haryana, India">Gurugram, Haryana, India</option>
+                    <option value="San Francisco, California, United States">San Francisco, California, United States</option>
+                    
+                </select>
+            </div>
+            <div class="col-12 col-md-3">
+                <select id="roleDropdown" onchange="handleRoleChange(event)">
+                    <option value="" selected="selected">Department</option>
+                    <option value="Customer Success">Customer Success</option>
+                    <option value="Implementation">Implementation</option>
+                    <option value="Marketing">Marketing</option>                    
+                    <option value="Sales">Sales</option>
+                    
+                </select>
+            </div>
+            <div class="col-12 col-md-3">
+                <select id="associateStatusDropdown" onchange="handleStatusChange(event)">
+                    <option value="" selected="selected"> Work Type </option>
+                    <option value="Full time">Full time</option>
+                 </select>
+            </div>
+            <div class="col-12 col-md-3 my-auto">
+                <div class="form-check form-switch">
+                  <input class="form-check-input remote" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="remote" value="Remote">
+                  <label class="form-check-label" for="flexSwitchCheckDefault"> Remote only</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-8">
+                <span id="logRegion"></span> <span id="logRole"></span> <span id="logStatus"></span>
+            </div>
+            <div class="col-md-4 text-end clear-filters">
+                <a type="button" id="clearFilter"><i class="fas fa-redo"></i> Clear filters</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+        <table class="table region-table" id="vacancyTable">
+            <tbody id="download-forms-table-tbody" >
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Product Support Engineer</a> <span class="remote-none"></span> </td>
+                    <td> India </td>
+                    <td>  </td>
+                    <td>  </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Manager, Partnerships and Alliances</a> <span class="remote-yes">Remote</span> </td>
+                    <td> Gurugram, Haryana, India </td>
+                    <td>  </td>
+                    <td> Full time </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Director, Partnerships and Alliances</a> <span class="remote-yes">Remote</span> </td>
+                    <td> San Francisco, California, United States </td>
+                    <td>  </td>
+                    <td>  </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Practice Head-Engage</a> <span class="remote-yes">Remote</span> </td>
+                    <td> India </td>
+                    <td>  </td>
+                    <td> Full time </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Business Analyst - Remote</a> <span class="remote-yes">Remote</span> </td>
+                    <td> Gurugram, Haryana, India </td>
+                    <td> Implementation </td>
+                    <td> Full time </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Enterprise Sales - Remote</a> <span class="remote-yes">Remote</span> </td>
+                    <td> India </td>
+                    <td> Sales </td>
+                    <td> Full time </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Senior Business Analyst</a> <span class="remote-none"></span> </td>
+                    <td> Bengaluru, Karnataka, India </td>
+                    <td> Implementation </td>
+                    <td> Full time </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Growth Marketing Manager</a> <span class="remote-none"></span> </td>
+                    <td> Bengaluru, Karnataka, India </td>
+                    <td> Marketing </td>
+                    <td> Full time </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">Vice President- Customer Success</a> <span class="remote-yes">Remote</span> </td>
+                    <td> Gurugram, Haryana, India </td>
+                    <td> Customer Success </td>
+                    <td> Full time </td>
+                </tr>
+                <tr>
+                    <td> <a href="./overview.html" class="h5 fw-bold text-decoration-none">HTML Developer- Marketing</a> <span class="remote-none"></span> </td>
+                    <td> India </td>
+                    <td> Marketing </td>
+                    <td> Full time </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="text-center my-3">
+            <button class="btn btn-primary" id="positions-load">Show more</button>
+        </div>
+    </div>
+</div>
+
+    <script src="./vendor/jquery/jquery.min.js"></script>    
+    <script src="./vendor/selectize/selectize.min.js"></script>    
+    <script src="./vendor/bootstrap/bootstrap.bundle.min.js"></script>    
+    <script src="./vendor/js/dselect.js"></script>
+    <script src="./js/app.js"></script>
+    
+</body>
+</html>

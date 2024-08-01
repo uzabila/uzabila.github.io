@@ -1,0 +1,141 @@
+/* ALL STYLES GOES HERE */
+
+/*
+* MAIN CONTENT
+*/
+
+:root {
+    --primary: #ba85fb;
+    --primary-hover: #cc99ff;
+}
+body {
+    background-color: #424346;
+}
+
+.main-color {
+    color: var(--primary)!important;
+}
+
+.main-color:hover {
+    color: var(--primary-hover)!important;
+}
+
+.container {
+    max-width: 1320px;
+}
+
+/*
+* FLEX
+*/
+
+.nft-flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nft-flex-container a:hover {
+    cursor: pointer;
+}
+
+.main-nft-images {
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5em;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    font-weight: 700;
+}
+
+.main-nft-images:hover {
+	text-decoration: none;
+    color: #FFFFFF; 
+}
+
+.nft-image-border {
+	border-radius: 25px;
+}
+
+.active {
+	font-weight: 700;
+}
+
+/*
+* POPOVER
+*/
+
+.popover {
+    background-color: #343434;
+}
+
+.bs-popover-top>.arrow::after {
+    border-top-color: #343434;
+}
+.bs-popover-bottom>.arrow::after {
+    border-bottom-color: #343434;
+}
+.bs-popover-left>.arrow::after {
+    border-left-color: #343434;
+}
+.bs-popover-right>.arrow::after {
+    border-right-color: #343434;
+}
+
+.popover-body h5 {
+    color: #FFF;
+}
+.popover-body p {
+    color: #FFF;
+}
+
+.popover .close{
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-size: 1em;
+    text-decoration: none;
+    color: #cdcdcd;
+}
+
+.popover .close:hover {
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/*
+* FOOTER
+*/
+
+.footer-area-dark {
+    color: #FFFFFF;
+}
+
+.footer-area-dark__link {
+    text-decoration: none;
+    color: #AAAAAA;
+}
+
+.footer-area-dark__link:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/*
+* MEDIA AND MOBILE QUERIES
+*/
+
+@media (min-width: 992px) {
+    .navbar {
+        font-size: 1.15em;
+    }
+    .main-nft-images {
+    	font-size: 1.6em;
+    }
+}
