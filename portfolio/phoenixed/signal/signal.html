@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" /> 
+    <title>Edit signal - Phoenixed</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Automate your wealth" name="description" />
+    <meta content="Phoenixed" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+
+    <!-- Plugins css -->
+    <link href="../static/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="../static/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- App css -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+        id="bs-default-stylesheet" />
+    <link href="../static/css/app.min.css" rel="stylesheet" type="text/css"
+        id="app-default-stylesheet" />
+
+    <link href="../static/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css"
+        id="bs-dark-stylesheet" />
+    <link href="../static/css/app-dark.min.css" rel="stylesheet" type="text/css"
+        id="app-dark-stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <!-- icons -->
+    <link href="../static/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!--JQuery-->
+    <script src="../static/jquery.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+</head>
+
+<script src="./static/moment-with-locales.min.js"></script>
+<script>
+moment.locale("en");
+function flask_moment_render(elem) {
+    const timestamp = moment(elem.dataset.timestamp);
+    const func = elem.dataset.function;
+    const format = elem.dataset.format;
+    const timestamp2 = elem.dataset.timestamp2;
+    const no_suffix = elem.dataset.nosuffix;
+    const units = elem.dataset.units;
+    let args = [];
+    if (format)
+        args.push(format);
+    if (timestamp2)
+        args.push(moment(timestamp2));
+    if (no_suffix)
+        args.push(no_suffix);
+    if (units)
+        args.push(units);
+    elem.textContent = timestamp[func].apply(timestamp, args);
+    elem.classList.remove('flask-moment');
+    elem.style.display = "";
+}
+function flask_moment_render_all() {
+    const moments = document.querySelectorAll('.flask-moment');
+    moments.forEach(function(moment) {
+        flask_moment_render(moment);
+        const refresh = moment.dataset.refresh;
+        if (refresh && refresh > 0) {
+            (function(elem, interval) {
+                setInterval(function() {
+                    flask_moment_render(elem);
+                }, interval);
+            })(moment, refresh);
+        }
+    })
+}
+document.addEventListener("DOMContentLoaded", flask_moment_render_all);
+</script>
+
+<!-- body start -->
+
+<body class="loading"
+    data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <ul class="list-unstyled topnav-menu float-end mb-0">
+
+                    <li class="dropdown d-none d-lg-inline-block">
+                        <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen"
+                            href="#">
+                            <i class="fe-maximize noti-icon"></i>
+                        </a>
+                    </li>
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a style="text-decoration:line-through"
+                            class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fe-bell noti-icon"></i>
+                            <span class="badge bg-danger rounded-circle noti-icon-badge" id="message_count"
+                                style="visibility: hidden;">0</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-lg">
+
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="m-0">
+                                    <span class="float-end">
+                                        <a id="notification-clear-all" class="text-dark">
+                                            <small>Clear All</small>
+                                        </a>
+                                    </span> Notification
+                                </h5>
+                            </div>
+
+                            <div id="notification-bar" style="overflow:auto" class="noti-scroll" data-simplebar>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
+                            data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                            aria-expanded="false">
+                            <!-- <img src="../static/images/users/candle.gif" alt="user-image" class="rounded-circle"> -->
+                            <i class="fas fa-user"></i>
+                            <span class="pro-user-name ms-1">
+                                SkippyBeard <i class="mdi mdi-chevron-down"></i>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome</h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="../user/" class="dropdown-item notify-item">
+                                <i class="fe-user"></i>
+                                <span>My Account</span>
+                            </a>
+                            
+                            <!-- item-->
+                            <a href="../billing/products" class="dropdown-item notify-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Membership</span>
+                            </a>
+                            
+                            <!-- item-->
+                            <a href="../edit_profile" class="dropdown-item notify-item">
+                                <i class="fe-settings"></i>
+                                <span>Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+
+                            <!-- item-->
+                            <a href="../auth/logout" class="dropdown-item notify-item">
+                                <i class="fe-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="../index.html" class="logo logo-dark text-center">
+                        <span class="logo-sm">
+                            <img src="../static/images/logo-sm.svg" alt="Phoenixed logo"
+                                height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../static/images/phoenixed-dark.svg"
+                                alt="Phoenixed logo" height="30">
+                        </span>
+                    </a>
+
+                    <a href="../index.html" class="logo logo-light text-center">
+                        <span class="logo-sm">
+                            <img src="../static/images/logo-sm.svg" alt="Phoenixed logo"
+                                height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../static/images/phoenixed.svg" alt="Phoenixed logo"
+                                height="30">
+                        </span>
+                    </a>
+                </div>
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                        <button class="button-menu-mobile waves-effect waves-light">
+                            <i class="fe-menu"></i>
+                        </button>
+                    </li>
+
+                    <li>
+                        <!-- Mobile menu toggle (Horizontal Layout)-->
+                        <a class="navbar-toggle nav-link" data-bs-toggle="collapse"
+                            data-bs-target="#topnav-menu-content">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- end Topbar -->
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+
+            <div class="h-100" data-simplebar>
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+
+                    <ul id="side-menu">
+
+                        <li class="menu-title">Navigation</li>
+
+                        <li>
+                            <a href="../index.html">
+                                <!--<span class="badge bg-success float-end">7</span>-->
+                                <i class="fe-home"></i>
+                                <span> Dashboard </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../ta/blog.html">
+                                <!--<span class="badge bg-success float-end">7</span>-->
+                                <i class="fe-trending-up"></i>
+                                <span> Technical analysis </span>
+                            </a>
+                        </li>
+
+                        <li class="menu-title mt-2">Configurations</li>
+                        <li>
+                            <a href="../exchange/">
+                                <i class="fe-octagon"></i>
+                                <span>Exchange</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../signal/signals.html">
+                                <i class="fe-settings"></i>
+                                <span>Signal</span>
+
+                            </a>
+                        </li>
+                        <li class="menu-title mt-2">Trading Tools</li>
+                        <li>
+                            <a href="../mirrortrading.html">
+                                <i class="fe-users"></i>
+                                <span>Mirror trading</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../firepit/">
+                                <i class="fas fa-fire" style="color:rgb(255, 102, 0);"></i>
+                                <span>Firepits</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../payload_generator.html">
+                                <i class="fe-box"></i>
+                                <span>Payload generator</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../messages.html">
+
+                                <i class="fe-mail"></i>
+                                <span>Activities</span> 
+                                <!-- <span class="badge">0</span> -->
+                            </a>
+                        </li>
+
+                        <li class="menu-title mt-2">Help</li>
+                        <li>
+                            <a href="../help/videos.html">
+                                <i class="fe-tv"></i>
+                                <span>Videos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../help/guides.html">
+                                <i class="fe-map"></i>
+                                <span>Guides</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/help/about.html">
+                                <i class="fe-alert-circle"></i>
+                                <span>About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../help/terms.html">
+                                <i class="fe-file-text"></i>
+                                <span>Terms and conditions</span>
+                            </a>
+                        </li>
+
+                        
+                        <!-- <li class="menu-title mt-2">Admin</li>
+                        <li>
+                            <a href="/admin/users">
+                                <i class="fe-box"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/exchangeconfigs">
+                                <i class="fe-box"></i>
+                                <span>Exchange Configs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/signalconfigs">
+                                <i class="fe-box"></i>
+                                <span>Signal configs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/positions">
+                                <i class="fe-box"></i>
+                                <span>Positions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/logs">
+                                <i class="fe-box"></i>
+                                <span>Logs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/videos">
+                                <i class="fe-box"></i>
+                                <span>Videos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/guides">
+                                <i class="fe-alert-circle"></i>
+                                <span>Guides</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/ta/blogs">
+                                <i class="fe-box"></i>
+                                <span>TA Blog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/live">
+                                <i class="fe-activity"></i>
+                                <span>Live</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/getWebsockets">
+                                <i class="fe-box"></i>
+                                <span><del>Websockets</del></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/calendar">
+                                <i class="fe-box"></i>
+                                <span><del>Calendar</del></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/ai">
+                                <i class="fe-box"></i>
+                                <span><del>AI</del></span>
+                            </a>
+                        </li> -->
+
+                        
+                    </ul>
+
+                </div>
+                <!-- End Sidebar -->
+
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- Sidebar -left -->
+
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="responseModalLabel">Phoenixed.io</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var responseModal = new bootstrap.Modal(document.getElementById('responseModal'))
+
+            function showResponseModal(header, body) {
+                $('#responseModalLabel').text(header)
+                $('.modal-body').text(body)
+                responseModal.show()
+            }
+        </script>
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+                    
+                    
+                    
+<div class="row">
+    <div class="col-12">
+        <div class="mt-3">
+            <a class="btn btn-warning" href="../signal/signals.html">Cancel</a>
+        </div>
+    </div>
+</div>
+                    
+
+<div class="row">    
+    <div class="col-12">
+
+        <h3>Edit signal configuration - <span>Full control</span></h3>
+        <p> Click <a href="../edit_profile">here</a> to modify signal control</p>
+
+            
+                <form method="POST" action="" class="border p-2 mb-3 mb-md-4">
+                    <input id="csrf_token" name="csrf_token" type="hidden" value="Ijc3NWE2YWRiYTVlZjg3Y2ZjZDJmMThiODVjNjk0OTU0ODhlYjdiN2Yi.Yx4p4A.5fBvwZ7Qk_qj29g0gWxFxQn3Xo8">
+                    <div id="basicwizard">
+                        <ul class="nav nav-pills bg-light nav-justified form-wizard-header signal-form mb-4">
+                            <li class="nav-item">
+                                <a href="#basictab1" data-bs-toggle="tab" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2"> 
+                                    <i class="mdi mdi-account-circle me-1"></i>
+                                    <span class="d-none d-sm-inline">Signal</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#basictab2" data-bs-toggle="tab" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                    <i class="mdi mdi-face-profile me-1"></i>
+                                    <span class="d-none d-sm-inline">Opening position</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#basictab3" data-bs-toggle="tab" data-toggle="tab" class="nav-link rounded-0 pt-2 pb-2">
+                                    <i class="mdi mdi-checkbox-marked-circle-outline me-1"></i>
+                                    <span class="d-none d-sm-inline">Closing position</span>
+                                </a>
+                            </li>
+                        </ul>
+        
+                        <div class="tab-content b-0 mb-0 pt-0">
+                            <div class="tab-pane" id="basictab1">
+                                <div class="row">
+                                    <div class="col-12">
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="name" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Name your signal configuration"><label for="name">Signal name</label></label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="name" name="name" type="text" value="ETHY">
+                                            </div>
+                                            <div class="col-md-6">
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="exchangeconfig" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Select which exchange API configuration you want to use for this signal config."><label for="exchangeconfig">Exchange configuration</label></label>
+                                            <div class="col-md-3">
+                                                <select class="form-control" id="exchangeconfig" name="exchangeconfig"><option selected value="07db5fa5-5232-4a6c-96b7-67da8caab8cb">Main account</option></select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3" style="display:none;">
+                                            <label class="col-md-3 col-form-label" for="coin" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="The pair you want to trade with this current signal config."><label for="coin">Pair</label></label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="coin" name="coin" type="text" value="80b06a66-42c3-47a5-93ae-df10138a645b">
+                                            </div>
+                                        </div>
+    
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="coin" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="The pair you want to trade with this current signal config."><label for="coin">Pair</label></label>
+                                            <div class="col-md-3">
+                                                <select name="coinSelect" id="coinSelect" class="form-control">
+                                                    <option value="">&#9660;  Select exchangeconfig first</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Will only fire a buy or a sell signal based upon your direction lock settings.">Direction locks</label>
+                                            <div class="col-md-4">
+                                                <input class="form-check-input" id="long_only" name="long_only" type="checkbox" value="y">
+                                                <label class="col-form-label" for="long_only" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"><label for="long_only">Only long signals</label></label>
+        
+                                                <input class="form-check-input" id="short_only" name="short_only" type="checkbox" value="y">
+                                                <label class="col-form-label" for="short_only" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"><label for="short_only">Only short signals</label></label>
+        
+                                            </div>
+                                            <div class="col-md-4">
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="safety_amount" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Phoenixed will not place orders on the exchange if your liquidity goes below this amount. (Pair specific)"><label for="safety_amount">Safety amount</label></label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="safety_amount" name="safety_amount" type="text" value="0.0">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Stop trading if asset liquidity is below this amount. Value is in crypto, 0 is off
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="leverage" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Leverage which you wish to use for this particular configuration."><label for="leverage">Leverage</label></label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="lev" name="leverage" type="text" value="10.0">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span id="lev_msg"></span>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="mirrorable" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="If you want others to be able to publicly mirror your signal config then check this box."><label for="mirrorable">Mirrorable</label></label>
+                                            <div class="col-md-3">
+                                                <input class="form-check-input" id="mirrorable" name="mirrorable" type="checkbox" value="y">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Should this signal be mirrorable by others
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="papertrade" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="If you want to test your signal without placing orders at the exchange, but only simulate them, then check this box."><label for="papertrade">Paper trade</label></label>
+                                            <div class="col-md-3">
+                                                <input class="form-check-input" id="papertrade" name="papertrade" type="checkbox" value="y">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Signal is in simulation mode. Will not place orders on  the chosen exchange
+                                                
+                                            </div>
+                                        </div>
+        
+                                    </div> <!-- end col -->
+                                </div> <!-- end row -->
+                            </div>
+        
+                            <div class="tab-pane" id="basictab2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="order_type_entry" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Using a Limit (Market maker) versus a Market (Market taker) order can make a significant difference in fees. Note that limit orders are placed 5 ticks away from the price when the signal is fired and are placed as post-only orders. This can mean you will not get the desired position in volatile price movements"><label for="order_type_entry">Entry order type</label></label>
+                                            <div class="col-md-3">
+                                                <select class="form-control" id="order_type_entry" name="order_type_entry"><option selected value="Market">Market</option><option value="Limit">Limit</option></select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title=" Here you can select if you would like a fixed amount ( in dollars ) or a percentage amount per trade.">Fund allocation</label>
+        
+                                            <div class="col-md-6">
+                                                
+                                                    <input class="trade_size" id="fixed_allocation_radio-0" name="fixed_allocation_radio" type="radio" value="fi">
+                                                    <label for="fixed_allocation_radio-0">Fixed</label>
+                                                
+                                                    <input checked class="trade_size" id="fixed_allocation_radio-1" name="fixed_allocation_radio" type="radio" value="pa">
+                                                    <label for="fixed_allocation_radio-1">Percentage</label>
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="percent_allocation">
+                                            <div class="row mb-3 ">
+                                                <label class="col-md-3 col-form-label" for="gamble_percent" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title=" Here you can select if you would like a fixed amount ( in dollars ) or a percentage amount per trade."><label for="gamble_percent">Asset allocation (%)</label> <span id="asset_allocation_show">95</span></label>
+                                                <div class="col-md-3">
+                                                    <input class="form-range percent_allocation_input" id="asset_allocation" max="95" min="5" name="gamble_percent" type="range" value="95">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    
+                                                    How much of the available asset liquidity in wallet will be used in a position.
+                                                    (Default 20%, Max: 95%)
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="fixed_allocation" style="display:none;">
+                                            <div class="row mb-3">
+                                                <label class="col-md-3 col-form-label" for="fixed_size" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title=" Here you can select if you would like a fixed amount ( in dollars ) or a percentage amount per trade."><label for="fixed_size">Fixed amount in $</label></label>
+                                                <div class="col-md-3">
+                                                    <input class="form-control fixed_allocation_input" id="fixed_size" name="fixed_size" type="text" value="-1">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    Fixed amount in dollars
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="ladder_in" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Allows for multiple limit orders to be placed at desired levels in addition to initial entry."><label for="ladder_in">Ladder in (limit orders only)</label></label>
+                                            <div class="col-md-3">
+                                                <input checked class="radio-ladder-in form-check-input" id="ladder_in" name="ladder_in" type="checkbox" value="y">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Here you can set the % away from the previous order you woud like the ladders to be placed. <br />
+                                                - You can also set the amount you would like the amount to be filled for.<br />
+                                                Ex: same amount = same amount as first order, double down = 2x the order size.<br />
+                                                Note: The entire ladder amount will not exceed the asset allocation amount set in the previous step
+                                                
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div id="ladder_in_options" style="display:none;">
+                                            <div id="ladder-in-options-steps">
+                                                
+                                                
+                                                <div id="ladder-in-steps-0" class="row mb-3">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-0">Ladder In Steps-0</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-0-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-0-x_down" name="ladder_in_steps-0-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-0-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-0-percent" name="ladder_in_steps-0-percent" type="text" value="0.5">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-1" class="row mb-3">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-1">Ladder In Steps-1</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-1-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-1-x_down" name="ladder_in_steps-1-x_down" required><option value="1">Same amount</option><option selected value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-1-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-1-percent" name="ladder_in_steps-1-percent" type="text" value="0.5">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-2" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-2">Ladder In Steps-2</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-2-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-2-x_down" name="ladder_in_steps-2-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-2-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-2-percent" name="ladder_in_steps-2-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-3" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-3">Ladder In Steps-3</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-3-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-3-x_down" name="ladder_in_steps-3-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-3-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-3-percent" name="ladder_in_steps-3-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-4" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-4">Ladder In Steps-4</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-4-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-4-x_down" name="ladder_in_steps-4-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-4-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-4-percent" name="ladder_in_steps-4-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-5" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-5">Ladder In Steps-5</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-5-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-5-x_down" name="ladder_in_steps-5-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-5-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-5-percent" name="ladder_in_steps-5-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-6" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-6">Ladder In Steps-6</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-6-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-6-x_down" name="ladder_in_steps-6-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-6-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-6-percent" name="ladder_in_steps-6-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-7" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-7">Ladder In Steps-7</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-7-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-7-x_down" name="ladder_in_steps-7-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-7-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-7-percent" name="ladder_in_steps-7-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-8" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-8">Ladder In Steps-8</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-8-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-8-x_down" name="ladder_in_steps-8-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-8-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-8-percent" name="ladder_in_steps-8-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-9" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-9">Ladder In Steps-9</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-9-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-9-x_down" name="ladder_in_steps-9-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-9-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-9-percent" name="ladder_in_steps-9-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-10" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-10">Ladder In Steps-10</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-10-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-10-x_down" name="ladder_in_steps-10-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-10-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-10-percent" name="ladder_in_steps-10-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-11" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-11">Ladder In Steps-11</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-11-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-11-x_down" name="ladder_in_steps-11-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-11-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-11-percent" name="ladder_in_steps-11-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-12" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-12">Ladder In Steps-12</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-12-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-12-x_down" name="ladder_in_steps-12-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-12-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-12-percent" name="ladder_in_steps-12-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-13" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-13">Ladder In Steps-13</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-13-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-13-x_down" name="ladder_in_steps-13-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-13-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-13-percent" name="ladder_in_steps-13-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-14" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-14">Ladder In Steps-14</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-14-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-14-x_down" name="ladder_in_steps-14-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-14-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-14-percent" name="ladder_in_steps-14-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-15" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-15">Ladder In Steps-15</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-15-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-15-x_down" name="ladder_in_steps-15-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-15-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-15-percent" name="ladder_in_steps-15-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-16" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-16">Ladder In Steps-16</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-16-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-16-x_down" name="ladder_in_steps-16-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-16-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-16-percent" name="ladder_in_steps-16-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-17" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-17">Ladder In Steps-17</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-17-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-17-x_down" name="ladder_in_steps-17-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-17-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-17-percent" name="ladder_in_steps-17-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-18" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-18">Ladder In Steps-18</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-18-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-18-x_down" name="ladder_in_steps-18-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-18-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-18-percent" name="ladder_in_steps-18-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-19" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-19">Ladder In Steps-19</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-19-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-19-x_down" name="ladder_in_steps-19-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-19-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-19-percent" name="ladder_in_steps-19-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-20" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-20">Ladder In Steps-20</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-20-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-20-x_down" name="ladder_in_steps-20-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-20-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-20-percent" name="ladder_in_steps-20-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-21" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-21">Ladder In Steps-21</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-21-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-21-x_down" name="ladder_in_steps-21-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-21-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-21-percent" name="ladder_in_steps-21-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-22" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-22">Ladder In Steps-22</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-22-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-22-x_down" name="ladder_in_steps-22-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-22-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-22-percent" name="ladder_in_steps-22-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-23" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-23">Ladder In Steps-23</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-23-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-23-x_down" name="ladder_in_steps-23-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-23-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-23-percent" name="ladder_in_steps-23-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-in-steps-24" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_in_steps-24">Ladder In Steps-24</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-24-x_down">n down</label>
+                                                        <select class="form-control" id="ladder_in_steps-24-x_down" name="ladder_in_steps-24-x_down" required><option selected value="1">Same amount</option><option value="2">Double down</option><option value="3">Tripple down</option><option value="4">Quad down</option></select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_in_steps-24-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_in_steps-24-percent" name="ladder_in_steps-24-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <button class="btn btn-success" style="margin-bottom: 1em;" type="button" onclick="addStep('ladder-in')">Add step</button>
+                                            <button class="btn btn-danger float-end" style="margin-bottom: 1em;" type="button" onclick="removeStep('ladder-in')">Remove step</button>
+                                        </div>
+                                        
+                                    </div> <!-- end col -->
+                                </div> <!-- end row -->
+                            </div>
+        
+                            <div class="tab-pane" id="basictab3">
+                                <div class="row">
+                                    <div class="col-12">
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="sl_short" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="- Use this to set your stop-loss when shorting as a percentage of price movement from the entry price.
+                                            Note: This is NOT a percentage of trade margin loss, this is a percentage of movement from your entry price.
+                                            Also note: The order created is a market ( taker ) order"><label for="sl_short">Stop loss when shorting</label> %</label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="sl_short" name="sl_short" type="text" value="0.0">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Set to '0' for no Stop Loss (Continue until next signal)
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="sl_long" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Use this to set your stop-loss when longing as a percentage of price movement from the entry price.
+                                            Note: This is NOT a percentage of trade margin loss, this is a percentage of movement from your entry price.
+                                            Also note: The order created is a market ( taker ) order"><label for="sl_long">Stop loss when longing</label> %</label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="sl_long" name="sl_long" type="text" value="0.0">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Set to '0' for no Stop Loss (Continue until next signal)
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="tp_short" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Use this to set your take-profit when shorting as a percentage of price movement from the entry price.
+                                            Note: This is NOT a percentage of trade margin loss, this is a percentage of movement from your entry price.
+                                            Also note: The order created is a Limit ( maker ) order."><label for="tp_short">Take profit when shorting</label> %</label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="tp_short" name="tp_short" type="text" value="0.0">
+                                            </div>
+                                            <div class="col-md-6">                                        
+                                                Set to '0' for no Take profit (Continue until next signal)
+                                                
+                                            </div>
+                                        </div>
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="tp_long" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="- Use this to set your take-profit when longing as a percentage of price movement from the entry price.
+                                            Note: This is NOT a percentage of trade margin loss, this is a percentage of movement from your entry price.
+                                            Also note: The order created is a  Limit ( maker ) order."><label for="tp_long">Take profit when longing</label> %</label>
+                                            <div class="col-md-3">
+                                                <input class="form-control" id="tp_long" name="tp_long" type="text" value="0.0">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Set to '0' for no Take Profit (Continue until next signal)
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="tp_long" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Percentage of position you want to close at the previously determined criteria.
+                                            Note: If you want to flip short to long or long to short, then set to 100%"><label for="closure_percent">Close n percent of position</label> <span id="close_percent_range_show">100</span> % </label>
+                                            <div class="col-md-3">
+                                                <input class="form-range" id="close_percent_range" max="100" min="5" name="closure_percent" type="range" value="100">
+                                            </div>
+                                            <div class="col-md-6">
+                                                (Default 100%)
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="order_type_exit"><label for="order_type_exit">Order type close position</label></label>
+                                            <div class="col-md-3">
+                                                <select class="form-control" id="order_type_exit" name="order_type_exit"><option selected value="Market">Market</option><option value="Limit">Limit</option></select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                
+                                            </div>
+                                        </div> -->
+        
+                                        <div class="row mb-3">
+                                            <label class="col-md-3 col-form-label" for="ladder_out" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-html="true" title="Use this function if you would like to ladder out your position in multiple steps based upon the previously determined criteria."><label for="ladder_out">Ladder out (limit orders only)</label></label>
+                                            <div class="col-md-3">
+                                                <input class="radio-ladder-out form-check-input" id="ladder_out" name="ladder_out" type="checkbox" value="y">
+                                            </div>
+                                            <div class="col-md-6">
+                                                Take profit along the way
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="ladder_out_options" style="display:none;">
+                                            <div id="ladder-out-options-steps">
+                                                
+                                                
+                                                <div id="ladder-out-steps-0" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-0">Ladder Out Steps-0</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-0-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-0-percent" name="ladder_out_steps-0-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-1" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-1">Ladder Out Steps-1</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-1-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-1-percent" name="ladder_out_steps-1-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-2" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-2">Ladder Out Steps-2</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-2-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-2-percent" name="ladder_out_steps-2-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-3" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-3">Ladder Out Steps-3</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-3-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-3-percent" name="ladder_out_steps-3-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-4" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-4">Ladder Out Steps-4</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-4-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-4-percent" name="ladder_out_steps-4-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-5" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-5">Ladder Out Steps-5</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-5-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-5-percent" name="ladder_out_steps-5-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-6" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-6">Ladder Out Steps-6</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-6-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-6-percent" name="ladder_out_steps-6-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-7" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-7">Ladder Out Steps-7</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-7-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-7-percent" name="ladder_out_steps-7-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-8" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-8">Ladder Out Steps-8</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-8-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-8-percent" name="ladder_out_steps-8-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-9" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-9">Ladder Out Steps-9</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-9-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-9-percent" name="ladder_out_steps-9-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-10" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-10">Ladder Out Steps-10</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-10-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-10-percent" name="ladder_out_steps-10-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-11" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-11">Ladder Out Steps-11</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-11-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-11-percent" name="ladder_out_steps-11-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-12" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-12">Ladder Out Steps-12</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-12-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-12-percent" name="ladder_out_steps-12-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-13" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-13">Ladder Out Steps-13</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-13-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-13-percent" name="ladder_out_steps-13-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-14" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-14">Ladder Out Steps-14</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-14-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-14-percent" name="ladder_out_steps-14-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-15" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-15">Ladder Out Steps-15</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-15-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-15-percent" name="ladder_out_steps-15-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-16" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-16">Ladder Out Steps-16</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-16-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-16-percent" name="ladder_out_steps-16-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-17" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-17">Ladder Out Steps-17</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-17-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-17-percent" name="ladder_out_steps-17-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-18" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-18">Ladder Out Steps-18</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-18-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-18-percent" name="ladder_out_steps-18-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-19" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-19">Ladder Out Steps-19</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-19-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-19-percent" name="ladder_out_steps-19-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-20" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-20">Ladder Out Steps-20</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-20-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-20-percent" name="ladder_out_steps-20-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-21" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-21">Ladder Out Steps-21</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-21-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-21-percent" name="ladder_out_steps-21-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-22" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-22">Ladder Out Steps-22</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-22-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-22-percent" name="ladder_out_steps-22-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-23" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-23">Ladder Out Steps-23</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-23-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-23-percent" name="ladder_out_steps-23-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                <div id="ladder-out-steps-24" class="row mb-3" style="display: none;">
+                                                
+                                                    <label class="col-md-3" for="ladder_out_steps-24">Ladder Out Steps-24</label>
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label" for="ladder_out_steps-24-percent">Percent from last step</label>
+                                                        <input class="form-control" id="ladder_out_steps-24-percent" name="ladder_out_steps-24-percent" type="text" value="0">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <button class="btn btn-success" style="margin-bottom: 1em;" type="button" onclick="addStep('ladder-out')">Add step</button>
+                                            <button class="btn btn-danger float-end" style="margin-bottom: 1em;" type="button" onclick="removeStep('ladder-out')">Remove step</button>
+                                        </div>
+                                        
+                                    </div> <!-- end col -->
+                                </div> <!-- end row -->
+                            </div>
+                            
+                            <ul class="list-inline wizard mb-0">
+                                <li class="previous list-inline-item">
+                                    <a href="javascript: void(0);" class="btn btn-secondary">Previous</a>
+                                </li>
+                                <li class="next list-inline-item float-end">
+                                    <a id="nxtBtn" href="javascript: void(0);" class="btn btn-secondary">Next</a>
+                                    <input class="btn btn-secondary" id="sbmBtn" name="submit" style="display:none;" type="submit" value="Submit">
+                                </li>
+                            </ul>
+        
+                        </div> <!-- tab-content -->
+                    </div> <!-- end #basicwizard-->
+                </form>
+            
+    </div>
+
+</div>
+
+<script>
+    $("#long_only").change(function() {
+        if(this.checked) {
+            $('#short_only').prop('checked', false);
+        }
+    });
+
+    $("#short_only").change(function() {
+        if(this.checked) {
+            $('#long_only').prop('checked', false);
+        }
+    });
+
+    $('#exchangeconfig').on('change', () => {
+        $.ajax({
+            'url':'/signal/symbols',
+            'method':'POST',
+            'data': {'exchange':$('#exchangeconfig').children("option:selected").val()},
+            success: function(response){
+                if (response.success){
+                    $('#coinSelect').empty();
+                    $.each(response.pairs, (key, value)=> {
+                        $('#coinSelect').append(`<option value="${value['value']}">${value['pairname']}</option>`);
+                    });
+                    
+                    $('#coin').val($('#coinSelect').last().val());
+                    console.log($('#coinSelect').last().val())
+                    console.log($('#coin').val())
+
+                    $('#coinSelect').on('change', () => {
+                        $('#coin').val($('#coinSelect').children("option:selected").val());
+                    });
+                } else {
+                    showResponseModal('Collecting pairs for exchange', 'Could not get pairs for this exchange - Please contact helpdesk@phoenixed.io')
+                }; 
+
+            } // Success
+        })
+    })
+
+    $( document ).ready(() => {
+        $.ajax({
+            'url':'/signal/symbols',
+            'method':'POST',
+            'data': {'exchange':$('#exchangeconfig').children("option:selected").val()},
+            success: function(response){
+                if (response.success){
+                    $('#coinSelect').empty();
+                    $.each(response.pairs, (key, value)=> {
+                        if($('#coin').val() == value['value']) {
+                            $('#coinSelect').append(`<option value="${value['value']}" selected>${value['pairname']}</option>`);
+                        } else {
+                            $('#coinSelect').append(`<option value="${value['value']}">${value['pairname']}</option>`);
+                        }
+                    });
+                    
+                    $('#coinSelect').on('change', () => {
+                        $('#coin').val($('#coinSelect').children("option:selected").val());
+                    });
+                } else {
+                    showResponseModal('Collecting pairs for exchange', 'Could not get pairs for this exchange - Please contact helpdesk@phoenixed.io')
+                }; 
+
+            } // Success
+        })
+    })
+
+    $('#coinSelect').on('change', () => {
+        $.ajax({
+            'url':'/signal/symbol/details',
+            'method':'POST',
+            'data': {'symbol':$('#coinSelect').children("option:selected").val()},
+            success: function(response){
+                let alias = response.pair.alias 
+                let name = response.pair.name
+                
+                let leverage_filter = JSON.parse(response.pair.leverage_filter.replaceAll('"', '').replaceAll("'", '"'))
+                let price_filter = JSON.parse(response.pair.price_filter.replaceAll('"', '').replaceAll("'", '"'))
+
+                $('#leverage').attr('min',leverage_filter.min_leverage)
+                $('#leverage').attr('max',leverage_filter.max_leverage)
+                
+                $('#lev_msg').text('Min: '+leverage_filter.min_leverage+'  '+'Max:'+leverage_filter.max_leverage)
+            }
+        })
+    });
+
+    function callback(mutationList, observer) {
+        let classVals = $('#basictab3').attr('class')
+        classVals = classVals.split(' ')
+        isActive = classVals[classVals.length - 1]
+        if (isActive == 'active'){
+            $('#sbmBtn').css('display', 'block')
+            $('#nxtBtn').css('display', 'none')
+        } else {
+            $('#sbmBtn').css('display', 'none')
+            $('#nxtBtn').css('display', 'block')
+        }
+    };
+
+    const targetNode = document.querySelector("#basictab3");
+    const observerOptions = {
+        attributes: true, 
+        attributeFilter: ['class'],
+        childList: false, 
+        characterData: true,
+        attributeOldValue: true
+    }
+
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, observerOptions);
+
+
+    </script>
+
+    
+    <script>
+
+
+    function addStep(type) {
+        $("#" + type + "-options-steps div.row.mb-3:hidden").first().show();
+    }
+
+    function removeStep(type) {
+        $("#" + type + "-options-steps div.row.mb-3:visible:last input").val(0);
+        $("#" + type + "-options-steps div.row.mb-3:visible").last().hide();
+    }
+
+    document.getElementById("close_percent_range").step = "1";
+    $('#close_percent_range').on('input', () => {
+        $('#close_percent_range_show').text($('#close_percent_range').val())
+    })
+
+    document.getElementById("asset_allocation").step = "1";
+    $('#asset_allocation').on('input', () => {
+        $('#asset_allocation_show').text($('#asset_allocation').val())
+    })
+
+    $('.radio-ladder-in').on('change', () => {
+        x = document.getElementById("ladder_in_options");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            if(steps['ladder-in'] == 0) {
+                addStep('ladder-in');
+            }
+        } else {
+            x.style.display = "none";
+        }
+    });
+
+    $('.radio-ladder-out').on('change', () => {
+        x = document.getElementById("ladder_out_options");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            if(steps['ladder-out'] == 0) {
+                addStep('ladder-out');
+            }
+        } else {
+            x.style.display = "none";
+        }
+    });
+
+    $( document ).ready(() => {
+        if(document.getElementById('ladder_in').checked) {
+            $("#ladder_in_options").show();
+            
+            if($('#ladder-in-options-steps').children.length == 0) {
+                addStep('ladder-in');
+            }
+        }
+        if(document.getElementById('ladder_out').checked) {
+            $("#ladder_out_options").show();
+            if($('#ladder-out-options-steps').children.length == 0) {
+                addStep('ladder-out');
+            }
+        }
+    });
+
+    </script>
+    
+
+    <script>
+
+    $('.trade_size').on('change', () => {
+        let val = $('input[class="trade_size"]:checked').val();
+        if (val == 'fi') {
+            $('.percent_allocation').css('display', 'none')
+            $('.percent_allocation_input').val(-1)
+            $('.fixed_allocation_input').val(1)
+            $('.fixed_allocation').css('display', 'block')
+        } else {
+            $('.percent_allocation').css('display', 'block')
+            $('.percent_allocation_input').val(20)
+            $('#asset_allocation_show').text(20)
+            $('.fixed_allocation_input').val(-1)
+            $('.fixed_allocation').css('display', 'none')
+        }
+    })
+
+    $( document ).ready(() => {
+        let val = $('input[class="trade_size"]:checked').val();
+        if (val == 'fi') {
+            $('.percent_allocation').css('display', 'none')
+            $('.percent_allocation_input').val(-1)
+            $('.fixed_allocation').css('display', 'block')
+        } else {
+            $('.percent_allocation').css('display', 'block')
+            $('.fixed_allocation_input').val(-1)
+            $('.fixed_allocation').css('display', 'none')
+        }
+    });
+
+</script>
+
+
+
+
+                </div>
+                <!-- container -->
+
+            </div>
+            <!-- content -->
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> &copy; Phoenixed
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end footer-links d-none d-sm-block">
+                                <a href="../help/about">About Us</a>
+                                <a href="../help/videos">Help</a>
+                                <a href="../help/contact_us">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    <!-- Vendor js -->
+    <script src="../static/js/vendor.min.js"></script>
+    <script src="../static/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="../static/js/custom/form-wizard.init.js"></script>
+
+    <!-- App js -->
+    <script src="../static/js/app.min.js"></script>
+    <script src="../static/socketio.js"></script>
+    <script src="../static/js/custom/notifications.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" /> 
+    <title>Help - Terms and conditions - Phoenixed</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Automate your wealth" name="description" />
+    <meta content="Phoenixed" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../static/images/favicon.ico">
+
+
+    <!-- Plugins css -->
+    <link href="../static/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="../static/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- App css -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" type="text/css"
+        id="bs-default-stylesheet" />
+    <link href="../static/css/app.min.css" rel="stylesheet" type="text/css"
+        id="app-default-stylesheet" />
+
+    <link href="../static/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css"
+        id="bs-dark-stylesheet" />
+    <link href="../static/css/app-dark.min.css" rel="stylesheet" type="text/css"
+        id="app-dark-stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <!-- icons -->
+    <link href="../static/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!--JQuery-->
+    <script src="../static/jquery.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+</head>
+
+<script src="./static/moment-with-locales.min.js"></script>
+<script>
+moment.locale("en");
+function flask_moment_render(elem) {
+    const timestamp = moment(elem.dataset.timestamp);
+    const func = elem.dataset.function;
+    const format = elem.dataset.format;
+    const timestamp2 = elem.dataset.timestamp2;
+    const no_suffix = elem.dataset.nosuffix;
+    const units = elem.dataset.units;
+    let args = [];
+    if (format)
+        args.push(format);
+    if (timestamp2)
+        args.push(moment(timestamp2));
+    if (no_suffix)
+        args.push(no_suffix);
+    if (units)
+        args.push(units);
+    elem.textContent = timestamp[func].apply(timestamp, args);
+    elem.classList.remove('flask-moment');
+    elem.style.display = "";
+}
+function flask_moment_render_all() {
+    const moments = document.querySelectorAll('.flask-moment');
+    moments.forEach(function(moment) {
+        flask_moment_render(moment);
+        const refresh = moment.dataset.refresh;
+        if (refresh && refresh > 0) {
+            (function(elem, interval) {
+                setInterval(function() {
+                    flask_moment_render(elem);
+                }, interval);
+            })(moment, refresh);
+        }
+    })
+}
+document.addEventListener("DOMContentLoaded", flask_moment_render_all);
+</script>
+
+<!-- body start -->
+
+<body class="loading"
+    data-layout='{"mode": "dark", "width": "fluid", "menuPosition": "fixed", "sidebar": { "color": "dark", "size": "default", "showuser": false}, "topbar": {"color": "dark"}, "showRightSidebarOnPageLoad": true}'>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <ul class="list-unstyled topnav-menu float-end mb-0">
+
+                    <li class="dropdown d-none d-lg-inline-block">
+                        <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen"
+                            href="#">
+                            <i class="fe-maximize noti-icon"></i>
+                        </a>
+                    </li>
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a style="text-decoration:line-through"
+                            class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fe-bell noti-icon"></i>
+                            <span class="badge bg-danger rounded-circle noti-icon-badge" id="message_count"
+                                style="visibility: hidden;">0</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-lg">
+
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="m-0">
+                                    <span class="float-end">
+                                        <a id="notification-clear-all" class="text-dark">
+                                            <small>Clear All</small>
+                                        </a>
+                                    </span> Notification
+                                </h5>
+                            </div>
+
+                            <div id="notification-bar" style="overflow:auto" class="noti-scroll" data-simplebar>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
+                            data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                            aria-expanded="false">
+                            <!-- <img src="../static/images/users/candle.gif" alt="user-image" class="rounded-circle"> -->
+                            <i class="fas fa-user"></i>
+                            <span class="pro-user-name ms-1">
+                                SkippyBeard <i class="mdi mdi-chevron-down"></i>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome</h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="../user/" class="dropdown-item notify-item">
+                                <i class="fe-user"></i>
+                                <span>My Account</span>
+                            </a>
+                            
+                            <!-- item-->
+                            <a href="../billing/products" class="dropdown-item notify-item">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Membership</span>
+                            </a>
+                            
+                            <!-- item-->
+                            <a href="../edit_profile" class="dropdown-item notify-item">
+                                <i class="fe-settings"></i>
+                                <span>Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+
+                            <!-- item-->
+                            <a href="../auth/logout" class="dropdown-item notify-item">
+                                <i class="fe-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="../index.html" class="logo logo-dark text-center">
+                        <span class="logo-sm">
+                            <img src="../static/images/logo-sm.svg" alt="Phoenixed logo"
+                                height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../static/images/phoenixed-dark.svg"
+                                alt="Phoenixed logo" height="30">
+                        </span>
+                    </a>
+
+                    <a href="../index.html" class="logo logo-light text-center">
+                        <span class="logo-sm">
+                            <img src="../static/images/logo-sm.svg" alt="Phoenixed logo"
+                                height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../static/images/phoenixed.svg" alt="Phoenixed logo"
+                                height="30">
+                        </span>
+                    </a>
+                </div>
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+                    <li>
+                        <button class="button-menu-mobile waves-effect waves-light">
+                            <i class="fe-menu"></i>
+                        </button>
+                    </li>
+
+                    <li>
+                        <!-- Mobile menu toggle (Horizontal Layout)-->
+                        <a class="navbar-toggle nav-link" data-bs-toggle="collapse"
+                            data-bs-target="#topnav-menu-content">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- end Topbar -->
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+
+            <div class="h-100" data-simplebar>
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+
+                    <ul id="side-menu">
+
+                        <li class="menu-title">Navigation</li>
+
+                        <li>
+                            <a href="../index.html">
+                                <!--<span class="badge bg-success float-end">7</span>-->
+                                <i class="fe-home"></i>
+                                <span> Dashboard </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../ta/index.html">
+                                <!--<span class="badge bg-success float-end">7</span>-->
+                                <i class="fe-trending-up"></i>
+                                <span> Technical analysis </span>
+                            </a>
+                        </li>
+
+                        <li class="menu-title mt-2">Configurations</li>
+                        <li>
+                            <a href="../exchange/">
+                                <i class="fe-octagon"></i>
+                                <span>Exchange</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../signal/signals.html">
+                                <i class="fe-settings"></i>
+                                <span>Signal</span>
+
+                            </a>
+                        </li>
+                        <li class="menu-title mt-2">Trading Tools</li>
+                        <li>
+                            <a href="../mirrortrading.html">
+                                <i class="fe-users"></i>
+                                <span>Mirror trading</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../firepit/">
+                                <i class="fas fa-fire" style="color:rgb(255, 102, 0);"></i>
+                                <span>Firepits</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../payload_generator.html">
+                                <i class="fe-box"></i>
+                                <span>Payload generator</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../messages.html">
+
+                                <i class="fe-mail"></i>
+                                <span>Activities</span> 
+                                <!-- <span class="badge">0</span> -->
+                            </a>
+                        </li>
+
+                        <li class="menu-title mt-2">Help</li>
+                        <li>
+                            <a href="../help/videos.html">
+                                <i class="fe-tv"></i>
+                                <span>Videos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../help/guides.html">
+                                <i class="fe-map"></i>
+                                <span>Guides</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../help/about.html">
+                                <i class="fe-alert-circle"></i>
+                                <span>About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../help/terms.html">
+                                <i class="fe-file-text"></i>
+                                <span>Terms and conditions</span>
+                            </a>
+                        </li>
+
+                        
+                        <!-- <li class="menu-title mt-2">Admin</li>
+                        <li>
+                            <a href="/admin/users">
+                                <i class="fe-box"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/exchangeconfigs">
+                                <i class="fe-box"></i>
+                                <span>Exchange Configs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/signalconfigs">
+                                <i class="fe-box"></i>
+                                <span>Signal configs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/positions">
+                                <i class="fe-box"></i>
+                                <span>Positions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/logs">
+                                <i class="fe-box"></i>
+                                <span>Logs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/videos">
+                                <i class="fe-box"></i>
+                                <span>Videos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/guides">
+                                <i class="fe-alert-circle"></i>
+                                <span>Guides</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/ta/blogs">
+                                <i class="fe-box"></i>
+                                <span>TA Blog</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/live">
+                                <i class="fe-activity"></i>
+                                <span>Live</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/getWebsockets">
+                                <i class="fe-box"></i>
+                                <span><del>Websockets</del></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/calendar">
+                                <i class="fe-box"></i>
+                                <span><del>Calendar</del></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/ai">
+                                <i class="fe-box"></i>
+                                <span><del>AI</del></span>
+                            </a>
+                        </li>
+ -->
+                        
+                    </ul>
+
+                </div>
+                <!-- End Sidebar -->
+
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- Sidebar -left -->
+
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="responseModalLabel">Phoenixed.io</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var responseModal = new bootstrap.Modal(document.getElementById('responseModal'))
+
+            function showResponseModal(header, body) {
+                $('#responseModalLabel').text(header)
+                $('.modal-body').text(body)
+                responseModal.show()
+            }
+        </script>
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page logo-bg">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid terms-content">
+                    
+<link href=" ../static/libs/fullcalendar/main.min.css" rel="stylesheet" type="text/css" />
+
+<div class="row my-3">
+    <div class="col-12 col-md-8 offset-md-2">
+        <h1 class="text-xxl mb-3 fw-900 lineUp">Terms and Conditions</h1>
+        <div class="gradient-divider mb-3"></div>
+    </div>
+</div> 
+
+    <div class="row mb-3">
+    <div class="col-12 col-md-8 offset-md-2 bg-grey big-shadow border-radius-25 p-3">
+
+        <h2><strong>Terms and Conditions</strong></h2>
+
+<p>Welcome to Phoenixed!</p>
+
+<p>These terms and conditions outline the rules and regulations for the use of Phoenixed's Website, located at Phoenixed.io.</p>
+
+<p>By accessing this website we assume you accept these terms and conditions. Do not continue to use Phoenixed if you do not agree to take all of the terms and conditions stated on this page.</p>
+
+<p>The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</p>
+
+<h3><strong>Cookies</strong></h3>
+
+<p>We employ the use of cookies. By accessing Phoenixed, you agreed to use cookies in agreement with the Phoenixed's Privacy Policy. </p>
+
+<p>Most interactive websites use cookies to let us retrieve the user's details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</p>
+
+<h3><strong>License</strong></h3>
+
+<p>Unless otherwise stated, Phoenixed and/or its licensors own the intellectual property rights for all material on Phoenixed. All intellectual property rights are reserved. You may access this from Phoenixed for your own personal use subjected to restrictions set in these terms and conditions.</p>
+
+<p>You must not:</p>
+<ul>
+    <li>Republish material from Phoenixed</li>
+    <li>Sell, rent or sub-license material from Phoenixed</li>
+    <li>Reproduce, duplicate or copy material from Phoenixed</li>
+    <li>Redistribute content from Phoenixed</li>
+</ul>
+
+<p>This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the <a href="https://www.privacypolicies.com/blog/sample-terms-conditions-template/">Terms And Conditions Template</a>.</p>
+
+<p>Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. Phoenixed does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Phoenixed,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, Phoenixed shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
+
+<p>Phoenixed reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</p>
+
+<p>You warrant and represent that:</p>
+
+<ul>
+    <li>You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</li>
+    <li>The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</li>
+    <li>The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</li>
+    <li>The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</li>
+</ul>
+
+<p>You hereby grant Phoenixed a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</p>
+
+<h3><strong>Hyperlinking to our Content</strong></h3>
+
+<p>The following organizations may link to our Website without prior written approval:</p>
+
+<ul>
+    <li>Government agencies;</li>
+    <li>Search engines;</li>
+    <li>News organizations;</li>
+    <li>Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</li>
+    <li>System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</li>
+</ul>
+
+<p>These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party’s site.</p>
+
+<p>We may consider and approve other link requests from the following types of organizations:</p>
+
+<ul>
+    <li>commonly-known consumer and/or business information sources;</li>
+    <li>dot.com community sites;</li>
+    <li>associations or other groups representing charities;</li>
+    <li>online directory distributors;</li>
+    <li>internet portals;</li>
+    <li>accounting, law and consulting firms; and</li>
+    <li>educational institutions and trade associations.</li>
+</ul>
+
+<p>We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of Phoenixed; and (d) the link is in the context of general resource information.</p>
+
+<p>These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party’s site.</p>
+
+<p>If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to Phoenixed. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</p>
+
+<p>Approved organizations may hyperlink to our Website as follows:</p>
+
+<ul>
+    <li>By use of our corporate name; or</li>
+    <li>By use of the uniform resource locator being linked to; or</li>
+    <li>By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party’s site.</li>
+</ul>
+
+<p>No use of Phoenixed's logo or other artwork will be allowed for linking absent a trademark license agreement.</p>
+
+<h3><strong>iFrames</strong></h3>
+
+<p>Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</p>
+
+<h3><strong>Content Liability</strong></h3>
+
+<p>We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>
+
+<h3><strong>Your Privacy</strong></h3>
+
+<p>Please read Privacy Policy</p>
+
+<h3><strong>Reservation of Rights</strong></h3>
+
+<p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
+
+<h3><strong>Removal of links from our website</strong></h3>
+
+<p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
+
+<p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
+
+<h3><strong>Disclaimer</strong></h3>
+
+<p>To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</p>
+
+<ul>
+    <li>limit or exclude our or your liability for death or personal injury;</li>
+    <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+    <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
+    <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+</ul>
+
+<p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</p>
+
+<p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
+
+<h3>Mirrortrading</h3>
+<h4>1. Phoenixed Copy Trading Schedule of Terms And Conditions</h4>
+<p>1.1. Phoenixed Copytrading (hereinafter the “copy trade service” or “copy trading services” or “copy trading”) is a service that allows users (a “Copier” or “you” or “your”) to copy trades carried out by other traders (a “Principal” or a “trader”). l You can only be either a Copier or a Principal.</p>
+<p>1.2. This Schedule sets out the specific terms that will apply to you when using the copy trade service on our Platform. By proceeding beyond this page, you acknowledge that you have read and understood, and agree to the terms set out in this Schedule.</p>
+<p>1.3. The terms in this Schedule apply to you in addition to our Terms and Conditions, which apply to all of our services including copy trading. Where there is a conflict between the Terms and Conditions and this Schedule, the terms of this Schedule shall prevail. Unless otherwise defined, capitalised words in this Schedule will have the same meaning given to those words in the Terms and Conditions. In the case of a conflict the capitalised words in this schedule shall prevail. By using our copy trade service, you agree to the term in this Schedule along with the fees from us or a Principal.</p>
+
+<h4>2. Risk Disclosure</h4>
+<p>2.1. Please note that this Risk Disclosure is in addition to any risk disclosure in relation to products traded on our platform. In making a decision to copy a specific trader or traders, strategy and/or portfolio, you should consider your financial situation, including your financial commitments. You should understand that copy trading is highly speculative and that you could sustain significant losses exceeding the principal amount used to copy a trader or traders. You should in particular be aware of the following risks associated with copy trading:</p>
+<p>(a) copy trading involves automated trading execution whereby trades are opened and closed in your account without your manual intervention and further instructions from you;</p>
+<p>(b) if you manually modify or close an order generated by the Copy Trader functionality, you may achieve a materially different result than the trader that you copied;</p>
+<p>(c) copied trades in amounts lower than the minimum trade (as specified on our platform) will not be opened;</p>
+<p>(d) if you are copying all trades which are currently open in relation to a Principal you choose to copy, we may open your position at the best available price at the time the trade is copied and not at the price at which the trade being copied was originally opened;</p>
+<p>(e) cash-out and withdrawals by the Principal, strategy and/or portfolio you are copying may also generate a materially different result for you than the Principal that you copied. This is due to a number of different factors including your starting account balance, the effect of the difference in trading proportions, the minimum trade size, your account settings, differences in spread, interest and investment price at the time of your investment, and also the difference in fees that may be incurred;</p>
+<p>(f) following and/or copying the trading decisions of inexperienced and/or unprofessional traders creates risk and we make no representations as to the level of expertise, skill and care of a particular trader you choose to follow and/or copy;</p>
+<p>(g) you may be copying traders whose ultimate purpose or intention, or financial status may differ from yours; and/or</p>
+<p>(h) following and/or copying traders or portfolios that trade in, or which include products that are not available to you (whether as a result of Applicable Law or otherwise) and where a replacement equivalent trade cannot be executed may result in the economic performance, portfolio composition, risk rating and other factors relating to your portfolio deviating from the portfolio of the copied trader or the Copy Portfolio.</p>
+
+<h4>3. Trade Execution</h4>
+<p>3.1. The Platform provides you with the ability to interact, follow and copy other traders, strategies and/or portfolios by using the information, as well as providing you with "social trading features". Social trading features include detailed account information, trading histories, risk profiles, and other information in relation to a Principal’s strategies and/or portfolios that may be useful to you when deciding whether to copy such Principal, strategy and/or portfolio.</p>
+<p>3.2. Copy trading is a trading functionality which allows you to copy the account of other traders. You do this by either copying a specific Principal or copying a Copy Portfolio. By placing a copy trade instruction through our Platform, you are authorising and instructing us to execute trades for your account that automatically mirror the account of the Principal to the maximum extent possible subject to limitations in the service or the copy trader functionality which may be disclosed on our Platform from time to time, without any prior consultation, consent of approval. The copy trades may be executed on a pro rata basis and in relation to the same products and the same trading instructions. As a result, we are authorised open and close positions, set limits and perform all other actions necessary to carry out the copy trading service.</p>
+<p>3.3. We may be unable to copy trades in exactly the same manner as the Principal or the Copy Portfolio for the following reasons:</p>
+<p>(a) such trade may be unavailable to you or your account as a result of Applicable Law or otherwise.</p>
+<p>(b) We will not open trades in amounts lower than the minimum trade.</p>
+<p>3.4. The copy trade service may result in trades in a number of instruments. Each trade opened on your behalf through copy trading will usually be classified under the same asset class as classified in the copied account.</p>
+<p>3.5. If you are restricted from trading a certain asset class or specific product due to Applicable Law, other regulatory requirements or any other reason that we may decide at our sole discretion, then we may at our sole discretion, take reasonable steps, where permitted by Applicable Law and where our service enables this, to ensure that an equivalent or similar trade is opened in your account to replace the restricted trade (for example, replacing a derivative trade with a trade in a similar underlying product or vice versa).</p>
+<p>3.6. If we replace a trade for you, we cannot guarantee that the risk rating and economic performance of the replacement trade will match that of the restricted trade. Where in our sole discretion we do not replace a trade with an equivalent or similar trade for any reason, your economic performance, portfolio composition, risk rating and other factors relating to your portfolio may deviate from that of the Principal or portfolio being copied.</p>
+<p>3.7. Before entering into a copy trade, you will need to have sufficient balances of funds in your account to be put towards a copy trade.</p>
+<p>3.8. Where you have insufficient funds, you agree that we shall apply whatever balances that are available in your account to the execution of the trade.</p>
+<p>3.9. Where there are no remaining funds in your account to copy a trade, any subsequent copy trade orders will not be placed.</p>
+<p>3.10. In ensuring that we are able to copy a trade for you to the maximum extent permissible, you authorise us in our sole discretion to allocate the balance available in your account proportionate to the copied account.</p>
+<p>3.11. When we automatically execute an order based on your instruction to copy a trader or a portfolio, we will not be required to seek your consent, prior approval or any confirmation from you prior to and for the execution of such an order.</p>
+<p>3.12. There are a number of order restrictions when copy trading, including on the minimum and maximum amount that can be invested in any trader or portfolio that you copy, the minimum amount on any single copy trade, and the maximum number of traders that you can copy. The full restrictions are listed on our website and may be amended from time to time at our sole discretion. Open trades that are in breach of these order restrictions will be closed out at our discretion.</p>
+<p>3.13. When you are using our Copy Trader service, you can choose to copy:</p>
+<p>(a) all trades which are currently open in a certain account as well as new trades which are opened after you begin to copy the trader in such account; or</p>
+<p>(b) only new trades which are opened after you begin to copy the trader's account. This means that we will not copy any trades in the trader's account which were entered into before this point.</p>
+
+<h4>4. Limitations of Liability</h4>
+<p>4.1. WE PROVIDE OUR SERVICES INCLUDING OUR COPY TRADE ON AN “AS IS” BASIS. TO THE MAXIMUM EXTENT PERMITTED UNDER APPLICABLE LAW WE PROVIDE NO WARRANTY AND MAKE NO REPRESENTATIONS ON THE QUALITY OF OUR PLATFORM AND OUR SERVICE. BY USING OUR SERVICES, YOU DO SO SOLELY AT YOUR OWN RISK. UNDER NO CIRCUMSTANCES AND UNDER NO THEORY OF LAW (TORT, CONTRACT, STRICT LIABILITY OR OTHERWISE), SHALL WE OR ANY OF THE INDEMNITEES BE LIABLE TO YOU OR ANY OTHER PERSON FOR ANY DAMAGES ARISING FROM THE USE, THE PLATFORM, THE SITE, THIRD-PARTY CONTENT OR ANY ACCOUNT, REGARDLESS OF WHETHER SUCH DAMAGES ARE DIRECT, INDIRECT, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER, INCLUDING DAMAGES FOR TRADING LOSSES, LOSS OF INFORMATION, BUSINESS INTERRUPTION OR LOST PROFITS, LOST SAVINGS, OR LOSS OF DATA, OR LIABILITIES UNDER ANY CONTRACT, NEGLIGENCE, STRICT LIABILITY, OR OTHER THEORY ARISING OUT OF OR RELATING IN ANY MANNER TO THE SITE, THE PLATFORM, THIRD-PARTY CONTENT OR ANY ACCOUNT OR FOR ANY CLAIM OR DEMAND BY ANY THIRD PARTY, EVEN IF WE KNEW OR HAD REASON TO KNOW OF THE POSSIBILITY OF SUCH DAMAGES, CLAIM OR DEMAND IF THE FOREGOING DISCLAIMER AND WAIVER OF LIABILITY SHOULD BE DEEMED INVALID OR INEFFECTIVE.</p>
+<p>4.2. In addition, to the extent permitted by Applicable Law, we will not be liable for (i) any actions we take in order to carry out your instructions in relation to a copy trade or (ii) any decisions or actions taken by a Principal or strategy that you have chosen to copy.</p>
+<p>4.3. We reserve the right to assess whether copy trading is a suitable investment tool for you and under what conditions (the "Suitability Assessment"). The result of the Suitability Assessment if we should conduct it is determined by information and documents provided to us by you at our request, which you can update at any time.</p>
+<p>4.4. We may establish your investment profile on the basis of your Suitability Assessment, and your ability to enter into copy trades may be limited by your Suitability Assessment. If we determine that copy trading is not a suitable investment tool for you, then you will not be permitted to access the copy trading functionalities of our Platform. We are not liable for any losses that you may suffer as a result of providing false or misleading information as part of your Suitability Assessment, including where this leads to us creating an inaccurate investment profile for you.</p>
+<p>4.5. Notwithstanding the provision above to the maximum permitted extent under Applicable Law, copy trading shall not amount to any form of investment, portfolio or asset management.</p>
+<p>4.6. To the maximum extent permitted by Applicable Law, nothing in our copy trade services or functionality shall amount to any personalised investment recommendations, investment advice, tax related advice or other financial advice of any kind.</p>
+<p>4.7. Any explanation or information which we give to you as part of our services, or about the performance of the copy trade is not intended to be and should not be considered as any form of investment advice. Any information provided by us through our Platform is solely for informational purposes.</p>
+<p>4.8. You should use any information gathered from our website or social trading features as a starting point for your own independent research and investment decision making. However, you should not make investment decisions based on information provided on our platform or by our community.</p>
+<p>4.9. We will take reasonable steps to monitor the performance of any copied Principal under the copy trading functionality, as well as the performance of the functionality of our copy trade service.</p>
+<p>4.10. We reserve the right to pause, stop, or block: (a) any Principal from being copied under the Copy Trader functionality; and (b) any portfolio or trading strategy from being copied under the Copy Portfolio functionality. In this case, open trades entered into as a result of the Copy Trader or Copy Portfolio functionality will be closed.</p>
+<p>4.11. We reserve the right to terminate the Copy Trader or Copy Portfolio service at our discretion (including if you no longer meet the criteria to receive the services or it is not feasible to provide the services as a result of any rules or regulations applicable to us) by giving written notice to you.</p>
+<p>4.12. We may also terminate the Copy Trader or Copy Portfolio service if we suspect or have reason to believe that (i) prohibited trading activities, including manipulative or abusive trading activities, are being conducted; (ii) fraudulent of incorrect information has been provided during the account opening process; or (iii) you have otherwise acted in bad faith.</p>
+<p>4.13. On a termination of the Copy Trader or Copy Portfolio service, open trades entered into a result of these functionalities will be closed.</p>
+<p>4.14. We reserve the right to amend the terms of the copy trader or copy portfolio service without further consent from you.</p>
+
+<h4>5. Disclaimers</h4>
+<p>5.1. We do not represent or guarantee the performance of any trader, investment, account, portfolio, or strategy. We do not guarantee the recurrence of past rates of return that have been made by a Principal or portfolio you choose to copy, and the profits (or losses) you make or incur may not match those of a Principal or portfolio you copy.</p>
+<p>5.2. Past performance, risk scores, statistics, and any other information with respect to our Platform’s traders under our Copy Trader and/or Copy Portfolio functionality, or of different portfolios and trading strategies under our Copy Portfolio functionality are not reliable indicators of future performance.</p>
+<p>5.3. We do not represent or guarantee that you will achieve profits or losses similar to those shown to a trader or portfolio that you are copying. Conflicts of Interest</p>
+
+<h3>NOTE</h3>
+<p>Various exchanges might be unsupported after creating an user account</p>
+
+<p>Trading carries a high level of risk. Any risk associated with the use of Phoenixed.io is solely your responsibility.  </p>
+<p>Phoenixed will not compensate for losses incurred, nor will Phoenixed take a share of realized or potential gains.</p>
+<p>It is forbidden to contact any member of Phoenixed outside of the official communication channels.</p>
+<p>Phoenixed gives no financial advice and no members or staff of Phoenixed are financial advisors and can not be held responsible for signals, trades, losses, gains, configurations or misfunction.</p>
+<p>Phoenixed is for educational purposes and as such encourages the use of the platform solely with testnet accounts and ""paper trading"". This use of Phoenixed.io is  recommended for changing trading habits.</p>
+<p>Phoenixed can disable, delete, or close a User Account without warning or providing an argument for doing so.</p>
+<p>Use of Phoenixed.io assumes compliance and adherence to local jurisdiction in regard to trading in general including stocks, cryptocurrency, and Forex markets. Potential taxes are not paid by Phoenixed.io and the end user agrees to follow local guidelines within all aspects of the above.</p>
+
+<p>Phoenixed is still under development and may have errors within the software and potential misplacement of orders may occur. As Phoenixed development continues, adjustments will be made according to regulations and local guidelines.</p>
+<p>Phoenixed cannot guarantee the continued support of an exchange after a user account is created."</p>
+<p>Refund policy - refund for one month. If the product is used -> at least one order places on any exchange on any pair, the right to refund gets obsolete and user is bound for two months. After the 2nd month, the subscription is per month. </p>
+<p>A user can downgrade the subscription at any time, however this will be effectuated after the current paid period. </p>
+    </div>
+    </div>
+
+    <!-- plugin js -->
+    <script src="../static/libs/moment/min/moment.min.js"></script>
+
+    
+
+                </div>
+                <!-- container -->
+
+            </div>
+            <!-- content -->
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> &copy; Phoenixed
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-end footer-links d-none d-sm-block">
+                                <a href="../help/about.html">About Us</a>
+                                <a href="../help/videos.html">Help</a>
+                                <a href="../help/contact_us.html">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
+    <!-- END wrapper -->
+
+
+
+    <!-- Vendor js -->
+    <script src="../static/js/vendor.min.js"></script>
+    <script src="../static/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script type="text/javascript" src="../static/js/custom/form-wizard.init.js"></script>
+
+    <!-- App js -->
+    <script src="../static/js/app.min.js"></script>
+    <script src="../static/socketio.js"></script>
+    <script src="../static/js/custom/notifications.js"></script>
+
+</body>
+</html>
