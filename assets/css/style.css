@@ -267,6 +267,19 @@ h6,
 .navbar {
     font-family: 'Gilroy', sans-serif;
 	line-height: 1.25;
+    margin-bottom: 1em;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+ul {
+    margin-bottom: 2em;
 }
 
 .divider-50 {
@@ -666,9 +679,11 @@ a.no-border {
 pre {
     padding: 8px 16px;
     background-color: #f9f2f4;
+    margin-bottom: 2em!important;
 }
 
-p code {
+p code,
+ul li code {
     padding: 2px 4px;
     color: #c7254e;
     background-color: #f9f2f4;
