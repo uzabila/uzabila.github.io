@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HC09CY02N9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HC09CY02N9');
+</script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+	<link rel="manifest" href="../site.webmanifest">
+	<link rel="mask-icon" href="../safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+	<!-- Highlighter -->
+	<link rel="stylesheet" href="../assets/css/prism.css">
+	<!-- Default -->
+	<link rel="stylesheet" href="../assets/css/style.css">
+
+    <title>How to quickly remove duplicate rows in CSV, Excel and Markdown spreadsheets? &mdash; Uzabila</title>
+  </head>
+<body class="position-relative">
+
+<!-- navbar section -->
+<section class="navbar-section py-3 py-md-5">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+		<a class="navbar-brand d-flex gap-3 align-items-center" href="../">
+			<img src="../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+			<div class="logo-block"><span class="fw-bold">Sergei Ermilov</span><br><span class="small-font">Uzabila</span></div>
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+				<li class="nav-item">
+					<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="../#about">About</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="../#work">Work</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="../blog.html">Blog</a>
+				</li>
+
+				<li class="nav-item">
+                    <a class="nav-link" href="../portfolio.html">Portfolio</a>
+                </li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="../#contacts">Contacts</a>
+				</li>
+			</ul>
+			<div class="dropdown-lang ms-auto">
+				&nbsp;
+			</div>
+
+		</div>
+		</div>
+	</nav>
+</section>
+<!-- end navbar section -->
+
+<!-- new hero section -->
+<section class="hero-section py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<p><a href="../blog.html">Blog</a></p>
+				<h1 class="mb-4 text-xxl fw-600">How to quickly remove duplicate rows in CSV, Excel and Markdown spreadsheets?</h1>
+				<small class="text-muted">August 6, 2024</small>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end new hero section -->
+
+<!-- posts section -->
+<section id="about" class="about-section py-5 mb-5">
+	<div class="container">
+		<div class="row mb-5">
+
+			<div class="col-12 col-lg-7 offset-lg-1">
+
+<!-- ----------------- -->
+<!-- POSTS STARTS HERE -->
+<!-- ----------------- -->
+
+<p>If you are using CSV, Excel, or Markdown spreadsheets, you may encounter duplicate rows. This can happen if you have manually entered the same data or imported duplicates from other sources.</p>
+
+<p>Whatever the reason, removing duplicate rows is an important part of data cleaning. In this article, we will cover several ways to quickly remove duplicate rows from CSV, Excel, and Markdown spreadsheets.</p>
+
+<h2>1. Online spreadsheet tool (recommended)</h2>
+
+<p>You can use an online tool called “TableConvert” to remove duplicate rows. With this tool, you can easily check and remove duplicate rows in your CSV, Excel and Markdown tables.</p>
+
+<p>Just open your browser and go to <a href="https://tableconvert.com/excel-to-excel" target="_blank" rel="noreferrer noopener">https://tableconvert.com/excel-to-excel</a>, paste or upload your data and click “Deduplicate” in the table editor. It’s quick and easy. Take a look at the image below:</p>
+
+<img src="./blog-images/table-convert.png" alt="Online tool TableConvert – removing duplicate rows from CSV, Excel, Markdown tables" title="Online tool TableConvert – removing duplicate rows from CSV, Excel, Markdown tables" class="img-fluid mb-4">
+
+<h2>2. Removing duplicate rows in Excel</h2>
+
+<p>Removing duplicate rows in Excel is very simple. First, open the Excel file and select the column where you want to check for duplicate rows.</p>
+
+<p>Then click on the “Data” menu and select “Remove Duplicates”. Excel will show a dialog box where you need to select the columns to remove duplicates. Click “OK” and Excel will remove all duplicate rows.</p>
+
+<h2>3. Removing duplicate lines in CSV using Python</h2>
+
+<p>If your data is saved in a CSV file, you can use Python to remove duplicate rows. First, install the <strong>pandas</strong> library. Then use the following code to read the CSV file, remove duplicate lines, and save the clean data back to the file:</p>
+
+<pre class="language-php"><code class="language-php">import pandas as pd
+
+	data = pd.read_csv("your_file.csv")
+	data = data.drop_duplicates()
+	data.to_csv("your_file.csv", index=False)</code></pre>
+
+<p>This code reads the CSV file, removes duplicate lines, and writes the clean data back to the original file.</p>
+
+<!-- --------------- -->
+<!-- POSTS ENDS HERE -->
+<!-- --------------- -->
+			</div>
+			<div class="col-12 col-lg-3 offset-lg-1">
+				<small class="text-muted">Ad+</small>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end posts section -->
+
+<section id="contacts" class="py-5">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-12 col-md-6">
+				<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5"><span class="gradient-title fw-800">Get in touch</span> <i class="bi bi-arrow-right pot"></i></h2>
+
+				<p class="main-links">I am available for work in 2024. Have a project for me, any questions, or wish to make an order? You can email or visit my <a href="https://www.fiverr.com/uzabila" target="_blank">Fiverr</a> page.</p>
+
+				<p class="social-links pt-4">
+					<a href="https://github.com/uzabila" target="_blank" title="GitHub" class="me-2"><img src="../assets/images/gh.svg" alt="GitHub" width="24" height="24"></a>
+					<a href="https://www.behance.net/uzabila" target="_blank" title="Behance" class="me-2"><img src="../assets/images/bh.svg" alt="Behance" width="24" height="24"></a> 
+					<a href="https://dribbble.com/uzabila" target="_blank" title="Dribbble" class="me-0"><img src="../assets/images/dribbble.svg" alt="Dribbble" width="24" height="24"></a>
+				</p>
+				
+			</div>
+			<div class="col-12 col-md-6 text-start text-md-end">
+				<h3 class="fw-bold h1">sergeiuzabila@gmail.com</h3>
+			</div>
+		</div>	
+	</div>
+</section>
+
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">uzabila.github.io</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">2008 - 2024 &copy; Uzabila</span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/app.js"></script>
+
+<script src="../assets/js/prism.js"></script>
+
+  </body>
+</html>
