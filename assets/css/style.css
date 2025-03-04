@@ -312,6 +312,22 @@ ul {
     color: #1677FF;
 }
 
+a.dark-link {
+    border-bottom: 1px dashed #777777;
+    text-decoration: none;
+    color: #777777;
+}
+
+.dark-icon {
+    color: #777777;
+}
+
+a.dark-link:hover {
+    border-bottom: 1px dashed #ffffff;
+    text-decoration: none;
+    color: #777777;
+}
+
 .logo-block {
     line-height: .8;
 }
