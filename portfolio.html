@@ -1,16 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HC09CY02N9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HC09CY02N9');
-</script>
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +22,8 @@
     <title>Portfolio &mdash; Uzabila</title>
   </head>
 <body class="position-relative">
-
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+  
 <!-- navbar section -->
 <section class="navbar-section py-3 py-md-5">
 	<nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -59,12 +50,17 @@
 					<a class="nav-link" href="#work">Work</a>
 				</li>
 
-                <li class="nav-item"></li>
-					<a class="nav-link" href="blog.html">Blog</a>
-				</li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="#portfolio">Portfolio</a>
+                </li>
+
+                
+				<li class="nav-item">
+                    <a class="nav-link" href="../terms/">Terms</a>
+                </li>
+
+				<li class="nav-item">
+                    <a class="nav-link" href="../tools/">Tools</a>
                 </li>
 				
 				<li class="nav-item">
@@ -1102,6 +1098,52 @@
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/app.js"></script>
     <script src="../assets/js/lightbox.js"></script>
+
+    <script>
+        filterSelection("all")
+            function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("column");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+            }
+
+            function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+            }
+
+            function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                }
+            }
+            element.className = arr1.join(" ");
+            }
+
+
+            // Add active class to the current button (highlight it)
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+            }
+    </script>
     
       </body>
     </html>
