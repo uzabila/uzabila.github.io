@@ -709,6 +709,91 @@ ul li code {
     font-size: 1em;
 }
 
+/* px to em */
+.container-px-em {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-px-em h1 {
+  font-size: 5.85rem;
+  padding: 0 0 0.2em 0;
+  margin: 0;
+}
+.container-px-em .input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-top: 0.4em;
+  border-bottom: 1px dotted #000;
+  outline: 0;
+  width: 150px;
+  font-size: 3rem;
+  text-align: right;
+  margin-right: 0.3em;
+  background-color: #ff90b3;
+  outline: 0;
+}
+.container-px-em .input::-webkit-input-placeholder {
+  color: #000;
+  opacity: 0.2;
+}
+.container-px-em .px-em {
+  display: flex;
+}
+.container-px-em .em,
+.container-px-em .px {
+  font-size: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.container-px-em .em .text,
+.container-px-em .px .text {
+  padding-bottom: 0.2em;
+}
+.container-px-em .em {
+  margin-left: 1em;
+}
+.container-px-em .em .text {
+  margin-right: -0.3em;
+}
+.container-px-em .px-input {
+  width: 95px;
+}
+.container-px-em .basefont {
+  display: flex;
+  align-items: baseline;
+  font-size: 3.3rem;
+  padding: 0 0 0.2em 0;
+  margin: 0;
+  border-bottom: 1px solid transparent;
+}
+.container-px-em .basefont p {
+  margin: 0;
+  padding: 0;
+}
+.container-px-em .basefont .chosen {
+  width: 80px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  font-size: 3.3rem;
+  text-align: center;
+  border-bottom: 2px dotted #000;
+  background-color: #ff90b3;
+  outline: 0;
+}
+.container-px-em .basefont .chosen::-webkit-input-placeholder {
+  color: #000;
+  opacity: 0.2;
+}
+/* end px to em*/
+
 /*
  * MEDIA
  */
