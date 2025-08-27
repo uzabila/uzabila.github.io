@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../../assets/css/style.css">
+
+    <title>Карта изображения в HTML или что такое Image Map &#8212; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+		<div class="col-12 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">Карта изображения в HTML или что такое Image Map</h1>
+
+<p>С помощью карт изображений HTML можно создавать на изображении области, доступные для клика (нажатия).</p>
+
+<h2>Карты изображений</h2>
+
+<p>Тег HTML <code>&lt;map&gt;</code> определяет карту изображений. Карта изображений — это изображение с областями, которые можно нажимать. Области определяются с помощью одного или нескольких тегов <code>&lt;area&gt;</code>.</p>
+
+<p>Попробуйте нажать на компьютер, телефон или чашку кофе на изображении ниже:</p>
+
+<img decoding="async" src="images/workplace.jpg" alt="Workplace" usemap="#workmap">
+<map name="workmap">
+  <area shape="rect" coords="34,44,270,350" alt="Sun" href="#comp">
+  <area shape="rect" coords="290,172,333,250" alt="Mercury" href="#phone">
+  <area shape="circle" coords="337,300,44" alt="Venus" href="#coffee">
+</map>
+
+<h4 id="comp">Это компьютер</h4>
+<p>Сюда вы попадете, если на картинке выше нажали на НОУТБУК.</p>
+
+<h4 id="phone">Это телефон</h4>
+<p>Сюда вы попадете, если на картинке выше нажали на ТЕЛЕФОН.</p>
+
+<h4 id="coffee">Это кофе</h4>
+<p>Сюда вы попадете, если на картинке выше нажали на КОФЕ.</p>
+
+<p><strong>Пример выше с картинкой</strong></p>
+
+<p>Вот исходный код HTML для приведенной выше карты изображений:</p>
+
+<pre><code class="language-html">&lt;img src="workplace.jpg" alt="Workplace" usemap="#workmap"&gt;
+
+&lt;map name="workmap"&gt;
+  &lt;area shape="rect" coords="34,44,270,350" alt="Computer" href="computer.htm"&gt;
+  &lt;area shape="rect" coords="290,172,333,250" alt="Phone" href="phone.htm"&gt;
+  &lt;area shape="circle" coords="337,300,44" alt="Coffee" href="coffee.htm"&gt;
+&lt;/map&gt;</code></pre>
+
+<h2>Как это работает?</h2>
+
+<p>Идея карты изображений заключается в том, что вы должны иметь возможность выполнять различные действия в зависимости от того, в каком месте изображения вы кликнули.</p>
+
+<figure>
+	<img src="images/html-image-map.png" alt="Карта изображения в HTML" class="img-fluid">
+	<figcaption>Карта изображения в HTML</figcaption>
+</figure>
+
+<p>Для создания карты изображений вам понадобится изображение и HTML-код, описывающий области, на которые можно нажать.</p>
+
+<h2>Изображение</h2>
+
+<p>Изображение вставляется с помощью тега <code>&lt;img&gt;</code> как и всегда в HTML. Единственное отличие от других изображений заключается в том, что вы должны добавить атрибут <code>usemap</code>:</p>
+
+<pre><code class="language-html">&lt;img src="workplace.jpg" alt="Workplace" usemap="#workmap"&gt;</code></pre>
+
+<p>Значение <code>usemap</code> начинается с хэш-тега <code>#</code>, за которым следует название карты изображений, и используется для создания связи между изображением и картой изображений.</p>
+
+<div class="attention-yellow"><strong>Подсказка</strong>. Вы можете использовать любое изображение в качестве карты изображений!</div>
+
+<h2>Создание карты изображений</h2>
+
+<p>Затем добавьте элемент <code>&lt;map&gt;</code>.</p>
+
+<p>Элемент <code>&lt;map&gt;</code> используется для создания карты изображения и связан с изображением с помощью обязательного атрибута <code>name</code>:</p>
+
+<pre><code class="language-html">&lt;map name="workmap"&gt;</code></pre>
+
+<p>Атрибут <code>name</code> должен иметь то же значение, что и атрибут <code>usemap</code> тега <code>&lt;img&gt;</code>.</p>
+
+<h2>Области клика</h2>
+
+<p>Затем добавьте кликабельные области.</p>
+
+<p>Кликабельная область определяется с помощью элемента <code>&lt;area&gt;</code>.</p>
+
+<h2>Формы областей клика</h2>
+
+<p>Вы должны определить форму кликабельной области и можете выбрать одно из этих значений:</p>
+
+<ul>
+<li><code>rect</code> — определяет прямоугольную область</li>
+<li><code>circle</code> — определяет круглую область</li>
+<li><code>poly</code> — определяет многоугольную область</li>
+<li><code>default</code> — определяет всю область.</li>
+</ul>
+
+<p>Вы также должны определить некоторые координаты, чтобы иметь возможность поместить область клика на изображение в нужное место.</p>
+
+<h3>Прямоугольник shape="rect"</h3>
+
+<p>Координаты для <code>shape="rect"</code> идут парами, одна для оси x и одна для оси y.</p>
+
+<p>Так, координаты <code>34,44</code> расположены на расстоянии 34 пикселей от левого края и 44 пикселей от верхнего:</p>
+
+<div style="position:relative">
+<div style="position:absolute;width:2px;height:379px;left:34px;background-color:GreenYellow ;opacity:0.8"></div>
+<div style="position:absolute;width:400px;height:2px;top:44px;background-color:GreenYellow ;opacity:0.8"></div>
+<div style="border:2px solid red;border-radius:50%;position:absolute;width:20px;height:20px;left:25px;top:35px;background-color:transparent;xopacity:0.8"></div>
+</div>
+<img decoding="async" src="images/workplace.jpg" alt="Workplace">
+
+<p>Координаты <code>270,350</code> расположены на расстоянии 270 пикселей от левого края и 350 пикселей от верхнего:</p>
+
+<div style="position:relative">
+<div style="position:absolute;width:2px;height:379px;left:270px;background-color:GreenYellow ;opacity:0.8"></div>
+<div style="position:absolute;width:400px;height:2px;top:350px;background-color:GreenYellow ;opacity:0.8"></div>
+<div style="border:2px solid red;border-radius:50%;position:absolute;width:20px;height:20px;left:261px;top:341px;background-color:transparent;xopacity:0.8"></div>
+</div>
+<img decoding="async" src="images/workplace.jpg" alt="Workplace">
+
+<p>Теперь у нас достаточно данных для создания кликабельной прямоугольной области:</p>
+
+<p><strong>Пример</strong></p>
+
+<pre><code class="language-html">&lt;area shape="rect" coords="34, 44, 270, 350" href="computer.htm"&gt;</code></pre>
+
+<p>Именно эта область становится кликабельной и направляет пользователя на страницу «computer.htm»:</p>
+
+<div style="position:relative">
+<div style="position:absolute;width:236px;height:306px;left:34px;top:44px;background-color:dodgerblue;opacity:0.8"></div>
+</div>
+<img decoding="async" src="images/workplace.jpg" alt="Workplace">
+
+<h3>Окружность shape="circle"</h3>
+
+<p>Чтобы добавить область круга, сначала найдем координаты центра круга: <code>337,300</code>.</p>
+
+<div style="position:relative">
+<div style="position:absolute;width:2px;height:379px;left:337px;background-color:GreenYellow ;xopacity:0.8"></div>
+<div style="position:absolute;width:400px;height:2px;top:300px;background-color:GreenYellow ;xopacity:0.8"></div>
+<div style="border:2px solid red;border-radius:50%;position:absolute;width:20px;height:20px;left:328px;top:291px;background-color:transparent;xopacity:0.8"></div>
+</div>
+<img decoding="async" src="images/workplace.jpg" alt="Workplace">
+
+<p>Затем указываем радиус круга: <code>44</code> пикселя.</p>
+
+<div style="position:relative">
+<div style="position:absolute;width:44px;height:2px;left:337px;top:300px;background-color:GreenYellow ;opacity:0.8"></div>
+<div style="border:2px solid red;border-radius:50%;position:absolute;width:88px;height:88px;left:293px;top:256px;background-color:transparent;xopacity:0.8"></div>
+</div>
+<img decoding="async" src="images/workplace.jpg" alt="Workplace">
+
+<p>Теперь у вас достаточно данных для создания кликабельной круглой области:</p>
+
+<p><strong>Пример</strong></p>
+
+<pre><code class="language-html">&lt;area shape="circle" coords="337, 300, 44" href="coffee.htm"&gt;</code></pre>
+
+<p>Именно эта область становится кликабельной и направляет пользователя на страницу «coffee.htm»:</p>
+
+<div style="position:relative">
+<div style="border-radius:50%;position:absolute;width:88px;height:88px;left:293px;top:256px;background-color:dodgerblue;opacity:0.8"></div>
+</div>
+<img decoding="async" src="images/workplace.jpg" alt="Workplace">
+
+<h3>Многоугольник shape="poly"</h3>
+
+<p><code>shape="poly"</code> содержит несколько координатных точек, что создает фигуру, образованную прямыми линиями (многоугольник).</p>
+
+<p>Это можно использовать для создания любой фигуры.</p>
+
+<p>Например, форму круассана!</p>
+
+<p>Как сделать так, чтобы круассан на изображении ниже стал кликабельной ссылкой?</p>
+
+<figure>
+	<img src="images/frenchfood.jpg" alt="" class="img-fluid">
+</figure>
+
+<p>Нам нужно найти координаты <strong>x</strong> и <strong>y</strong> для всех краев круассана:</p>
+
+<figure>
+	<img src="/files/images/frenchfood4.jpg" alt="" class="img-fluid">
+</figure>
+
+<p>Координаты идут парами — одна для оси <strong>x</strong>, другая для оси <strong>y</strong>.</p>
+
+<p><strong>Пример</strong></p>
+
+<pre><code class="language-html">&lt;area shape="poly" coords="140,121,181,116,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,103,161,128,147" href="croissant.htm"&gt;</code></pre>
+
+<p>Именно эта область становится кликабельной и направляет пользователя на страницу «croissant.htm»:</p>
+
+<figure>
+	<img src="/files/images/frenchfood3.jpg" alt="" class="img-fluid">
+</figure>
+
+<h2>Карта изображений и JavaScript</h2>
+
+<p>Кликабельная область также может вызывать функцию JavaScript.</p>
+
+<p>Добавьте событие щелчка для элемента <code>&lt;area&gt;</code>, чтобы выполнить функцию JavaScript.</p>
+
+<p><strong>Пример</strong></p>
+
+<p>Здесь мы используем атрибут <code>onclick</code> для выполнения функции JavaScript при нажатии на область:</p>
+
+<pre><code class="language-html">&lt;map name="workmap"&gt;
+  &lt;area shape="circle" coords="337,300,44" href="coffee.htm" onclick="myFunction()"&gt;
+&lt;/map&gt;
+
+&lt;script&gt;
+function myFunction() {
+  alert("You clicked the coffee cup!");
+}
+&lt;/script&gt;</code></pre>
+
+<h2>Короткое заключение</h2>
+
+<ul>
+<li>Используйте элемент HTML <code>&lt;map&gt;</code> для определения карты изображений</li>
+<li>Используйте элемент HTML <code>&lt;area&gt;</code> для определения кликабельных областей в карте изображений</li>
+<li>Используйте атрибут HTML <code>usemap</code> элемента <code>&lt;img&gt;</code> для привязки к карте изображений.</li>
+</ul>
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 10 декабря 2022 в 01:25</span><br>Теги: HTML
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">Uzabila</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/js/app.js"></script>
+	<script src="../../../assets/js/prism.js"></script>	
+
+  </body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../assets/css/style.css">
+
+	<title>HTML &mdash; Uzabila</title>
+</head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+	<!-- navbar section -->
+	<section class="navbar-section">
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<div class="container">
+				<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+					<img src="../../assets/images/sergei-150.png" alt="" width="80" height="80"
+						class="d-inline-block align-middle">
+					<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span
+							class="small-font">Sergei Ermilov</span></div>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+						<li class="nav-item">
+							<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img
+									src="../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3"
+									style="margin-top:-5px"></a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../../#about">About</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../../#work">Work</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../../portfolio/">Portfolio</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../../terms/">Terms</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../../tools/">Tools</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="../../#contacts">Contacts</a>
+						</li>
+					</ul>
+					<div class="ms-auto">
+						<a href="../../ru/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Русский</a>
+					</div>
+
+				</div>
+			</div>
+		</nav>
+	</section>
+	<!-- end navbar section -->
+
+	<div class="container">
+		<div class="row mb-3 mb-md-4 mb-lg-5">
+			<div class="col-12">
+				<p><a href="../" class="link-secondary">Terms</a></p>
+				<h1>HTML</h1>
+				<p>HTML stands for HyperText Markup Language. It is the standard markup language used to create and structure content on the World Wide Web.</p>
+			</div>
+		</div>
+	</div>
+
+	<footer class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-4 my-auto">
+					<span class="fw-500 text-muted">Uzabila</span>
+				</div>
+				<div class="col-12 col-md-4 text-center my-auto">
+					<img src="../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+				</div>
+				<div class="col-12 col-md-4 my-auto text-end">
+					<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../assets/js/app.js"></script>
+
+	<script>
+		let x = 'done';
+		console.log(x);
+		console.log(typeof (x));
+		console.log("Тестируем \" кавычку");
+		const c = function (a, b) {
+			return a + b;
+		}
+		console.log(c(1, 2));
+
+		const firstObject = {
+			key: 2,
+			name: 'vasya'
+		}
+
+		console.log(firstObject);
+
+		{
+			const mascot = 'Кекс';
+			if (2 > 1) {
+				console.log(mascot); // "Кекс"
+			}
+		}
+
+		{
+			const mascot = 'Борис';
+			console.log(mascot); // "Борис"
+		}
+
+		console.log(mascot); // ReferenceError: mascot is not defined
+
+
+	</script>
+
+</body>
+
+</html>

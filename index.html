@@ -5,18 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#787878">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#787878">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="theme-color" content="#ffffff">
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
 
     <title>Uzabila &mdash; Design and Frontend Development</title>
   </head>
@@ -24,12 +23,12 @@
  <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
   
 <!-- navbar section -->
-<section class="navbar-section py-3 py-md-5">
+<section class="navbar-section">
 	<nav class="navbar navbar-expand-lg navbar-light bg-white">
 		<div class="container">
 		<a class="navbar-brand d-flex gap-3 align-items-center" href="./">
-			<img src="./assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
-			<div class="logo-block"><span class="fw-bold">Sergei Ermilov</span><br><span class="small-font">Uzabila</span></div>
+			<img src="assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+			<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Sergei Ermilov</span></div>
 		</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -38,7 +37,7 @@
 			<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
 
 				<li class="nav-item">
-					<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="./assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
 				</li>
 
 				<li class="nav-item">
@@ -50,15 +49,15 @@
 				</li>
 
 				<li class="nav-item">
-                    <a class="nav-link" href="./portfolio.html">Portfolio</a>
+                    <a class="nav-link" href="portfolio/">Portfolio</a>
                 </li>
 				
 				<li class="nav-item">
-                    <a class="nav-link" href="./terms/">Terms</a>
+                    <a class="nav-link" href="terms/">Terms</a>
                 </li>
 
 				<li class="nav-item">
-                    <a class="nav-link" href="./tools/">Tools</a>
+                    <a class="nav-link" href="tools/">Tools</a>
                 </li>
 
 				<li class="nav-item">
@@ -66,7 +65,7 @@
 				</li>
 			</ul>
 			<div class="ms-auto">
-				<a href="./ru/" class="dark-link">Русский</a> <i class="bi bi-arrow-up-right-square dark-icon"></i>
+				<a href="ru/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Русский</a>
 			</div>
 
 		</div>
@@ -76,39 +75,19 @@
 <!-- end navbar section -->
 
 <!-- new hero section -->
-<section class="hero-section py-5 mb-5">
+<section class="hero-section mb-3 mb-md-4 mb-lg-5">
 	<div class="container">
-		<div class="row mb-5">
-			<div class="col-12">
-				<h1 class="mb-4 text-xxl fw-600">I will help you with <span class="gradient-title fw-800">Design</span> and&nbsp;Frontend Development</h1>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-12">
-				Currently based in <b><i>Montenegro</i></b> <img src="./assets/svg/montenegro.svg" alt="Montenegro" width="90" height="45">
+				<h1 class="mb-4 text-xxl fw-600">I will help you with Design and&nbsp;<span class="gradient-title fw-800">Frontend</span> Development</h1>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- end new hero section -->
 
-<!-- hero section -->
-<!-- <section class="hero-section py-5 mb-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-8 offset-md-2 text-center">
-				<p><a href="./" class="logo-link"><img src="./assets/images/sergei-foto.jpg" alt="Sergei aka Uzabila" title="Sergei aka Uzabila" width="210" height="210" class="align-middle site-logo"></a></p>
-				<h1 class="mb-4">I will help you with web design, frontend and&nbsp;WordPress development</h1>
-				<h2 class="fw-bold site-name">Uzabila</h1>
-				<p>Sergei Ermilov</p>
-			</div>
-		</div>
-	</div>
-</section> -->
-<!-- end hero section -->
-
 <!-- about section -->
-<section id="about" class="about-section py-5 mb-5">
+<section id="about" class="about-section mb-3 mb-md-4 mb-lg-5">
 	<div class="container">
 		<div class="row mb-5">
 
@@ -119,22 +98,22 @@
 				
 				<div class="d-flex align-items-center justify-content-between mb-5">
 					<div class="text-center">
-						<h3 class="h1 fw-bold">16+</h3>
+						<h3 class="h1 text-xxl fw-bold">16+</h3>
 						<span>years<br>of experience</span>
 					</div>
 					<div class="text-center">
-						<h3 class="h1 fw-bold">60+</h3>
+						<h3 class="h1 text-xxl fw-bold">70+</h3>
 						<span>completed<br>projects</span>
 					</div>
 					<div class="text-center">
-						<h3 class="h1 fw-bold">24/7</h3>
+						<h3 class="h1 text-xxl fw-bold">24/7</h3>
 						<span>Support for<br>customers online</span>
 					</div>
 				</div>
 
 				<p>I'm using:</p>
 				<p class="main-links">
-					<a href="./terms/html.html">HTML</a>, <a href="#">CSS</a>, <a href="#">Bootstrap 5</a>, <a href="#">Javascript</a>, <a href="#">PHP</a>, <a href="#">MySQL</a> <a href="#">Wordpress</a>, <a href="#">Git</a>, <a href="#">Linux</a>, 
+					<a href="./terms/html/">HTML</a>, <a href="#">CSS</a>, <a href="#">Bootstrap 5</a>, <a href="#">Javascript</a>, <a href="#">PHP</a>, <a href="#">MySQL</a> <a href="#">Wordpress</a>, <a href="#">Git</a>, <a href="#">Linux</a>, 
 				</p>
 				<p>Dev Tools:</p>
 				<p class="main-links"><a href="#">VSCode</a>, <a href="#">Sublime Text</a>, <a href="#">Notepad++</a></p>
@@ -153,15 +132,13 @@
 <!-- rating section -->
 <section class="rating-section mb-5 py-4">
 	<div class="container">
-
-		<div class="row mb-5">
-
-			<div class="col-12 col-md-4">
+		<div class="row mb-3 mb-md-4">
+			<div class="col-12 text-center">
 				<h2 class="fw-bold">Five star freelancer</h2>
 			</div>
-
-			<div class="col-12 col-md-4">
-
+		</div>
+		<div class="row mb-3 mb-md-4 mb-lg-5">
+			<div class="col-12 col-md-4 offset-md-2">
 				<div class="card my-auto mb-4">					
 					<div class="card-body text-center">
 						<p><img src="./assets/images/fiverr-stars.svg" alt="Kwork" width="130" height="24"></p>
@@ -169,16 +146,14 @@
 						<h5 class="card-title fw-bold">Uzabila</h5>
 
 						<p class="text-center">Rating on Fiverr: <b>5.0</b></p>
-						<p class="text-center">Orders completed: <b>29</b></p>
-						<p class="text-center">Total reviews: <b>21</b></p>	
+						<p class="text-center">Orders completed: <b>40</b></p>
+						<p class="text-center">Total reviews: <b>27</b></p>	
 						<a href="https://www.fiverr.com/uzabila" class="btn btn-outline-dark btn-lg" target="_blank">See Profile</a>
 					</div>
 				</div>
-
 			</div>
 
 			<div class="col-12 col-md-4">
-
 				<div class="card my-auto mb-4">					
 					<div class="card-body text-center">
 						<p><img src="../assets/images/stars.svg" alt="Kwork" width="120" height="22"></p>
@@ -186,8 +161,8 @@
 						<h5 class="card-title fw-bold">Uzabila</h5>
 
 						<p class="text-center">Rating on Kwork: <b>5.0</b></p>
-						<p class="text-center">Orders completed: <b>29</b></p>
-						<p class="text-center">Total reviews: <b>21</b></p>
+						<p class="text-center">Orders completed: <b>35</b></p>
+						<p class="text-center">Total reviews: <b>22</b></p>
 						<a href="https://kwork.com/user/uzabila" class="btn btn-outline-dark btn-lg" target="_blank">See Profile</a>
 					</div>
 				</div>
@@ -203,7 +178,7 @@
 <section class="do-section mb-5" id="work">
 	<div class="container">
 		<div class="row mb-5">
-			<div class="col-12">
+			<div class="col-12 text-center">
 				<h2 class="fw-700">I Can do for you</h2>
 				<p>I use my passion and skills to create digital products and experiences. </p>
 			</div>
@@ -248,7 +223,7 @@
 	<div class="container">
 		<div class="row mb-5">
 			<div class="col-12 col-md-6">
-				<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5"><span class="gradient-title fw-800">Get in touch</span> <i class="bi bi-arrow-right pot"></i></h2>
+				<h2 class="fw-bold mb-3 mb-md-4 mb-lg-5"><span class="gradient-title fw-800">Get in touch</span> <span class="pot">&rarr;</span></h2>
 
 				<p class="main-links">I am available for work in 2024. Have a project for me, any questions, or wish to make an order? You can email or visit my <a href="https://www.fiverr.com/uzabila" target="_blank">Fiverr</a> page.</p>
 
@@ -270,20 +245,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-4 my-auto">
-				<span class="fw-500 text-muted">uzabila.github.io</span>
+				<span class="fw-500 text-muted">Uzabila</span>
 			</div>
 			<div class="col-12 col-md-4 text-center my-auto">
-				<img src="./assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+				<img src="assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
 			</div>
 			<div class="col-12 col-md-4 my-auto text-end">
-				<span class="fw-500 text-muted">2008 - 2025 &copy; Uzabila</span>
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
 			</div>
 		</div>
 	</div>
 </footer>
 
-<script src="./assets/js/bootstrap.bundle.min.js"></script>
-<script src="./assets/js/app.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
 
   </body>
 </html>

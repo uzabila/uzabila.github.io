@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../assets/css/lightbox.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="../../assets/css/style.css">
+
+    <title>Портфолио &mdash; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+  
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../">
+				<img src="../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../services/">Услуги</a>
+					</li>
+
+                    <li class="nav-item">
+						<a class="nav-link" href="../portfolio/">Портфолио</a>
+					</li>
+
+                    <li class="nav-item">
+						<a class="nav-link" href="../docs/">Доки</a>
+					</li>
+
+                    <li class="nav-item">
+						<a class="nav-link" href="../terms/">Термины</a>
+					</li>
+
+                    <li class="nav-item">
+						<a class="nav-link" href="../book/">Книга</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../portfolio/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- end navbar section -->
+
+    <!-- PORTFOLIO -->
+    <div class="container" id="portfolio">
+        <div class="row">
+			<div class="col-12">
+				<p><a href="../" class="link-secondary">Дом</a> &mdash; Сделано</p>
+                <p>Моё неполное портфолио, некоторые работы ещё не добавлены, некоторые перенесены в архив. Завершённые работы добавляю по мере наличия времени, сил и возможностей.</p>
+			</div>
+		</div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 main-links" id="myBtnContainer">
+                <button class="btn btn-outline-dark active me-3" onclick="filterSelection('all')">Всё</button>
+                <button class="btn btn-outline-dark me-3" onclick="filterSelection('logotypes')">Логотипы</button>
+                <button class="btn btn-outline-dark me-3" onclick="filterSelection('branding')">Брендинг</button>
+                <button class="btn btn-outline-dark me-3" onclick="filterSelection('graphics')">Дизайн и графика</button>
+                <button class="btn btn-outline-dark me-3" onclick="filterSelection('layouts')">Верстка и фронтенд</button>
+                <button class="btn btn-outline-dark" onclick="filterSelection('wordpress')">WordPress и сайты</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Gallery Grid -->
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12">
+                <span class="text-muted"><small><svg role="img" aria-hidden="true" data-icon="arrowsSort" class="sort-sortIcon sort-arrows" viewBox="0 0 24 24" name="arrowsSort"><path d="M8 19V4M16 20V5M5 7l3-3 3 3M19 17l-3 3-3-3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg> Дата по убыванию</small></span>
+            </div>
+        </div>
+        <div class="row gy-4">
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/mobileapp.jpg" data-lightbox="mobileapp" data-title="mobileapp"><img src="../../images/mobileapp.jpg" alt="mobileapp" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Mobile App <sup>105</sup></h5>
+                    <p><small>Layout for Mobile App<br><a href="../../portfolio/mobileapp/">Layout</a></small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/pinboards.jpg" data-lightbox="pinboards" data-title="pinboards"><img src="../../images/pinboards.jpg" alt="pinboards" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Pinboards <sup>104</sup></h5>
+                    <p><small>Design and Layout<br><a href="../../portfolio/pinboards/">Layout</a></small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/simpleforms.jpg" data-lightbox="simpleforms" data-title="simpleforms"><img src="../../images/simpleforms.jpg" alt="simpleforms" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Simple Forms <sup>103</sup></h5>
+                    <p><small>Few Simple Forms<br><a href="../../portfolio/simpleforms/">Layout</a></small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/joblist.jpg" data-lightbox="joblist" data-title="joblist"><img src="../../images/joblist.jpg" alt="joblist" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Job List Layout <sup>102</sup></h5>
+                    <p><small>Home and Overview Pages<br><a href="../../portfolio/joblist/">Layout</a></small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/adminpanel.jpg" data-lightbox="adminportal" data-title="adminportal"><img src="../../images/adminpanel.jpg" alt="adminportal" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Admin Layout <sup>101</sup></h5>
+                    <p><small>Administration Panel<br><a href="../../portfolio/adminportal/">Layout</a></small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS --> 
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/rosmg.jpg" data-lightbox="rosmg" data-title="Российская Медиа-Группа"><img src="../../images/rosmg.jpg" alt="Российская Медиа-Группа" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Российская Медиа-Группа <sup>100</sup></h5>
+                    <p><small>Дизайн и верстка лендинга<br><a href="../../portfolio/rosmg/">Верстка</a> | <a href="https://rosmg.ru" target="_blank">Сайт</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/wpsamurai.jpg" data-lightbox="wpsamurai" data-title="WPsamurai"><img src="../../images/wpsamurai.jpg" alt="WPsamurai" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">WPsamurai <sup>99</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/rft.jpg" data-lightbox="rft" data-title="РФТ"><img src="../../images/rft.jpg" alt="РФТ" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">РФТ <sup>98</sup></h5>
+                    <p><small>Логотипы для Фонда</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/supsurfing.jpg" data-lightbox="supsurfing" data-title="Supsurfing"><img src="../../images/supsurfing.jpg" alt="Supsurfing" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Supsurfing <sup>97</sup></h5>
+                    <p><small>Логотипы для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/read.jpg" data-lightbox="read" data-title="Read.ru"><img src="../../images/read.jpg" alt="Read.ru" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Read.ru <sup>96</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/multiverse.jpg" data-lightbox="Multiverse" data-title="Multiverse"><img src="../../images/multiverse.jpg" alt="Multiverse" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Multiverse <sup>95</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/gutallini.jpg" data-lightbox="gutallini" data-title="Гуталлини"><img src="../../images/gutallini.jpg" alt="Гуталлини" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Гуталлини <sup>94</sup></h5>
+                    <p><small>Дизайн и верстка лендинга<br><a href="../../portfolio/gutallini/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- WORDPRESS -->
+            <div class="column col-12 col-md-3 wordpress">
+                <div class="content">
+                    <a href="../../images/ng-group.jpg" data-lightbox="ng-group" data-title="NG Group"><img src="../../images/ng-group.jpg" alt="NG Group" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">NG Group <sup>93</sup></h5>
+                    <p><small>Верстка и тема WordPress<br><a href="../../portfolio/ng-group/" target="_blank">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/dom4home.jpg" data-lightbox="dom4home" data-title="Dom4Home"><img src="../../images/dom4home.jpg" alt="Dom4Home" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Dom4Home <sup>92</sup></h5>
+                    <p><small>Дизайн интернет-магазина</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/dolgoletie.jpg" data-lightbox="dolgoletie" data-title="Московское долголетие"><img src="../../images/dolgoletie.jpg" alt="Московское долголетие" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Московское долголетие <sup>91</sup></h5>
+                    <p><small>Баннер</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/hiking.jpg" data-lightbox="hiking" data-title="Hiking"><img src="../../images/hiking.jpg" alt="Hiking" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Hiking <sup>90</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- WORDPRESS -->
+            <div class="column col-12 col-md-3 wordpress">
+                <div class="content">
+                    <a href="../../images/fiziotera.jpg" data-lightbox="fiziotera" data-title="Физиотера"><img src="../../images/fiziotera.jpg" alt="Физиотера" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Физиотера <sup>89</sup></h5>
+                    <p><small>Сайт на WordPress<br><a href="https://www.behance.net/gallery/143492425/Fiziotera-Website" target="_blank">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/rabbit.jpg" data-lightbox="rabbit" data-title="Кролик"><img src="../../images/rabbit.jpg" alt="Кролик" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Кролик <sup>88</sup></h5>
+                    <p><small>Векторная иллюстрация</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/sergei-ermilov.jpg" data-lightbox="sergei-ermilov" data-title="Иллюстрация"><img src="../../images/sergei-ermilov.jpg" alt="Иллюстрация" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Аватар <sup>87</sup></h5>
+                    <p><small>Векторная иллюстрация</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/cska.jpg" data-lightbox="cska" data-title="ЦСКА"><img src="../../images/cska.jpg" alt="ЦСКА" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">ЦСКА <sup>86</sup></h5>
+                    <p><small>Логотип волейбольного клуба</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/beach-volley-ru.jpg" data-lightbox="beach-volley-ru" data-title="Beach Volley"><img src="../../images/beach-volley-ru.jpg" alt="Beach Volley" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Beach Volley <sup>85</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/revenis.jpg" data-lightbox="revenis" data-title="Revenis"><img src="../../images/revenis.jpg" alt="Revenis" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Revenis <sup>84</sup></h5>
+                    <p><small>Сайт компании<br><a href="../../portfolio/revenis/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- WEBSITES -->
+            <div class="column col-12 col-md-3 wordpress">
+                <div class="content">
+                    <a href="../../images/safe-haven-site.jpg" data-lightbox="safe-haven-site" data-title="Safe Haven"><img src="../../images/safe-haven-site.jpg" alt="Safe Haven" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Safe Haven <sup>83</sup></h5>
+                    <p><small>Сайт компании<br><a href="https://safehavencalifornia.com/" target="_blank">Перейти</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/pensiolog.jpg" data-lightbox="Пенсиолог" data-title="pensiolog"><img src="../../images/pensiolog.jpg" alt="Пенсиолог" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Пенсиолог <sup>82</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/inter-site.jpg" data-lightbox="inter-site" data-title="Сайт ИнтерТеннис"><img src="../../images/inter-site.jpg" alt="Сайт ИнтерТеннис" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Сайт "ИнтерТеннис" <sup>81</sup></h5>
+                    <p><small>Верстка сайта академии<br><a href="../../portfolio/intertennis/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/inter.jpg" data-lightbox="inter" data-title="InterTennis"><img src="../../images/inter.jpg" alt="InterTennis" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">InterTennis <sup>80</sup></h5>
+                    <p><small>Логотип академии тенниса</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/inopost-site.jpg" data-lightbox="inopost-site" data-title="Сайт Инопост"><img src="../../images/inopost-site.jpg" alt="Сайт Инопост" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Сайт "Инопост" <sup>79</sup></h5>
+                    <p><small>Верстка сайта медиа-издания<br><a href="../../portfolio/inopost/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/inopost.jpg" data-lightbox="inopost" data-title="ИноПост"><img src="../../images/inopost.jpg" alt="ИноПост" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">ИноПост <sup>78</sup></h5>
+                    <p><small>Логотип медиа-издания</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/safe-haven-logo.jpg" data-lightbox="safe-haven-logo" data-title="Safe Haven"><img src="../../images/safe-haven-logo.jpg" alt="Safe Haven" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Safe Haven <sup>77</sup></h5>
+                    <p><small>Логотип компании</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/shark.jpg" data-lightbox="shark" data-title="Акула"><img src="../../images/shark.jpg" alt="Акула" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Акула <sup>76</sup></h5>
+                    <p><small>Векторная графика</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/palm-trees.jpg" data-lightbox="palm-trees" data-title="Пальмы"><img src="../../images/palm-trees.jpg" alt="Пальмы" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Пальмы <sup>75</sup></h5>
+                    <p><small>Варианты логотипов</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/surfboard.jpg" data-lightbox="surfboard" data-title="Surf"><img src="../../images/surfboard.jpg" alt="SKMBRD" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Surf <sup>74</sup></h5>
+                    <p><small>Дизайн для футболок</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/skmbrd-logo.jpg" data-lightbox="skmbrd-logo" data-title="SKMBRD"><img src="../../images/skmbrd-logo.jpg" alt="SKMBRD" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">SKMBRD <sup>73</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/eqonom-logo.jpg" data-lightbox="eqonom-logo" data-title="eQonom"><img src="../../images/eqonom-logo.jpg" alt="eQonom" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">eQonom <sup>72</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/digapp-logo.jpg" data-lightbox="digapp-logo" data-title="Digapp"><img src="../../images/digapp-logo.jpg" alt="Digapp" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Digapp <sup>71</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/cloud.jpg" data-lightbox="cloud" data-title="Cloud Shaka"><img src="../../images/cloud.jpg" alt="Cloud Shaka" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Cloud Shaka <sup>70</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/lavka.jpg" data-lightbox="lavka" data-title="Лавка Енота"><img src="../../images/lavka.jpg" alt="Лавка Енота" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Лавка Енота <sup>69</sup></h5>
+                    <p><small>Верстка мобильного лендинга<br><a href="../../portfolio/dayzday/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/boomm.jpg" data-lightbox="boomm" data-title="boomm"><img src="../../images/boomm.jpg" alt="boomm" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">boomm <sup>68</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/victory.jpg" data-lightbox="victory" data-title="Виктория"><img src="../../images/victory.jpg" alt="Виктория" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Виктория <sup>67</sup></h5>
+                    <p><small>Логотип женского волейбольного клуба</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/e-commerce.jpg" data-lightbox="e-commerce" data-title="eCommerce"><img src="../../images/e-commerce.jpg" alt="eCommerce" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">eCommerce <sup>66</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/se.jpg" data-lightbox="se" data-title="Search Engines"><img src="../../images/se.jpg" alt="Search Engines" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Search Engines <sup>65</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- BRANDING -->        
+            <div class="column col-12 col-md-3 branding">
+                <div class="content">
+                    <a href="../../images/eqonom.jpg" data-lightbox="eqonom" data-title="eQonom"><img src="../../images/eqonom.jpg" alt="eQonom" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">eQonom <sup>64</sup></h5>
+                    <p><small>Брендинг компании - <a href="https://www.behance.net/gallery/133085309/eQonom" target="_blank">Подробнее</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/lemon.jpg" data-lightbox="lemon" data-title="Lemony"><img src="../../images/lemon.jpg" alt="Lemony" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Lemony <sup>63</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/christmass.jpg" data-lightbox="christmass" data-title="Рождество"><img src="../../images/christmass.jpg" alt="Рождество" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Рождество <sup>62</sup></h5>
+                    <p><small>Векторная иллюстрация</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/sigma.jpg" data-lightbox="sigma" data-title="Novosigma"><img src="../../images/sigma.jpg" alt="Novosigma" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Novosigma <sup>61</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/tennis.jpg" data-lightbox="tennis" data-title="Tennis in Fire"><img src="../../images/tennis.jpg" alt="Tennis in Fire" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Tennis in Fire <sup>60</sup></h5>
+                    <p><small>Логотип для академии</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/arduino-plus.jpg" data-lightbox="arduino-plus" data-title="Ардуино+"><img src="../../images/arduino-plus.jpg" alt="Ардуино+" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Ардуино+ <sup>59</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/howtolook.jpg" data-lightbox="howtolook" data-title="HowtoLook"><img src="../../images/howtolook.jpg" alt="HowtoLook" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">HowtoLook <sup>58</sup></h5>
+                    <p><small>Логотип фешн-магазина</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/dayzday.jpg" data-lightbox="dayzday" data-title="DayZday"><img src="../../images/dayzday.jpg" alt="DayZday" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">DayZday <sup>57</sup></h5>
+                    <p><small>Верстка лендинга<br><a href="../../portfolio/dayzday/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/reply.jpg" data-lightbox="reply" data-title="Reply"><img src="../../images/reply.jpg" alt="Reply" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Reply <sup>56</sup></h5>
+                    <p><small>Логотип компании</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/umobila.jpg" data-lightbox="umobila" data-title="Umobila"><img src="../../images/umobila.jpg" alt="Umobila" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Umobila <sup>55</sup></h5>
+                    <p><small>Логотип магазина</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/bbo.jpg" data-lightbox="bbo" data-title="BestBuyOffer"><img src="../../images/bbo.jpg" alt="BestBuyOffer" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">BestBuyOffer <sup>54</sup></h5>
+                    <p><small>Логотип магазина</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/character.jpg" data-lightbox="character" data-title="Персонаж"><img src="../../images/character.jpg" alt="Персонаж" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Персонаж <sup>53</sup></h5>
+                    <p><small>Векторная иллюстрация</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/blogwp-logo.jpg" data-lightbox="blogwp-logo" data-title="BlogWP"><img src="../../images/blogwp-logo.jpg" alt="BlogWP" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">BlogWP <sup>52</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/rangers.jpg" data-lightbox="rangers" data-title="New York Rangers"><img src="../../images/rangers.jpg" alt="New York Rangers" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">New York Rangers <sup>51</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/blogwp.jpg" data-lightbox="blogwp" data-title="BlogWP"><img src="../../images/blogwp.jpg" alt="BlogWP" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">BlogWP <sup>50</sup></h5>
+                    <p><small>Верстка лендинга<br><a href="../../portfolio/blogwp/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/protected.jpg" data-lightbox="protected" data-title="Protected"><img src="../../images/protected.jpg" alt="Protected" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Protected <sup>49</sup></h5>
+                    <p><small>Логотип компании</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/cat.jpg" data-lightbox="cat" data-title="Cat"><img src="../../images/cat.jpg" alt="Cat" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Cat <sup>48</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- BRANDING -->        
+            <div class="column col-12 col-md-3 branding">
+                <div class="content">
+                    <a href="../../images/digapp.jpg" data-lightbox="digapp" data-title="Digapp"><img src="../../images/digapp.jpg" alt="Digapp" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Digapp <sup>47</sup></h5>
+                    <p><small>Брендинг компании - <a href="https://www.behance.net/gallery/132989791/Digapp" target="_blank">Подробнее</a></small></p>
+                </div>
+            </div>
+
+            <!-- --------- -->
+            <!-- LOGOTYPES -->
+            <!-- --------- -->
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/fashion.jpg" data-lightbox="fashion" data-title="Jewelry"><img src="../../images/fashion.jpg" alt="Jewelry" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Jewelry <sup>46</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/detected.jpg" data-lightbox="detected" data-title="Detected"><img src="../../images/detected.jpg" alt="Detected" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Detected <sup>45</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/car-travel.jpg" data-lightbox="car-travel" data-title="Travel Boxes"><img src="../../images/car-travel.jpg" alt="Travel Boxes" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Travel Boxes <sup>44</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/3d-house.jpg" data-lightbox="3d-house" data-title="3D дом"><img src="../../images/3d-house.jpg" alt="3D дом" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">3D дом <sup>43</sup></h5>
+                    <p><small>Векторная изометрия</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/watchanddo.jpg" data-lightbox="watchanddo" data-title="Смотри и делай"><img src="../../images/watchanddo.jpg" alt="Смотри и делай" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Смотри и делай <sup>42</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/cosmos.jpg" data-lightbox="cosmos" data-title="Cosmos"><img src="../../images/cosmos.jpg" alt="Cosmos" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Cosmos <sup>41</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/deer.jpg" data-lightbox="deer" data-title="Deer"><img src="../../images/deer.jpg" alt="Deer" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Deer Company <sup>40</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/word.jpg" data-lightbox="word" data-title="Word"><img src="../../images/word.jpg" alt="Word" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Word <sup>39</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/snake.jpg" data-lightbox="snake" data-title="Snake"><img src="../../images/snake.jpg" alt="Snake" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Snake <sup>38</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/beach-volley.jpg" data-lightbox="beach-volley" data-title="Пляжный волейбол"><img src="../../images/beach-volley.jpg" alt="Пляжный волейбол" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Пляжный волейбол <sup>37</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/tennis-love.jpg" data-lightbox="tennis-love" data-title="Tennis Love"><img src="../../images/tennis-love.jpg" alt="Tennis Love" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Tennis Love <sup>36</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/plane.jpg" data-lightbox="plane" data-title="Airplane"><img src="../../images/plane.jpg" alt="Airplane" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Airplane <sup>35</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/the-beach.jpg" data-lightbox="the-beach" data-title="The Beach"><img src="../../images/the-beach.jpg" alt="The Beach" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">The Beach <sup>34</sup></h5>
+                    <p><small>Лого для центра пляжных видов спорта</small></p>
+                </div>
+            </div>
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/bird.jpg" data-lightbox="bird" data-title="Birdy"><img src="../../images/bird.jpg" alt="Birdy" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Birdy <sup>33</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/ice-hockey.jpg" data-lightbox="ice-hockey" data-title="Ice Hockey"><img src="../../images/ice-hockey.jpg" alt="Ice Hockey" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Хоккеист <sup>32</sup></h5>
+                    <p><small>Логотип</small></p>
+                </div>
+            </div>
+
+            <!-- -------- -->
+            <!-- BRANDING -->
+            <!-- -------- -->
+        
+            <div class="column col-12 col-md-3 branding">
+                <div class="content">
+                    <a href="../../images/skmbrd.jpg" data-lightbox="skmbrd" data-title="SKMBRD"><img src="../../images/skmbrd.jpg" alt="SKMBRD" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">SKMBRD <sup>31</sup></h5>
+                    <p><small>Брендинг для серф-компании - <a href="https://www.behance.net/gallery/133146821/SKMBRD" target="_blank">Подробнее</a></small></p>
+                </div>
+            </div>
+            
+            <!-- -------- -->
+            <!-- GRAPHICS -->
+            <!-- -------- -->
+
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/infinity-color-rb.jpg" data-lightbox="infinity-color-rb" data-title="Infinity"><img src="../../images/infinity-color-rb.jpg" alt="Infinity" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Infinity <sup>30</sup></h5>
+                    <p><small>Векторная графика</small></p>
+                </div>
+            </div>
+
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/wgood.jpg" data-lightbox="wgood" data-title="W"><img src="../../images/wgood.jpg" alt="W" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">W <sup>29</sup></h5>
+                    <p><small>Векторная графика</small></p>
+                </div>
+            </div>
+        
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/2on2-banner.jpg" data-lightbox="2on2-banner" data-title="Баннер"><img src="../../images/2on2-banner-small.jpg" alt="Баннер" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Баннер <sup>28</sup></h5>
+                    <p><small>Баннер для "2on2"</small></p>
+                </div>
+            </div>
+
+            <!-- ------- -->
+            <!-- LAYOUTS -->
+            <!-- ------- -->
+
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/pgrp.jpg" data-lightbox="pgrp" data-title="PGRP"><img src="../../images/pgrp.jpg" alt="PGRP" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">PGRP <sup>27</sup></h5>
+                    <p><small>Верстка лендинга<br><a href="../../portfolio/pgrp/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- --------- -->
+            <!-- WORDPRESS -->
+            <!-- --------- -->
+
+            <div class="column col-12 col-md-3 wordpress">
+                <div class="content">
+                    <a href="../../images/hockeychooser.jpg" data-lightbox="hockeychooser" data-title="HockeyChooser"><img src="../../images/hockeychooser.jpg" alt="HockeyChooser" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">HockeyChooser <sup>26</sup></h5>
+                    <p><small>Сайт на WordPress<br><a href="https://hockeychooser.com/" target="_blank">Перейти</a></small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/livehockey.jpg" data-lightbox="livehockey" data-title="LiveHockey"><img src="../../images/livehockey.jpg" alt="LiveHockey" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">LiveHockey <sup>25</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/hockeyexpert.jpg" data-lightbox="hockeyexpert" data-title="HockeyExpert"><img src="../../images/hockeyexpert.jpg" alt="HockeyExpert" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">HockeyExpert <sup>24</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/rtc.jpg" data-lightbox="rtc" data-title="РТК"><img src="../../images/rtc.jpg" alt="РТК" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">РТК <sup>23</sup></h5>
+                    <p><small>Логотип для компании</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/alexey.jpg" data-lightbox="alexey" data-title="Аватар"><img src="../../images/alexey.jpg" alt="Аватар" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Аватар <sup>22</sup></h5>
+                    <p><small>Векторная иллюстрация</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/novosigma-old.jpg" data-lightbox="novosigma-old" data-title="Новосигма"><img src="../../images/novosigma-old.jpg" alt="Новосигма" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Новосигма <sup>21</sup></h5>
+                    <p><small>Логотип для компании</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/rostennis.jpg" data-lightbox="rostennis" data-title="Ростеннис"><img src="../../images/rostennis.jpg" alt="Ростеннис" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Ростеннис <sup>20</sup></h5>
+                    <p><small>Логотип для Академии</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/220.jpg" data-lightbox="220" data-title="220"><img src="../../images/220.jpg" alt="Postsite" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">220 <sup>19</sup></h5>
+                    <p><small>Логотип для интернет-магазина</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/postsite.jpg" data-lightbox="postsite" data-title="Postsite"><img src="../../images/postsite.jpg" alt="Postsite" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Postsite <sup>18</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/soloway.jpg" data-lightbox="soloway" data-title="Soloway"><img src="../../images/soloway.jpg" alt="Soloway" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Soloway <sup>17</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/stanmart.jpg" data-lightbox="stanmart" data-title="Stanmart"><img src="../../images/stanmart.jpg" alt="Stanmart" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Stanmart <sup>16</sup></h5>
+                    <p><small>Логотип для интернет-магазина</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/revenis-logo.jpg" data-lightbox="revenis-logo" data-title="Revenis"><img src="../../images/revenis-logo.jpg" alt="Revenis" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Revenis <sup>15</sup></h5>
+                    <p><small>Логотип для компании</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/likecoin.jpg" data-lightbox="likecoin" data-title="Like Coin"><img src="../../images/likecoin.jpg" alt="Like Coin" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Like Coin <sup>14</sup></h5>
+                    <p><small>Логотип криптовалюты</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/usability.jpg" data-lightbox="usability" data-title="Usability"><img src="../../images/usability.jpg" alt="Usability" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Usability <sup>13</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/bikefriends.jpg" data-lightbox="bikefriends" data-title="Bike Friends"><img src="../../images/bikefriends.jpg" alt="Bike Friends" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Bike Friends <sup>12</sup></h5>
+                    <p><small>Логотип вело-сервиса</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/novosigma.jpg" data-lightbox="Novosigma" data-title="novosigma"><img src="../../images/novosigma.jpg" alt="Novosigma" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Novosigma <sup>11</sup></h5>
+                    <p><small>Логотип компании</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/hockeyschool.jpg" data-lightbox="hockeyschool" data-title="HockeySchool"><img src="../../images/hockeyschool.jpg" alt="HockeySchool" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">HockeySchool <sup>10</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/discover.jpg" data-lightbox="discover" data-title="Discover"><img src="../../images/discover.jpg" alt="Discover" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Discover <sup>9</sup></h5>
+                    <p><small>Логотип сайта про путешествия</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/alexandra.jpg" data-lightbox="alexandra" data-title="Аватар"><img src="../../images/alexandra.jpg" alt="Аватар" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Аватар <sup>8</sup></h5>
+                    <p><small>Векторная иллюстрация</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/textila.jpg" data-lightbox="textila" data-title="Textila"><img src="../../images/textila.jpg" alt="Textila" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Textila <sup>7</sup></h5>
+                    <p><small>Логотип для интернет-магазина</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/xhockey.jpg" data-lightbox="xhockey" data-title="Xhockey"><img src="../../images/xhockey.jpg" alt="Xhockey" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Xhockey <sup>6</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- LAYOUTS -->
+            <div class="column col-12 col-md-3 layouts">
+                <div class="content">
+                    <a href="../../images/smolensk.jpg" data-lightbox="revenis" data-title="СмоленскМастер"><img src="../../images/smolensk.jpg" alt="СмоленскМастер" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">СмоленскМастер <sup>5</sup></h5>
+                    <p><small>Верстка лендинга<br><a href="../../portfolio/smolenskmaster/">Смотреть</a></small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/rvsn.jpg" data-lightbox="rvsn" data-title="Отрисовка"><img src="../../images/rvsn.jpg" alt="Отрисовка" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Эмблема <sup>4</sup></h5>
+                    <p><small>Отрисовка в векторе</small></p>
+                </div>
+            </div>
+
+            <!-- LOGOTYPES -->
+            <div class="column col-12 col-md-3 logotypes">
+                <div class="content">
+                    <a href="../../images/flower.jpg" data-lightbox="flower" data-title="Flower"><img src="../../images/flower.jpg" alt="Textila" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Flower <sup>3</sup></h5>
+                    <p><small>Логотип для сайта</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/game-field.jpg" data-lightbox="game-field" data-title="Игровое поле"><img src="../../images/game-field.jpg" alt="Игровое поле" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Игровое поле <sup>2</sup></h5>
+                    <p><small>Отрисовка в векторе</small></p>
+                </div>
+            </div>
+
+            <!-- GRAPHICS -->
+            <div class="column col-12 col-md-3 graphics">
+                <div class="content">
+                    <a href="../../images/karta.jpg" data-lightbox="karta" data-title="Локация"><img src="../../images/karta.jpg" alt="Локация" class="img-fluid mb-3 border rounded"></a>
+                    <h5 class="mb-0">Локация <sup>1</sup></h5>
+                    <p><small>Векторная изометрия</small></p>
+                </div>
+            </div>
+
+        <!-- END GRID -->
+        </div>
+    </div>
+    <!-- END PORTFOLIO -->
+
+    <section id="contacts" class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 col-md-6">
+                    <h2 class="fw-bold mb-3 mb-md-4 mb-lg-5"><span class="gradient-title fw-800">Связь со мной</span> <i class="bi bi-arrow-right pot"></i></h2>
+    
+                    <p class="main-links">Я готов к работе. У вас есть проект для меня, вопросы или вы хотите сделать заказ? Вы можете написать мне на электронную почту или посетить мою страницу на <a href="https://kwork.ru/user/uzabila?ref=330782" target="_blank">Кворке</a>.</p>
+    
+                    <p class="social-links pt-4">
+                        <a href="https://github.com/uzabila" target="_blank" title="GitHub" class="me-2"><img src="../../assets/images/gh.svg" alt="GitHub" width="24" height="24"></a>
+                        <a href="https://www.behance.net/uzabila" target="_blank" title="Behance" class="me-2"><img src="../../assets/images/bh.svg" alt="Behance" width="24" height="24"></a> 
+                        <a href="https://dribbble.com/uzabila" target="_blank" title="Dribbble" class="me-0"><img src="../../assets/images/dribbble.svg" alt="Dribbble" width="24" height="24"></a>
+                    </p>
+                    
+                </div>
+                <div class="col-12 col-md-6 text-start text-md-end">
+                    <h3 class="fw-bold h1">uzabila@yandex.ru</h3>
+                </div>
+            </div>	
+        </div>
+    </section>
+    
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 my-auto">
+                    <span class="fw-500 text-muted">Uzabila</span>
+                </div>
+                <div class="col-12 col-md-4 text-center my-auto">
+                    <img src="../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+                </div>
+                <div class="col-12 col-md-4 my-auto text-end">
+                    <span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/app.js"></script>
+    <script src="../../assets/js/lightbox.js"></script>
+
+    <script>
+        filterSelection("all")
+            function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("column");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+            }
+
+            function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+            }
+
+            function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                }
+            }
+            element.className = arr1.join(" ");
+            }
+
+
+            // Add active class to the current button (highlight it)
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+            }
+    </script>
+    
+      </body>
+    </html>
