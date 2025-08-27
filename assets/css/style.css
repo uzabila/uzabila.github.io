@@ -25,6 +25,14 @@ ul {
     margin-bottom: 2em;
 }
 
+.blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 7px solid #ccc;
+}
+
 .divider-50 {
     clear: both;
     height: 50px;
