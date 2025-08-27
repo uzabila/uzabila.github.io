@@ -581,16 +581,20 @@ ul li code {
     background-color: #f6f6ee;
 }
 
-.docs-archive h3 a {
+.docs-archive h4 {
+    margin-bottom: .65em;
+}
+
+.docs-archive h4 a {
     color: black;
     text-decoration: none;
     border-bottom: 1px solid #000000;
     transition: all .4s ease;
     font-size: .825em;
-    font-weight: 400;
+    font-weight: 400;    
 }
 
-.docs-archive h3 a:hover {
+.docs-archive h4 a:hover {
     color: black;
     text-decoration: none;
     font-weight: 400;

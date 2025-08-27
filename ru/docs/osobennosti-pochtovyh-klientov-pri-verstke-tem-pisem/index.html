@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../../assets/css/style.css">
+
+    <title>Особенности почтовых клиентов при верстке тем писем &#8212; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+		<div class="col-12 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">Особенности почтовых клиентов при верстке тем писем</h1>
+
+<p>Собираю большой материал про особенности почтовых клиентов, которые нужно учитывать при верстке и дизайне тем и E-mail писем.</p>
+
+<p>Статистика почтовых клиентов</p>
+
+<figure><img src="images/popular-email-platforms.png" alt="" class="img-fluid"/></figure>
+
+<p>Как то так.</p>
+
+<figure><img src="images/media.jpg" alt="" class="img-fluid"/></figure>
+
+<p>Не используют медиа запросы</p>
+
+<p>Gmail App Mail.ru App Yandex App<br>Mailbox App Yahoo App Windows Phone</p>
+
+<ul>
+	<li>Outlook (android) — неверный расчет процентов для ширины многоколоночных элементов. Погрешность около 0.2%. Мелочь, но противная.</li>
+	<li>Yahoo! (iOS) — нет поддержки CSS3 (не хватает border-radius)</li>
+	<li>Google Inbox (iOS, android) — еще более непредсказуемое поведение свойства width, нежели в gmail. В остальном принцип рендеринга схож. Нет поддержки медиазапросов.</li>
+	<li>Gmail (iOS, android) — свойство width для блочных элементов и картинок в принципе не поддерживается. В асимметричных по колонкам письмах начинается фарш. Если вы шлете неадаптивное письмо, то клиент пытается его адаптировать по собственным алгоритмам. На Андроиде получается тоже фарш. На iOS есть возможность просмотреть неадаптированный оригинал. Нет поддержки медиазапросов.</li>
+	<li>Mail.ru (android, iOS) — в целом ок. Отвратная реализация переноса текста. При трансформации номера телефона в ссылку(и вообще любая трансформация текста в ссылку) сама ссылка не подхватывает цвет оформления из css. Нет поддержки медиазапросов.</li>
+	<li>My.com mail — движок идентичен приложению mail.ru</li>
+	<li>Yandex mail (web, android) — нет поддержки медиазапросов. На андроид клиенте были замечены погрешности при расчете ширины многоколоночных элементов.</li>
+	<li></li>
+	<li>Sparrow — был идеальным почтовым клиентом за исключением того, что его интерфейс не менялся еще со времен 4-го айфона. Ныне выпилен из эппстора.</li>
+	<li>Apple Mail (iOS) — body имеет железобетонный margin:15px; Его никак не победить.</li>
+	<li>Mailbox (iOS, android) — в целом прекрасен. Но базовые значения body равны нулю, как и у всех яблочных почтовых клиентов кроме Аутлка и Apple mail. Тем самым все еще уступает Аутлуку.</li>
+	<li>Android Mail — Нареканий нет, за исключением рендеринга тех, картинок, исходный размер которых превышает указанный в верстке. Через мои руки прошел десяток телефонов на андроиде и везде, во всех почтовых клиентах на андроиде есть артефакты на таких вот картинках.</li>
+</ul>
+
+<h2>Универсальные HTML теги для верстки</h2>
+
+<figure><img src="images/ver5.png" alt="" class="img-fluid"/></figure>
+
+<h2>Базовые шрифты для использования</h2>
+
+<figure><img src="images/fonts.jpg" alt="" class="img-fluid"/></figure>
+
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 25 августа 2025 в 14:35</span><br>Теги: Email
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">Uzabila</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/js/app.js"></script>
+	<script src="../../../assets/js/prism.js"></script>	
+
+  </body>
+</html>
