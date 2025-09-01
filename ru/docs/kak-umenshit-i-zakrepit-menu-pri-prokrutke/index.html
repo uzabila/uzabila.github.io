@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="../../../assets/css/prism.css">
 	<link rel="stylesheet" href="../../../assets/css/style.css">
 
-    <title>Включаем файлы в HTML-страницу с помощью JavaScript &#8212; Uzabila</title>
+    <title>Как уменьшить и закрепить навигационное меню при прокрутке &#8212; Uzabila</title>
   </head>
 <body class="position-relative">
  <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
@@ -85,56 +85,113 @@
 	<div class="row mb-3 mb-md-4 mb-lg-5">
 		<div class="col-12 single-content-column">
 			<p><a href="../" class="link-secondary">Доки</a></p>
-			<h1 class="fw-600">Включаем файлы в HTML-страницу с помощью JavaScript</h1>
+			<h1 class="fw-600">Как уменьшить и закрепить навигационное меню при прокрутке</h1>
 
-<p>Рассмотрим как с помощью JavaScript включить файлы хедера и футера в несколько html-страниц.</p>
+<p>Поговорим о том, как изменить размер навигационной панели при прокрутке с помощью CSS и JavaScript и закрепить её сверху экрана.</p>
 
-<p>Для сайтов на ванильном стеке HTML/CSS/Javascript часто возникает необходимость создать общие страницы header.html и footer.html, которые будут включены в другие html страниц.</p>
+<h2>Что будем делать</h2>
 
-<p>Например, у нас сайт из нескольких страниц — about.html, index.html и contacts.html и мы хотим переиспользовать в них наш подвал и шапку, а не копировать код постоянно во все страницы.</p>
+<p>Итоговый вариант я отобразил в CodePen:</p>
 
-<p>Для решения этого вопроса мы можем использовать JavaScript. Есть способ сделать это, используя только HTML и JavaScript. Используем следующее.</p>
+<div><iframe id="cp_embed_xxBYGLv" src="//codepen.io/anon/embed/xxBYGLv?height=450&amp;theme-id=1&amp;slug-hash=xxBYGLv&amp;default-tab=result" height="450" scrolling="no" frameborder="0" allowfullscreen allowpaymentrequest name="CodePen Embed xxBYGLv" title="CodePen Embed xxBYGLv" class="cp_embed_iframe" style="width:100%;overflow:hidden">CodePen Embed Fallback</iframe></div>
 
-<p>В JavaScript это возможно реализовать с помощью jQuery.</p>
+<h2>Шаг 1. Добавляем HTML</h2>
 
-<p>Поместите этот код в вашем файле <strong>index.html</strong>:</p>
+<p>Создадим панель навигации.</p>
 
-<pre><code class="language-html">&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;&lt;/title&gt;
-&lt;script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"&gt;
-&lt;/script&gt;
-&lt;script&gt; 
-$(function(){
-  $("#header").load("header.html"); 
-  $("#footer").load("footer.html"); 
-});
-&lt;/script&gt; 
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div id="header"&gt;&lt;/div&gt;
+<pre><code class="language-html">&lt;div id="navbar"&gt;
+  &lt;a href="#default" id="logo"&gt;CompanyLogo&lt;/a&gt;
+  &lt;div id="navbar-right"&gt;
+    &lt;a class="active" href="#home"&gt;Home&lt;/a&gt;
+    &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+    &lt;a href="#about"&gt;About&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 
-&lt;!--Remaining section--&gt;
+<h2>Шаг 2. Добавляем CSS</h2>
 
-&lt;div id="footer"&gt;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<p>Добавляем некоторые стили нашей панели навигации, чтобы всё смотрелось как в реальном проекте.</p>
 
-<p>И поместите этот код примера ниже в <strong>header.html</strong> и <strong>footer.html</strong>, в том же месте, что и <strong>index.html</strong>.</p>
+<pre><code class="language-css">/* Create a sticky/fixed navbar */
+#navbar {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 90px 10px; /* Large padding which will shrink on scroll (using JS) */
+  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+  position: fixed; /* Sticky/fixed navbar */
+  width: 100%;
+  top: 0; /* At the top */
+  z-index: 99;
+}
 
-<pre><code class="language-html">&lt;a href="http://www.google.com"&gt;click here for google&lt;/a&gt;</code></pre>
+/* Style the navbar links */
+#navbar a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
 
-<p>Основа всего — эта функция, которая говорит браузеру какой файл и куда размещать его содержимое:</p>
+/* Style the logo */
+#navbar #logo {
+  font-size: 35px;
+  font-weight: bold;
+  transition: 0.4s;
+}
 
-<pre><code class="language-javascript">$(function(){
-  $("#header").load("header.html"); 
-  $("#footer").load("footer.html"); 
-});</code></pre>
+/* Links on mouse-over */
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
 
-<p>Теперь при посещении <strong>index.html</strong> у вас будет возможность кликнуть по тегам ссылок, вы должны увидеть шапку и подвал. Но не забудьте в файлы header.html и footer.html что-то добавить перед тем как тестировать данный способ.</p>
+/* Style the active/current link */
+#navbar a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Display some links to the right */
+#navbar-right {
+  float: right;
+}
+
+/* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead of horizontally */
+@media screen and (max-width: 580px) {
+  #navbar {
+    padding: 20px 10px !important; /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
+  }
+  #navbar a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  #navbar-right {
+    float: none;
+  }
+}</code></pre>
+
+<h2>Шаг 3. Добавляем JavaScript</h2>
+
+<p>Когда пользователь прокручивает страницу вниз на 80 пикселей (80px) от верхней части документа, — мы изменяем высоту навигационной панели и размер шрифта логотипа.</p>
+
+<pre><code class="language-javascript">window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop &gt; 80 || document.documentElement.scrollTop &gt; 80) {
+    document.getElementById("navbar").style.padding = "30px 10px";
+    document.getElementById("logo").style.fontSize = "25px";
+  } else {
+    document.getElementById("navbar").style.padding = "80px 10px";
+    document.getElementById("logo").style.fontSize = "35px";
+  }
+}</code></pre>
+
+<p>На этом всё. Отличный прием на ванильном JS для верстки отличных сайтов.</p>
 
 		</div>
 	</div>
@@ -154,7 +211,7 @@ $(function(){
 			</div> 
 		</div>
 		<div class="col-12 col-md-5">
-			<span class="text-muted">Опубликовано 3 октября 2024 в 19:11</span><br>Теги: CSS, Email, HTML
+			<span class="text-muted">Опубликовано 30 января 2024 в 12:06</span><br>Теги: CSS, HTML, JavaScript
 		</div>
 	</div>
 </div>
