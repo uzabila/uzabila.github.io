@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../../assets/css/style.css">
+
+    <title>Лайфхак с прехедером для использования в шаблонах электронных писем &#8212; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+		<div class="col-12 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">Лайфхак с прехедером для использования в шаблонах электронных писем</h1>
+
+<p>Лайфхак с прехедером писем (англ. — email preheader) или предварительным просмотром текста, который вы можете использовать в каждом электронном письме.</p>
+
+<p>Знаете ли вы, что существует хак для текста предварительного просмотра или прехедера, с помощью которого можно максимально эффективно использовать это ценное пространство электронной почты?</p>
+
+<p>Поскольку текст предварительного просмотра в папке «Входящие» содержит как минимум столько же символов, сколько и тема письма (а в некоторых случаях и больше), его бывает сложно оптимизировать. Это происходит потому, что почтовые клиенты всегда добавляют достаточно символов, чтобы заполнить все доступное пространство для текста предварительного просмотра (до 5 строк). </p>
+
+<figure><img src="images/email-preheader.jpg" alt="" class="img-fluid"></figure>
+
+<p>Это означает, что у вас остается два варианта:</p>
+
+<ol>
+<li>сделать длинный текст, что может привести к досадным обрезам почтовыми клиентами,</li>
+<li>сделать короткий текст, чтобы URL и другой «неоптимизированный» контент из ваших писем заполнил все пространство.</li>
+</ol>
+
+<p>Предлагаем вам малоизвестный третий вариант…</p>
+
+<h2>Хак для прехедера</h2>
+
+<p>Знаете ли вы, что после нужного объема текста предварительного просмотра можно создать белое пространство, чтобы почтовые клиенты не добавляли в содержимое прехедера другой отвлекающий текст или символы?</p>
+
+<p>В большинстве случаев все, что нужно сделать, — это добавить цепочку несоединяемых символов нулевой ширины (<code>&amp;#847;</code> и <code>&amp;zwnj;</code>) и неразрывных пробелов (<code>&amp;nbsp;</code>) после текста предварительного просмотра, который вы хотите отобразить. Повторение <code>&amp;#847;&amp;zwnj;&amp;nbsp</code>; заполняет все оставшееся пространство текста предварительного просмотра.</p>
+
+<div class="attention-blue"><strong>Справка</strong>. Прехедер&nbsp;письма (англ. — email preheader) — это фрагмент текста, который отображается в почтовом ящике сразу после имени отправителя и темы письма.</div>
+
+<p>Однако здесь есть свои нюансы. В некоторых случаях этот хак для предварительного просмотра может не сработать. Клиенты электронной почты постоянно меняются (в среднем каждые 1.2 дня), и он может работать не везде.</p>
+
+<p>Даже если хак для предварительного просмотра текста работает не во всех местах, это не повод прекращать его использование. Это просто означает, что хак предварительного просмотра текста следует рассматривать как прогрессивное улучшение — способ предоставить подписчикам лучший опыт, если у них есть почтовый клиент, который его поддерживает, — а не как хак, который работает везде.</p>
+
+<p>Будь то из-за ESP или неудачного дня для почтового клиента, в некоторых случаях вам придется повозиться с приведенным выше хаком для предварительного просмотра, чтобы убедиться, что он работает.</p>
+
+<p>Вот несколько способов сделать это:</p>
+
+<p>1. Марк Роббинс в своей библиотеке <strong>Good Email Code</strong> предлагает вариант, в котором он чередует HTML-сущность <code>&amp;#847;</code> и пробел в качестве превью-хака:</p>
+
+<pre><code class="language-html">&amp;#847; &amp;#847; &amp;#847; &amp;#847; &amp;#847; &amp;#847; &amp;#847; &amp;#847; &amp;#847; &amp;#847;</code></pre>
+
+<p>2. Мы также видели, как это делается путем добавления пробелов к оригинальному хаку:</p>
+
+<pre><code class="language-html">&amp;#847; &amp;zwnj; &amp;nbsp; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#847; &amp;zwnj; &amp;nbsp;</code></pre>
+
+<p>3. Чтобы получить наибольший охват, Марк Роббинс советует добавлять <code>&amp;#8199;</code> и <code>&amp;shy;</code>, поскольку эти HTML-сущности добавляют пробелы, которые все еще поддерживаются в Yahoo и iOS 16.4.</p>
+
+<p><strong>Итог</strong>. Если хак отображается в тексте предварительного просмотра, поиграйте с разными вариантами и попробуйте найти тот, который работает.</p>
+
+<p>Вы можете увидеть, куда вставлять код, в этом примере:</p>
+
+<pre><code class="language-html">&lt;div style="display: none; max-height: 0px; overflow: hidden;"&gt;
+Insert hidden preheader text here.
+&lt;/div&gt;
+   
+&lt;!-- Insert &amp;#847;&amp;zwnj;&amp;nbsp; hack after hidden preview text --&gt;
+&lt;div style="display: none; max-height: 0px; overflow: hidden;"&gt;
+&amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy; &amp;#847; &amp;zwnj; &amp;nbsp; &amp;#8199; &amp;shy;
+&lt;/div&gt;</code></pre>
+
+<h2>Предыстория хака для прехедера</h2>
+
+<p>Раньше текст прехедера состоял только из строки <code>&amp;zwnj;&amp;nbsp;</code>, но почтовое сообщество (и наше недавнее тестирование) обнаружило, что этот текст предварительного просмотра не работает с <strong>Yahoo Mail</strong>. Наш специалист по маркетингу электронной почты, Кэрин Слейтер, рекомендует использовать все 5 HTML-сущностей, чтобы <em>«охватить все базы и предложить своим подписчикам наилучший опыт, если он поддерживается»</em>.</p>
+
+<div class="attention-yellow">Важно! Поскольку почтовые клиенты довольно часто выпускают обновления, которые могут нарушить работу ваших писем, важно всегда проверять текст предварительного просмотра (и остальные письма)!</div>
+
+<p>Мы также хотели бы поблагодарить члена сообщества Litmus Райана Филда, который упомянул эту технику в 2016 году и назвал ее «суперстарым» хаком для текста прехедера. Возможно, это и так, но вряд ли кто-то его использовал.</p>
+
+<p>Почти <strong>35%</strong> респондентов нашего опроса в LinkedIn до сих пор не знают об этом методе.</p>
+
+<figure><img src="images/preview-text-hack-chart.png" alt="" class="img-fluid"></figure>
+
+<p>Будем надеяться, что использование хака для текста предварительного просмотра будет только расти.</p>
+
+<h2>Как бренды используют этот хак</h2>
+
+<p>Ищете вдохновение, как использовать этот трюк?</p>
+
+<p>Мы используем этот прием в наших электронных письмах <em>Litmus</em>, начиная с ежемесячной рассылки и <em>Litmus Weekly</em>, заканчивая анонсами продуктов и приглашениями на мероприятия. Вот как некоторые из них выглядят в Gmail:</p>
+
+<figure><img src="images/litmus-subject-lines-preview-texts-gmail.png" alt="" class="img-fluid"></figure>
+
+<p>Посмотрите еще несколько примеров того, как другие бренды успешно используют этот хак для оптимизации текста превью:</p>
+
+<figure><img src="images/preview-text-hack-mobile-email-examples.png" alt="" class="img-fluid"></figure>
+
+<h2>Влияет ли хак на доставляемость писем?</h2>
+
+<p>Хотя в сообществе и среди email-маркетологов есть опасения по поводу доставляемости писем при использовании этого хака, мы не сталкивались с какими-либо проблемами. Мы уже много лет используем хак с текстом предварительного просмотра в различных кампаниях и никогда не замечали негативного влияния на доставляемость. Более того, он может помочь в доставке, так как это может создать положительный опыт для подписчика, что приведет к вовлеченности.</p>
+
+<p>Но, как и в случае с большинством других сторон электронной почты, если вы хотите использовать этот хак, но беспокоитесь о том, как он может повлиять на доставку писем, — используйте A/B-тесты, чтобы увидеть, положительно ли реагируют ваши подписчики, и убедиться, что показатели доставляемости остаются стабильными.</p>
+
+<p>Популярность этого хака растет, но есть еще много брендов, которые пока его не используют. Так что пробуйте и смотрите, но никогда не оставляйте строку темы письма на произвол судьбы, поэтому возьмите под контроль и текст прехедера.</p>
+			
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 12 августа 2024 в 17:56</span><br>Теги: Email
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">Uzabila</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/js/app.js"></script>
+	<script src="../../../assets/js/prism.js"></script>	
+
+  </body>
+</html>
