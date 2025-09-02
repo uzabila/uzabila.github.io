@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../../assets/css/style.css">
+
+    <title>JAMstack для начинающих &#8212; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container-fluid">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+
+		<div class="col-12 col-lg-3">
+			<div class="content-blocks bg-light p-3">
+
+				<div>
+					<b>Содержание</b>
+				</div>
+
+				<div>
+					<span class="text-muted">1</span> <a href="#Vvedenie"><span>Введение</span></a>
+				</div>
+				<div>
+					<span class="text-muted">2</span> <a href="#Sostavlausie_JAMstack"><span>Составляющие JAMstack</span></a>
+					
+					<div class="px-3 pt-2">
+						<div>
+							<span class="text-muted">2.1</span> <a href="#Javascript"><span>Javascript</span></a>
+						</div>
+						<div>
+							<span class="text-muted">2.2</span> <a href="#API"><span>API</span></a>
+						</div>
+						<div>
+							<span class="text-muted">2.3</span> <a href="#Markup"><span>Markup</span></a>
+						</div>
+					</div>
+				</div>
+				
+				<div>
+					<span class="text-muted">3</span> <a href="#Hosting"><span>Хостинг</span></a>
+				</div>
+				<div>
+					<span class="text-muted">4</span> <a href="#Pocemu_JAMstack"><span>Почему JAMstack</span></a>
+					
+					<div class="px-3 pt-2">
+						<div>
+							<span class="text-muted">4.1</span> <a href="#Skorost"><span>Скорость</span></a>
+						</div>
+						<div>
+							<span class="text-muted">4.2</span> <a href="#Stoimost"><span>Стоимость</span></a>
+						</div>
+						<div>
+							<span class="text-muted">4.3</span> <a href="#Masstabiruemost"><span>Масштабируемость</span></a>
+						</div>
+						<div>
+							<span class="text-muted">4.4</span> <a href="#Obsluzivanie"><span>Обслуживание</span></a>
+						</div>
+					</div>
+				</div>
+				
+				<div>
+					<span class="text-muted">5</span> <a href="#Bezopasnost"><span>Безопасность</span></a>
+				</div>
+				<div>
+					<span class="text-muted">6</span> <a href="#Zavisimost_ot_API"><span>Зависимость от API</span></a>
+				</div>
+				<div>
+					<span class="text-muted">7</span> <a href="#Primery_JAMstack"><span>Примеры JAMstack</span></a>
+					
+					<div class="px-3 pt-2">
+						<div>
+							<span class="text-muted">7.1</span> <a href="#freecodecamporg"><span>freecodecamp.org</span></a>
+						</div>
+						<div>
+							<span class="text-muted">7.2</span> <a href="#impossiblefoodscom"><span>impossiblefoods.com</span></a>
+						</div>
+						<div>
+							<span class="text-muted">7.3</span> <a href="#webdev"><span>web.dev</span></a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<span class="text-muted">8</span> <a href="#Instrumenty"><span>Инструменты</span></a>
+					
+					<div class="px-3 pt-2">
+						<div>
+							<span class="text-muted">8.1</span> <a href="#Sozdanie_vasego_prilozenia"><span>Создание вашего приложения</span></a>
+						</div>
+						<div>
+							<span class="text-muted">8.2</span> <a href="#Obsluzivanie_vasego_prilozenia"><span>Обслуживание вашего приложения</span></a>
+						</div>
+						<div>
+							<span class="text-muted">8.3</span> <a href="#Delaem_prilozenie_dinamicnym"><span>Делаем приложение динамичным</span></a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<span class="text-muted">9</span> <a href="#Sozdanie_prilozenia"><span>Создание приложения</span></a>
+					<div class="px-3 pt-2">
+						<div>
+							<span class="text-muted">9.1</span> <a href="#Cto_budem_delat"><span>Что будем делать</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.2</span> <a href="#Planirovanie"><span>Планирование</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.3</span> <a href="#Sozdaem_novyj_proekt_Nextjs"><span>Создаем новый проект Next.js</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.4</span> <a href="#Ustanovka_Bootstrap_5"><span>Установка Bootstrap 5</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.5</span> <a href="#Axios"><span>Axios</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.6</span> <a href="#Sozdanie_vizuala"><span>Создание визуала</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.7</span> <a href="#Sozdaem_panel_navigacii"><span>Создаем панель навигации</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.8</span> <a href="#Sozdanie_interfejsa_UI"><span>Создание интерфейса (UI)</span></a>
+						</div>
+						<div>
+							<span class="text-muted">9.9</span> <a href="#Interfejs_UI_dla_odnogo_elementa_portfolio"><span>Интерфейс (UI) для одного элемента портфолио</span></a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<span class="text-muted">10</span> <a href="#Sozdanie_dvizka"><span>Создание движка</span></a>
+					
+					<div class="px-3 pt-2">
+						<div>
+							<span class="text-muted">10.1</span> <a href="#Ustanovka"><span>Установка</span></a>
+						</div>
+						<div>
+							<span class="text-muted">10.2</span> <a href="#Kollekcii"><span>Коллекции</span></a>
+						</div>
+						<div>
+							<span class="text-muted">10.3</span> <a href="#Razresenia"><span>Разрешения</span></a>
+						</div>
+						<div>
+							<span class="text-muted">10.4</span> <a href="#Dobavlenie_elementa_portfolio"><span>Добавление элемента портфолио</span></a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<span class="text-muted">11</span> <a href="#Frontend_ctenie_i_otobrazenie_dannyh"><span>Фронтенд: чтение и отображение данных</span></a>
+					
+					<div class="px-3 pt-2">
+						<div>
+							<span class="text-muted">11.1</span> <a href="#Polucenie_dannyh"><span>Получение данных</span></a>
+						</div>
+						<div>
+							<span class="text-muted">11.2</span> <a href="#Otobrazenie_dannyh"><span>Отображение данных</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-12 col-lg-9 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">JAMstack для начинающих</h1>
+
+<p>В этом руководстве мы рассмотрим что такое JAMstack, какие сайты создают веб-разработчики, как мы можем воспользоваться его преимуществами и даже создадим один проект по этой технологии в блоке «Практика».</p>
+
+<h2><span id="Vvedenie">Введение</span></h2>
+
+<p>JAMstack — это архитектура и философия программного обеспечения, которая придерживается следующих компонентов:</p>
+
+<ul>
+<li><strong>J</strong>avascript, </li>
+<li><strong>A</strong>PI,</li>
+<li><strong>M</strong>arkup.</li>
+</ul>
+
+<p>Если это звучит знакомо, то потому, что это так! Например, у вас React приложение, которое вы компилируете с Webpack и, в конечном счете, обслуживаете из S3? Да, это приложение JAMstack.</p>
+
+<p>Простой HTML файл, который не имеет JavaScript и буквально не делает ничего динамического? Да, это также приложение JAMstack.</p>
+
+<p>Если вы больше ориентируетесь на облачные технологии (например, <strong>AWS</strong>, <strong>GCP</strong>, <strong>Azure</strong>), вы, возможно, склонны думать о бессерверности и JAMstack как об одном и том же. Конечно, у них есть общие черты в философии управления ресурсами, например, в хостинге сайта на S3. Но приложение JAMstack не всегда будет бессерверным.</p>
+
+<p>Рассмотрим приложение, размещенное в статическом хранилище у выбранного вами облачного провайдера. Да, вы можете обслуживать приложение бессерверным способом, но вы можете иметь дело с API, использующим <strong>WordPress</strong> или <strong>Rails</strong>, которые, безусловно, не являются бессерверными.</p>
+
+<p>Сочетание этих философий может иметь большое значение, но их не следует путать и представлять как одно и то же.</p>
+
+<h2><span id="Sostavlausie_JAMstack">Составляющие JAMstack</span></h2>
+
+<p>Вернемся к стеку JAM: он обычно состоит из трех компонентов: Javascript, API и Markup. Его история связана с превращением термина «статический сайт» во что-то более значимое (и востребованное на рынке).</p>
+
+<p>Таким образом, хотя в конечном итоге конечным результатом является статический сайт, он расширен за счет включения первоклассных инструментов на каждом этапе.</p>
+
+<p>Хотя нет какого-либо определенного набора инструментов, которые вам нужно использовать, или каких-либо инструментов, кроме простого HTML, есть отличные примеры того, что может составлять каждую часть стека. Давайте немного углубимся в каждый компонент.</p>
+
+<h3><span id="Javascript">Javascript</span></h3>
+
+<p>Компонент, который, вероятно, проделал большую часть работы по популяризации JAMstack, — это <strong>Javascript</strong>. Наш любимый язык браузера позволяет нам предоставлять все динамические и интерактивные элементы, которых у нас могло бы не быть, если бы мы обслуживали простой HTML без него.</p>
+
+<p>Именно здесь вы часто будете видеть, как в игру вступают UI-фреймворки, такие как <strong>React</strong>, <strong>Vue</strong>, и новички, такие как <strong>Svelte</strong>.</p>
+
+<div>
+<figure><img src="images/react-component-example.jpg" alt="Пример &quot;Простой компонент&quot; с сайта reactjs.org" class="img-fluid"><figcaption>Пример «Простой компонент» с сайта reactjs.org</figcaption></figure></div>
+
+<p>Они делают создание приложений более простым и организованным, предоставляя API-интерфейсы компонентов и инструменты, которые компилируются в простой HTML-файл (или их набор).</p>
+
+<p>Эти HTML-файлы включают в себя группу ресурсов, таких как изображения, CSS и фактический JS, которые в конечном итоге передаются браузеру через ваш любимый CDN (сеть доставки контента).</p>
+
+<h3><span id="API">API</span></h3>
+
+<p>Использование сильных сторон <strong>API</strong> — это основа того, как сделать приложение JAMstack динамичным. Будь то аутентификация или поиск, ваше приложение будет использовать Javascript для отправки HTTP-запроса другому провайдеру, что в конечном итоге улучшит работу в той или иной форме.</p>
+
+<p>В Gatsby придумали фразу «контентная сетка», которая довольно хорошо описывает возможности.</p>
+
+<p>Вам не обязательно обращаться только к одному хосту для получения API, но вы можете обратиться ко многим, сколько вам нужно (но постарайтесь не переусердствовать).</p>
+
+<p>Например, если у вас есть безголовый (headless) <strong>WordPress</strong> API, в котором вы размещаете свои записи блога, учетную запись Cloudinary, в которой вы храните свои специализированные мультимедийные файлы, и Elasticsearch, который предоставляет функции поиска, все они работают вместе, чтобы предоставить качественный и единый опыт для людей, использующих ваш сайт.</p>
+
+<h3><span id="Markup">Markup</span></h3>
+
+<p>Markup — разметка. Это критическая часть. Будь то написанный от руки HTML или код, который компилируется в HTML, это первая часть, которую вы предоставляете клиенту. Это своего рода де-факто часть любого сайта, но то, как вы его обслуживаете, является самой важной частью.</p>
+
+<p>Чтобы считаться приложением JAMstack, HTML необходимо обслуживать статически, что в основном означает, что он не будет динамически отрисовываться с сервера.</p>
+
+<p>Если вы собираете страницу вместе и обслуживаете ее с помощью PHP, то, скорее всего, это не приложение JAMstack. Если вы загружаете и обслуживаете один HTML-файл из хранилища, в котором создается приложение с помощью Javascript, это звучит как приложение JAMstack.</p>
+
+<div>
+<figure><img src="images/aws-s3-static-files-gatsby.jpg" alt="Статический вывод Gatsby на AWS S3" class="img-fluid"><figcaption>Статический вывод Gatsby на AWS S3</figcaption></figure></div>
+
+<p>Но это не значит, что мы всегда должны собирать 100% приложения внутри браузера. Такие инструменты, как <strong>Gatsby</strong> и другие статические генераторы сайтов, позволяют нам извлекать некоторые или все наши источники API во время сборки и выводить страницы в виде HTML-файлов.</p>
+
+<p>Подумайте, если у вас есть блог WordPress, мы можем извлечь все записи и, в конечном счете, создать новый HTML файл для каждой записи. Это означает, что мы сможем обслуживать прекомпилированную версию страницы непосредственно в браузере, что обычно приравнивается к более быстрой первой отрисовке и более быстрому опыту для вашего посетителя.</p>
+
+<p>Мы говорили выше о 3-х компонентах (Javascript, API, Markup), но о чем мы не говорили, так это о том, что вам не обязательно использовать все 3 из них, чтобы считать ваш сайт достойным названия JAM.</p>
+
+<p>На самом деле все сводится к разметке и тому, как вы ее обслуживаете. Вместо того, чтобы ваше приложение <strong>Rails</strong> отображало ваш HTML-код для вас, вы можете разместить на <strong>S3</strong> предварительно скомпилированное приложение <strong>React</strong>, которое обращается к <strong>Rails</strong> через набор API.</p>
+
+<p>Но вам даже не нужны API. Вам даже не нужен <strong>Javascript</strong>! Пока вы обслуживаете HTML-файл без необходимости его компилирования на сервере во время запроса (то есть предварительного рендеринга), у вас есть сайт JAMstack.</p>
+
+<h2><span id="Hosting">Хостинг</span></h2>
+
+<p>Использование термина хостинг здесь может ввести в заблуждение, если вы новичок в этой концепции. Да, ваш сайт технически где-то размещается, но это не в традиционном смысле. У вас нет сервера, на который вы загружаете файлы с помощью FTP-клиента типа Cyberduck.</p>
+
+<p>Вместо этого, независимо от того, делаете ли вы это самостоятельно с помощью <strong>S3</strong> или подключаете его к <strong>Netlify</strong> (который на самом деле является мульти-облачным), ваши HTML и статические ресурсы обслуживаются из объектного хранилища. В конечном счете, у вас обычно есть CDN, такой как <strong>Cloudflare</strong>, который кэширует эти файлы в местах по всему миру, ускоряя загрузку страниц для людей, посещающих ваш сайт.</p>
+
+<div>
+<figure><img src="images/cdn-distribution-map.jpg" alt="Карта распределения CDN (пример)" class="img-fluid"><figcaption>Карта распределения CDN (пример)</figcaption></figure></div>
+
+<h2><span id="Pocemu_JAMstack">Почему JAMstack</span></h2>
+
+<p>Приложения JAMstack по своей сути удовлетворяют большинству, если не всем, из пяти основных принципов AWS Well-Architected Framework (хорошо структурированный фреймворк). Это основные концепции, которые AWS рассматривает для создания быстрой, безопасной, высокопроизводительной, отказоустойчивой и эффективной инфраструктуры.</p>
+
+<div>
+<figure><img src="images/aws-arhitektura.jpg" alt="AWS с хорошей архитектурой" class="img-fluid"><figcaption>AWS с хорошей архитектурой</figcaption></figure></div>
+
+<h3><span id="Skorost">Скорость</span></h3>
+
+<p>Тот факт, что вы обслуживаете приложения JAMstack как статические файлы непосредственно из CDN (обычно), делает вероятным то, что ваше приложение будет загружаться очень быстро. Прошли те времена, когда серверу приходилось тратить время на создание страницы, прежде чем отвечать; теперь вы обслуживаете страницу в виде простого HTML «как есть» или с некоторым типом гидратации на стороне клиента, как в случае с <strong>React</strong>.</p>
+
+<h3><span id="Stoimost">Стоимость</span></h3>
+
+<p>Чаще всего сайты JAMstack будет запустить дешевле, чем их серверные аналоги. Размещение статических ресурсов стоит недорого, а страница обслуживается с той же скоростью, если не быстрее.</p>
+
+<h3><span id="Masstabiruemost">Масштабируемость</span></h3>
+
+<p>Поскольку вы обслуживаете свои файлы со статического хостинга, скорее всего, через CDN, это в значительной степени автоматически дает вам бесконечную масштабируемость. Большинство провайдеров с этим помогают, а это значит, что у вас не будет проблем с тем, чтобы любой поток людей, попавших на ваш сайт, смог с ним полноценно работать.</p>
+
+<h3><span id="Obsluzivanie">Обслуживание</span></h3>
+
+<p>Основа вашего статического сайта — не сервер, а это значит, что вам не нужно его обслуживать. Будь то <strong>Netlify</strong>, <strong>S3</strong> или любой другой провайдер, ваш статические HTML, CSS и JS поддерживаются без головной боли.</p>
+
+<h2><span id="Bezopasnost">Безопасность</span></h2>
+
+<p>Удваивая количество серверов, которые вы должны лично обслуживать, вам не нужно так сильно беспокоиться о том, чтобы блокировать способы проникновения.</p>
+
+<p>Вместо этого вам нужно сосредоточиться в основном на разрешениях для блокировки частного контента и убедить своих пользователей в том, что их личная информация не является общедоступной.</p>
+
+<h2><span id="Zavisimost_ot_API">Зависимость от API</span></h2>
+
+<p>Несмотря на то, что эти положения выше справедливы для статических аспектов вашего сайта, имейте в виду, что вы все равно можете зависеть от какого-либо типа API для работы на стороне клиента.</p>
+
+<p>По возможности постарайтесь воспользоваться этими запросами во время компиляции, например, с помощью генератора статических сайтов. В противном случае вам нужно будет взвесить количество обращений, которые вы делаете к динамической конечной точке, и то, как это влияет на все перечисленные выше моменты.</p>
+
+<h2><span id="Primery_JAMstack">Примеры JAMstack</span></h2>
+
+<h3><span id="freecodecamporg">freecodecamp.org</span></h3>
+
+<p>Да! freecodecamp.org и его обучающий портал — это сайт JAMstack, построенный на <strong>Gatsby</strong>. Даже несмотря на сложности предоставления приложения для прохождения курсов по программированию, freeCodeCamp может объединить мощь генератора статических сайтов и мощных API-интерфейсов, чтобы дать людям во всем мире возможность изучать код.</p>
+
+<p>Вы можете увидеть, как Куинси из freeCodeCamp рассказывает об этом больше на JAMstack_conf 2018.</p>
+
+<p>Примечание: порталы новостей и форумов в настоящее время не являются сайтами JAMstack.</p>
+
+<h3><span id="impossiblefoodscom">impossiblefoods.com</span></h3>
+
+<p>Главный сайт Impossible Foods — это не что иное, как сайт Gatsby! Все, от их рецептов до средства поиска местоположения, скомпилировано с помощью нашего любимого «молниеносного» генератора статических сайтов.</p>
+
+<div>
+<figure><img src="images/impossible-foods.jpg" alt="" class="img-fluid"></figure></div>
+
+<h3><span id="webdev">web.dev</span></h3>
+
+<p>Ресурсный центр Google web.dev создан с использованием растущего по числу пользователей 11ty. Вы даже можете найти код с открытым исходным кодом по адресу:</p>
+
+<pre><code class="language-bash">https://github.com/GoogleChrome/web.dev</code></pre>
+
+<div>
+<figure><img src="images/google-web-dev.jpg" alt="" class="img-fluid"></figure></div>
+
+<h2><span id="Instrumenty">Инструменты</span></h2>
+
+<p>Хорошая новость заключается в том, что в настоящее время доступно множество инструментов, и еще много на подходе. Они могут все еще быть немного «грубыми», но это потому, что это новый дивный мир инструментов, и его нужно немного сгладить, чтобы добиться нужного результата.</p>
+
+<h3><span id="Sozdanie_vasego_prilozenia">Создание вашего приложения</span></h3>
+
+<p>Это самое интересное. Как вы собираетесь создавать свое приложение? Со Scully вы можете выбрать свой любимый вариант UI-фреймворка и сразу приступить к работе. Вот несколько популярных, но далеко не исчерпывающих вариантов:</p>
+
+<ul>
+<li>11<a href="https://www.11ty.dev/" target="_blank" rel="noreferrer noopener nofollow">t</a>y</li>
+<li>Gatsby</li>
+<li>Hugo</li>
+<li>Nift</li>
+<li>Scully&nbsp;(для фанатов Angular)</li>
+<li>и др.</li>
+</ul>
+
+<h3><span id="Obsluzivanie_vasego_prilozenia">Обслуживание вашего приложения</span></h3>
+
+<p>Мне нравится думать об этом как о простой части, зависящей от ваших настроек. Такие инструменты, как <strong>Netlify</strong> и <strong>Zeit</strong>, упрощают настройку, подключаясь к вашему репозиторию <strong>Github</strong> и создавая каждый раз, когда появляется новый коммит, но, конечно, у вас есть такие опции, как <strong>AWS</strong>, если вы хотите большего контроля.</p>
+
+<ul>
+<li>AWS</li>
+<li>Azure</li>
+<li>GCP</li>
+<li>Github Pages</li>
+<li>Netlify</li>
+<li>Surge</li>
+</ul>
+
+<h3><span id="Delaem_prilozenie_dinamicnym">Делаем приложение динамичным</span></h3>
+
+<p>На самом деле это может быть что угодно, что можно использовать в качестве API для запросов из браузера. Я не собираюсь приводить кучу примеров для каждого типа, но вот несколько инструментов и мест, где вы можете найти нужные ресурсы.</p>
+
+<ul>
+<li>Auth0&nbsp;— Аутентификация</li>
+<li>Cloudinary&nbsp;— Управление медиа</li>
+<li>Google Analytics&nbsp;— Аналитика</li>
+<li>Sanity&nbsp;— CMS</li>
+<li>Snipcart&nbsp;— Электронная коммерция</li>
+<li>Stripe&nbsp;— Прием платежей</li>
+</ul>
+
+<p>Далее мы более детально разберем варианты решений на Jamstack и создадим полезное приложение.</p>
+
+<h2><span id="Sozdanie_prilozenia">Создание приложения</span></h2>
+
+<p>В этом блоке нашего руководства мы рассмотрим как использовать фреймворк React Next.js со Strapi для создания веб-сайта портфолио.</p>
+
+<p><strong>Next.js</strong> — это легкий фреймворк для статических и серверно-рендерных React-приложений, также созданный на React.</p>
+
+<p>Особенностью <strong>Strapi</strong> является то, что это фреймворк с открытым исходным кодом, основан на NodeJS и создан разработчиками для использования фронтенд-разработчиками.</p>
+
+<h3><span id="Cto_budem_delat">Что будем делать</span></h3>
+
+<p>Не имеет значения, является ли создаваемый вами сайт личным, сайтом-портфолио или сайтом компании. Применяются те же инструменты.</p>
+
+<p>CMS, которую мы собираемся использовать — это Strapi, которая является бесплатной, с отличным обслуживанием клиентов и с открытым исходным кодом.</p>
+
+<p><strong>Strapi CMS</strong> — это так называемая автономная CMS или безголовая система управления, т.е. headless. По сути, это означает, что это серверная служба вашего сайта.</p>
+
+<p>Другие CMS, такие как WordPress, включают общедоступную часть сайта в то же приложение, что и серверную часть. Это часто приводит к тому, что веб-сайт становится медленным и сложным в управлении. Но как разработчик JS, который недолюбливает PHP, я могу быть здесь немного предвзятым.</p>
+
+<p>WordPress теперь поддерживает использование себя в качестве автономной безголовой CMS. Однако я не буду пробовать это из-за… ну, знаете… PHP.</p>
+
+<p>В любом случае, давайте начнем создание сайта с Next.js. Репозиторий проекта:</p>
+
+<pre><code class="language-bash">https://github.com/Devalo/create-portfolio-with-next-strapi</code></pre>
+
+<h3><span id="Planirovanie">Планирование</span></h3>
+
+<p>Так что именно мы будем создавать? Как упоминалось ранее, простое онлайн-портфолио. Мы должны иметь возможность входить в систему и записывать, редактировать и удалять записи. Посетители будут просматривать все записи и нажимать на конкретную запись, чтобы просмотреть всю историю.</p>
+
+<p>Фронтенд будет написан в <strong>Next.js</strong> версии 10. Он будет запрашивать данные у Strapi API. Мы будем использовать Bootstrap 5 для нашего макета. Bootstrap 5 только что вышел из бета-версии, так что мы должны быть готовы к работе с ним!</p>
+
+<p>После некоторых зарисовок на бумаге, макет будет выглядеть примерно так:</p>
+
+<div>
+<figure><img src="images/strapi-next-maket-portfolio.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Ничего особенного, довольно простая компоновка. Ну что ж давайте наконец-то создадим новый проект <strong>Next.js</strong>.</p>
+
+<h3><span id="Sozdaem_novyj_proekt_Nextjs">Создаем новый проект Next.js</span></h3>
+
+<p>Для создания нового проекта Next.js необходимо сначала установить Node.js. Если он еще не установлен, посетите сайт https://nodejs.org/ и установите Node.js перед тем, как продолжить.</p>
+
+<p>Next.js поставляется с очень хорошим генератором проекта. Мы создадим наш новый проект, набрав:</p>
+
+<pre><code class="language-bash">$ npx create-next-app my-portfolio</code></pre>
+
+<p>Это создаст для нас новый проект. Мы переходим внутрь него (<code>cd</code>) и запускаем:</p>
+
+<pre><code class="language-bash">$ cd my-portfolio
+my-portfolio $ npm run dev</code></pre>
+
+<p>Если вы посетите <strong>http://localhost:3000/</strong>, вы должны увидеть стартовую страницу Next.js:</p>
+
+<div>
+<figure><img src="images/next-js-start.jpg" alt="" class="img-fluid"></figure></div>
+
+<h3><span id="Ustanovka_Bootstrap_5">Установка Bootstrap 5</span></h3>
+
+<p>Как упоминалось ранее, мы собираемся использовать Bootstrap 5 для наших проектов. Мы можем начать с установки пакета Bootstrap 5 NPM:</p>
+
+<pre><code class="language-bash">$ npm install bootstrap@next</code></pre>
+
+<p>Внутри нашего файла /pages/_app.js мы импортируем только что установленную библиотеку:</p>
+
+<pre><code class="language-javascript">// /pages/_app.js
+import '../styles/globals.css'
+import 'bootstrap/dist/css/bootstrap.min.css'; // Added
+function MyApp({ Component, pageProps }) {
+  return &lt;Component {...pageProps} /&gt;
+}
+export default MyApp</code></pre>
+
+<p>Чтобы убедиться, что это работает, мы можем заменить все внутри файла index.js простым контейнером bootstrap и текстом:</p>
+
+<pre><code class="language-javascript">// /pages/index.js
+export default function Home() {
+  return (
+    &lt;div className="container"&gt;
+      Is this working?
+    &lt;/div&gt;
+  );
+};</code></pre>
+
+<p>Если вы сейчас посмотрите на http://localhost: 3000/, то вы увидите, что наша строка текста смещена к середине. Если мы удалим контейнер из нашего класса div, текст будет прижат слева нашей страницы. Это означает, что наш Bootstrap запущен и работает.</p>
+
+<h3><span id="Axios">Axios</span></h3>
+
+<p>Мы будем общаться со Strapi, отправляя и получая JSON. Мы будем использовать «Axios» для выполнения тяжелой работы. Давайте установим его:</p>
+
+<pre><code class="language-bash">$ npm install axios</code></pre>
+
+<p>Вот и все, что нужно для создания нашего фронтэнда. Давайте начнем создавать интерфейс фронтенда.</p>
+
+<h3><span id="Sozdanie_vizuala">Создание визуала</span></h3>
+
+<p>Мы начнем с создания статической верхней панели навигации. Мы не собираемся делать ничего особенного, а воспользуемся встроенными в Bootstrap компонентами. Мы создадим отдельный файл макета, который будет содержать наши основные элементы макета.</p>
+
+<p>Мы создадим новую папку в корневом каталоге под названием components. В каталоге компонентов мы создадим новый файл, который назовем Layout.jsx:</p>
+
+<pre><code class="language-javascript">// /components/Layout.jsx
+
+const Layout = ({ children }) =&gt; (
+  &lt;div&gt;
+    {children}
+  &lt;/div&gt;
+)
+export default Layout;</code></pre>
+
+<p>Все содержимое нашей страницы будет передано в этот компонент в качестве аргумента. Другими словами, мы обернем содержимое нашей страницы внутри этого компонента Layout. Давайте импортируем этот компонент в наш индексный файл и поместим в него наш контент:</p>
+
+<pre><code class="language-javascript">// /pages/index.js
+
+import Layout from '../components/Layout';
+
+export default function Home() {
+  return (
+    &lt;Layout&gt;
+      &lt;div className="container"&gt;
+        Is this working?
+      &lt;/div&gt;
+    &lt;/Layout&gt;
+  );
+};</code></pre>
+
+<p>Если вы перейдете на <em><strong>http://localhost:3000/</strong></em>, все должно выглядеть одинаково.</p>
+
+<h3><span id="Sozdaem_panel_navigacii">Создаем панель навигации</span></h3>
+
+<p>Внутри нашего каталога компонентов мы создадим новый. Мы назовем его <strong>shared</strong>. Внутри этого каталога мы создадим новый файл, который мы назовем Navbar.jsx. Мы создадим нашу навигацию (Navbar) здесь.</p>
+
+<pre><code class="language-javascript">// components/shared/Navbar.jsx
+const Navbar = () =&gt; (
+  &lt;nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"&gt;
+    &lt;div className="container"&gt;
+      &lt;a className="navbar-brand" href="#"&gt;My Portfolio&lt;/a&gt;
+      &lt;button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      &gt;
+        &lt;span className="navbar-toggler-icon" /&gt;
+      &lt;/button&gt;
+      &lt;div className="collapse navbar-collapse" id="navbarText"&gt;
+        &lt;ul className="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+          &lt;li className="nav-item"&gt;
+            &lt;a className="nav-link active" aria-current="page" href="#"&gt;Portfolio&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li className="nav-item"&gt;
+            &lt;a className="nav-link" href="#"&gt;About me&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+);
+export default Navbar;</code></pre>
+
+<p>И мы импортируем и добавляем его в наш файл макета (Layout):</p>
+
+<pre><code class="language-javascript">// components/Layout.jsx
+import Navbar from './shared/Navbar';
+const Layout = ({ children }) =&gt; (
+  &lt;div&gt;
+    &lt;Navbar /&gt;
+    &lt;div className="main-container container"&gt;
+      {children}
+    &lt;/div&gt;
+  &lt;/div&gt;
+)
+export default Layout;</code></pre>
+
+<p>Такими действиями мы создали красивую синюю панель навигации.</p>
+
+<h3><span id="Sozdanie_interfejsa_UI">Создание интерфейса (UI)</span></h3>
+
+<p>Давайте теперь обсудим, как мы собираемся разместить все элементы портфолио. Я подумываю разделить все на строки и столбцы, где в каждой строке по 2 элемента. Мы можем изменить наш <strong>index.js</strong> на:</p>
+
+<pre><code class="language-javascript">// pages/index.js
+import Layout from '../components/Layout';
+export default function Home() {
+  const entries = ['Project 1', 'Project 2', 'Project 3', 'Project 4'];
+  return (
+    &lt;Layout&gt;
+      &lt;div className="entries"&gt;
+        &lt;div className="row justify-content-start  "&gt;
+          {entries.map((entry) =&gt; (
+            &lt;div className="col-md-6"&gt;
+              &lt;div className="entry mb-3"&gt;
+                &lt;div className="main-image"&gt;
+                  &lt;img src="https://via.placeholder.com/600x400" /&gt;
+                  &lt;h1&gt;{entry}&lt;/h1&gt;
+                  &lt;p&gt;
+                    About
+                    {' '}
+                    {entry}
+                  &lt;/p&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          ))}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/Layout&gt;
+  );
+}</code></pre>
+
+<p>Давай посмотрим что здесь происходит. Мы смоделируем 4 записи портфолио с помощью массива. Чуть позже мы заменим массив фактическим содержимым.</p>
+
+<p>Мы добавим в это немного CSS. В папке <strong>public/</strong> или в папке <strong>styles/</strong> вы найдете файл css с именем <strong>globals.css</strong>, содержимое которого мы удалим и заменим на:</p>
+
+<pre><code class="language-css">// publi/globals.css
+.main-container {
+  padding-top: 70px;
+}
+.entries .main-image img {
+  width: 100%;
+  display: block;
+}</code></pre>
+
+<p>У нас должно получиться что-то вроде этого:</p>
+<div>
+<figure><img src="images/next-strapi-maket.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Сейчас мы просто используем изображения-заполнители. Позже мы заменим их подходящими изображениями, а также воспользуемся компонентом <strong>Image</strong> в <strong>Next.js</strong>.</p>
+
+<h3><span id="Interfejs_UI_dla_odnogo_elementa_portfolio">Интерфейс (UI) для одного элемента портфолио</span></h3>
+
+<p>Теперь, когда у нас есть главная страница, на которой мы можем отображать все элементы нашего портфолио, нам следует подумать о создании страницы, на которой будет отображаться один элемент портфолио.</p>
+
+<p>Здесь вступает в игру система маршрутизации Next.js. Видите ли, каждый файл в каталоге <strong>pages</strong> — это маршрут. Поэтому, если вы создадите файл и компонент <strong>testpage.jsx</strong> и перейдете по адресу <em>http://localhost:3000/testfile</em>, вы должны увидеть содержимое компонента.</p>
+
+<p>Это безумно круто, и это одна из вещей, которые делают Next.js таким хорошим. Это также работает с динамическим содержимым. Если вы заключите имя файла в квадратные скобки, NextJS будет рассматривать его как динамический файл.</p>
+
+<p>Мы создадим новую папку в папке <strong>pages</strong>, которую мы называем <strong>portfolio</strong>. Внутри этой папки мы создадим файл, который будем называть <code>[slug].jsx</code> . Этот файл будет содержать отдельные элементы нашего портфолио. Чтобы проверить его динамические возможности, мы можем написать компонент для быстрого тестирования:</p>
+
+<pre><code class="language-javascript">// pages/portfolio/[slug].jsx
+
+const PortfolioItem = () =&gt; {
+  return (
+    &lt;div&gt;
+      This is a test component
+    &lt;/div&gt;
+  );
+};
+export default PortfolioItem;</code></pre>
+
+<p>Независимо от того, какой URL вы используете, Next.js будет отображать один и тот же компонент.</p>
+
+<pre><code class="language-bash">http://localhost:3000/portfolio/(45231
+http://localhost:3000/portfolio/test
+http://localhost:3000/portfolio/fsdfsdfsdfs</code></pre>
+
+<p>Компонент просто терпеливо сидит и ждет, пока его заполнят динамическими данными, которые будут показаны нашим замечательным посетителям.</p>
+
+<pre><code class="language-javascript">// pages/portfolio/[slug].jsx
+
+import Layout from '../../components/Layout';
+const PortfolioItem = () =&gt; {
+
+  return (
+    &lt;Layout&gt;
+      &lt;div className="row"&gt;
+        &lt;div className="portfolio-image text-center mb-4"&gt;
+          &lt;div className="col-md-12"&gt;
+            &lt;img src="https://via.placeholder.com/1000x500" /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className="row"&gt;
+        &lt;div className="portfolio-content"&gt;
+          &lt;div className="col-md-12"&gt;
+            &lt;div className="portfolio-headline text-center m-2"&gt;
+              &lt;h1&gt;Project&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;p&gt;
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+              et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
+              quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem i
+              psum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+              modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut
+              enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+              laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
+              reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+              vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/Layout&gt;
+  );
+};
+export default PortfolioItem;</code></pre>
+
+<p>По большей части это заполнитель для наших реальных данных. Отдельная страница портфолио должна теперь выглядеть примерно так:</p>
+<div>
+<figure><img src="images/next-portfolio-element.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Никогда не говорил, что это будет выглядеть красиво.</p>
+
+<p>На нашей главной странице отображаются все объекты портфолио. У нас также есть страница с одним элементом портфолио. Мы должны развернуть и запустить наш бэкэнд Strapi прежде чем мы вернемся к нашему фронтэнду приложения. Как только мы запустим бэкэнд Strapi, мы сможем наполнить его контентом, который будет использован во фронтенде.</p>
+
+<h2><span id="Sozdanie_dvizka">Создание движка</span></h2>
+
+<h3><span id="Ustanovka">Установка</span></h3>
+
+<p>Как упоминалось ранее, Strapi — это полноценная CMS без головы с включенными возможностями движка. Если вы никогда раньше не работали со Strapi, он просто отлично вам подойдет.</p>
+
+<p>Strapi имеет собственный генератор проектов. Мы выйдем (<code>cd</code>) из нашего внешнего приложения и создадим серверную часть бок о бок:</p>
+
+<pre><code class="language-bash">my-portfolio $ cd ..
+$ yarn create strapi-app portfolio-backend --quickstart</code></pre>
+
+<p>После установки сервер запустится автоматически. Вы попадете прямо на новую вкладку в вашем браузере:</p>
+
+<div>
+<figure><img src="images/strapi-backend.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Это будет вашей главной информацией для входа в систему. Заполните ее должным образом, чтобы не столкнуться с какими-либо проблемами во время разработки.</p>
+
+<div>
+<figure><img src="images/strapi-info-master.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Потрясающе! После того, как вы создадите свой аккаунт, вы должны увидеть главную панель инструментов <strong>Strapi</strong>:</p>
+
+<div>
+<figure><img src="images/strapi-panel-admin.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>По сути, это графический интерфейс для вашей базы данных. Это означает, что мы можем создавать таблицы с содержимым, как в обычной базе данных.</p>
+
+<h3><span id="Kollekcii">Коллекции</span></h3>
+
+<p>В левом меню, под <strong>Plugins</strong>, вы увидите <strong>Content-Type Builder</strong>. Здесь вы сможете создавать различные типы данных.</p>
+
+<p>Тип <strong>Single</strong> — это как раз то, на что он похож. Это единый тип данных. Это может быть фрагмент статического текста или что-то подобное.</p>
+
+<p>Тип Коллекция (<strong>Collection</strong>) — это тип, у которого много элементов. В нашем случае тип Коллекция будет содержать много элементов портфолио. Это также было бы правильным выбором, если бы вы создали блог, газету или что-нибудь еще с несколькими записями, которые вы бы повторяли во фронтенде.</p>
+
+<p>Давайте настроим тип коллекции — Портфолио.</p>
+
+<p>Нажмите кнопку «Создать новый тип коллекции» (<strong>Create a new collection type</strong>) и введите имя коллекции.</p>
+
+<div>
+<figure><img src="images/strapi-kollekcii.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Когда закончите, нажмите «Продолжить» (Continue). Затем нам нужно выяснить, какие поля данных мы хотим использовать. Я думаю об этих вещах:</p>
+
+<ul>
+<li>Headline</li>
+<li>Content</li>
+<li>Image</li>
+<li>slug id</li>
+</ul>
+
+<p>Для заголовка мы создадим новое текстовое поле <strong>Text field</strong> и назовем его «Headline» (заголовок).</p>
+
+<div>
+<figure><img src="images/strapi-headline.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Для нашего контента мы создадим текстовое поле <strong>Rich text</strong>:</p>
+
+<div>
+<figure><img src="images/strapi-content-rich-text.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Для нашего основного изображения мы создадим поле <strong>Media</strong>:</p>
+
+<div>
+<figure><img src="images/strapi-image.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Для нашего слага (url) мы создадим поле <strong>id</strong> и установим для него <strong>Headline</strong> (Заголовок):</p>
+
+<div>
+<figure><img src="images/strapi-uid.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Это должно дать нам 4 поля, и мы можем создать их в итоге нажав «Сохранить» (<strong>Save</strong>):</p>
+
+<div>
+<figure><img src="images/strapi-polya.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Сервер перезапустится и внесет все наши изменения. После этого вы заметите, что наш тип портфолио указан в списке типов коллекций в левом меню:</p>
+
+<div>
+<figure><img src="images/strapi-polya-savce.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Вы видели, что оно было написано во множественном числе автоматически? Это потому, что оно может содержать несколько портфолио. Этого бы не случилось с типом Single.</p>
+
+<h3><span id="Razresenia">Разрешения</span></h3>
+
+<p>Разрешения или <strong>Permissions</strong>. Следующим шагом будет добавление разрешений. По умолчанию Strapi полностью закрыт, поэтому вам нужно вручную выбрать, какие типы запросов должны быть общедоступными. В левом меню нажмите «Настройки» (Settings), затем нажмите «Роли» <code>Roles</code>&nbsp;в разделе «Плагин пользователей и разрешений» (Users &amp; Permissions Plugin).</p>
+
+<div>
+<figure><img src="images/strapi-permissions-users.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Здесь мы можем установить разрешения для аутентифицированных и общедоступных API. Поскольку мы собираемся создавать элементы нашего портфолио непосредственно внутри нашей CMS, нам не нужно беспокоиться об аутентификации. Выберите здесь <strong>Public</strong>:</p>
+
+<div>
+<figure><img src="images/strapi-roles.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Мы хотим, чтобы общедоступный API был открыт только для просмотра всех или отдельных элементов портфолио:</p>
+
+<div>
+<figure><img src="images/strapi-public.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Добавляя&nbsp;<code>find</code>&nbsp;и&nbsp;<code>findone</code>&nbsp;мы делаем роуты /portfolios/:id и /portfolios доступными. Нажмите&nbsp;<code>save</code>&nbsp;и переходите к нашему новому типу коллекции Portfolios (Портфолио).</p>
+
+<h3><span id="Dobavlenie_elementa_portfolio">Добавление элемента портфолио</span></h3>
+
+<p>У нас еще нет элементов портфолио. Давайте создадим один! Кликните на&nbsp;<code>Add New Portfolio</code>&nbsp;в правом верхнем углу. Нам также понадобится изображение. Я взял случайное фото, которое я буду использовать:</p>
+
+<pre><code class="language-bash">https://unsplash.com/photos/tZc3vjPCk-Q</code></pre>
+
+<p>Мы можем добавить новое изображение, щелкнув в правом верхнем углу поля изображения:</p>
+
+<div>
+<figure><img src="images/strapi-image-1.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Загрузить ресурсы:</p>
+
+<div>
+<figure><img src="images/strapi-upload-image.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Мы можем выбирать между загрузкой с локального компьютера или по URL-адресу. Я добавляю URL изображения:</p>
+
+<div>
+<figure><img src="images/strapi-image-url.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>И выберите загрузить и завершить (upload):</p>
+
+<div>
+<figure><img src="images/strapi-upload-image-finish.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Это должно добавить наше изображение прямо в наше портфолио. Заполним и остальные поля.</p>
+
+<div>
+<figure><img src="images/strapi-portfolio-content.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Обратите внимание, что слаг был заполнен автоматически. Если по какой-то причине вам это не подходит, заполните его вручную дефисами между каждым словом. Он должен напоминать ваш заголовок.</p>
+
+
+<p>Щелкните «Сохранить» (<strong>Save</strong>). Элемент портфолио создан. Нам также нужно нажать «Опубликовать» (<strong>Publish</strong>), чтобы он стал доступен через API.</p>
+
+<p>Если вы перейдете по адресу <strong>http://localhost:1337/portfolios</strong>, вы увидите нашу недавно созданную запись портфолио в формате JSON.</p>
+
+<p>В следующем разделе мы вернемся к нашему интерфейсу.</p>
+
+<p>Не забывайте, что ваш бэкэнд должен работать, пока вы работаете с фронтендом.</p>
+
+<h2><span id="Frontend_ctenie_i_otobrazenie_dannyh">Фронтенд: чтение и отображение данных</span></h2>
+
+<p>В этой части статьи вы увидите, как великолепно работают вместе Strapi и NextJS. Вот где они демонстрируют свою силу!</p>
+
+<h3><span id="Polucenie_dannyh">Получение данных</span></h3>
+
+<p>Сначала мы напишем функцию, которая будет получать данные из нашей CMS. В корневом каталоге создайте новую папку <strong>lib</strong> и в ней файл <strong>service.js</strong>. Этот файл будет отвечать за выборку данных из CMS. Я использую для этого <strong>axios</strong>. Если вам больше нравится библиотека fetch, продолжайте и используйте ее.</p>
+
+<pre><code class="language-javascript">// lib/service.js
+import axios from 'axios';
+const fetchFromCMS = async (path) =&gt; {
+  const url = `http://localhost:1337/${path}`;
+  const res = await axios.get(url);
+  return res.data;
+};
+export default fetchFromCMS;</code></pre>
+
+<p>Таким образом, мы в основном просто выполняем запросы <code>GET</code> к нашей CMS, извлекая элементы. Мы должны иметь возможность получать все из нашего файла <strong>index.js</strong>. Посмотрим, как это сделать.</p>
+
+<h3><span id="Otobrazenie_dannyh">Отображение данных</span></h3>
+
+<p>Что делает NextJS таким хорошим, так это его способность отображать материалы на стороне сервера. Таким образом мы будем отображать элементы нашего портфолио. </p>
+
+<p><code>getStaticProps()</code> — предпочтительный способ получения статических данных из CMS. В нашем файле <strong>index.js</strong> мы импортируем нашу новую функцию выборки и реализуем <code>getStaticProps()</code>:</p>
+
+<pre><code class="language-javascript">// pages/index.js
+// .....
+import fetchFromCMS from '../lib/service';
+export default function Home({ portfolioItems }) {
+  console.log(portfolioItems);
+  // ....
+}
+export async function getStaticProps() {
+  const portfolioItems = await fetchFromCMS('portfolios');
+  return {
+    props: { portfolioItems },
+    revalidate: 1,
+  };
+}</code></pre>
+
+<p>Мы получаем данные из нашей функции <code>fetchFromCMS()</code> и передаем их в качестве аргумента в главную функцию. Это происходит автоматически. Свойство <code>revalidate</code> в основном сообщает Next.js, как часто он должен регенерировать эту страницу и данные. Если вы установите его в 30, то он будет перестраиваться каждые 30 секунд. Это означает, что новые записи не будут видны до тех пор, пока приложение не перестроится. Это довольно круто. Это означает, что мы подаем клиенту чистый HTML, js и CSS. Без извлечения базы данных. Это сделает сайт быстрым.</p>
+
+<p>Кроме того, функция <code>getStaticProps()</code> работает на стороне сервера, в то время как главная функция работает на стороне клиента. Симпатично.</p>
+
+<p>При обновлении страницы содержимое нашей базы данных попадает в консоль браузера:</p>
+
+<div>
+<figure><img src="images/strapi-console-log.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Безумно круто! Давайте визуализируем это в нашем компоненте React:</p>
+
+<pre><code class="language-javascript">// pages/index.js
+// ...
+export default function Home({ portfolioItems }) {
+  return (
+    &lt;Layout&gt;
+      &lt;div className="entries"&gt;
+        &lt;div className="row justify-content-start "&gt;
+          {portfolioItems.map((portfolio) =&gt; (
+            &lt;div className="col-md-6"&gt;
+              &lt;div className="entry mb-3"&gt;
+                &lt;div className="main-image"&gt;
+                  &lt;Image
+                    src={portfolio.image.name}
+                    width={600}
+                    height={400}
+                    alt={portfolio.Headline}
+                  /&gt;
+                  &lt;h1&gt;{portfolio.Headline}&lt;/h1&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          ))}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/Layout&gt;
+  );
+}
+// ....</code></pre>
+
+<p>Мы перебираем элементы портфолио, как мы делали это с элементами-заполнителями. Обратите внимание, что мы больше не используем тег <code>&lt;img /&gt;</code>. </p>
+
+<p>NextJS предлагает лучший вариант! Их недавно выпущенный компонент React сгенерирует файл в формате <strong>.webp</strong> из вашего изображения, что приведет к его более быстрой загрузке. Он также поставляется с включенной отложенной загрузкой, и будет адаптивным! Если я правильно понял, обязательные поля <code>width</code> и <code>height</code> принимают значения <code>max-width</code> и <code>max-height</code>.</p>
+
+<p>Однако компонент изображения немного строгий. Вы не можете неявно добавлять изображения извне приложения без внесения URL-адреса в белый список. Итак, что нам нужно сделать дальше — это создать файл конфигурации в нашем корневом каталоге next.config.js и поместить в него следующее:</p>
+
+<pre><code class="language-javascript">// config.next.js
+
+module.exports = {
+  images: {
+    domains: ['images.unsplash.com'],
+  },
+};</code></pre>
+
+<p>Next.js будет жаловаться и даст вам точный URL, который вы должны ввести. В этом случае, я занесу в белый список URL Unsplash. Потрясающе. Вам нужно перезапустить приложение.</p>
+
+<div>
+<figure><img src="images/strapi-portfolio-sdelano.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Мы получили все данные, и разместили все как надо. Вы удивлены? Я пошел дальше и создал еще несколько элементов портфолио:</p>
+
+<div>
+<figure><img src="images/strapi-plus-portfolio.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Просмотр отдельных элементов портфолио</p>
+
+<p>Готовы к еще одному волшебству? Мы должны сделать наши элементы портфолио кликабельными. Когда вы нажимаете на элемент, вы попадаете на страницу этого элемента. На нашей странице <strong>index.js</strong> мы используем встроенный в Next.js компонент <code>Link</code>. Он работает так же, как и react-router. Мы завернем наши элементы в компонент:</p>
+
+<pre><code class="language-javascript">// pages/index.js
+import Link from 'next/link';
+// ....
+export default function Home({ portfolioItems }) {
+  return (
+    &lt;Layout&gt;
+      &lt;div className="entries"&gt;
+        &lt;div className="row justify-content-start  "&gt;
+          {portfolioItems.map((portfolio) =&gt; (
+            &lt;div className="col-md-6"&gt;
+              &lt;div className="entry mb-3"&gt;
+                &lt;Link as={`/portfolio/${portfolio.slug}`} href="/portfolio/[id]"&gt; // this gets added 
+                  &lt;div className="main-image"&gt;
+                    &lt;Image
+                      src={portfolio.image.name}
+                      width={600}
+                      height={400}
+                      alt={portfolio.Headline}
+                    /&gt;
+                    &lt;h1&gt;{portfolio.Headline}&lt;/h1&gt;
+                  &lt;/div&gt;
+                &lt;/Link&gt; // this gets added
+              &lt;/div&gt;
+            &lt;/div&gt;
+          ))}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/Layout&gt;
+  );
+}
+// ....</code></pre>
+
+<p>Если вы попытаетесь нажать на какой-либо из элементов, вы попадете на страницу элемента, которую мы создали ранее. Давайте посмотрим, как мы можем заполнить её правильными данными.</p>
+
+<p>В нашем <strong>[slug] .js</strong> мы собираемся использовать две специальные серверные функции. <strong>getStaticProps()</strong>, с которой мы уже знакомы, и <code>getStaticPaths)</code>, которая будет строить динамические маршруты во время сборки.</p>
+
+<pre><code class="language-javascript">// pages/portfolio/[slug].jsx
+// ....
+export async function getStaticProps({ params }) {
+  const portfolio = await fetchFromCMS(`portfolios?slug=${params.slug}`);
+return {
+    props: { portfolio: portfolio[0] },
+    revalidate: 1,
+  };
+}</code></pre>
+
+<p><code>getStaticProps()</code> очень похожа на ту, которая находится в индексном файле, за исключением того, что мы выбираем один элемент по имени ярлыка портфолио, который мы создали в Strapi. Это массив, поэтому мы передадим данные с индексом 0 в клиентскую функцию.</p>
+
+<pre><code class="language-javascript">// pages/portfolio/[slug].jsx
+// ....
+export async function getStaticPaths() {
+  const portfolios = await fetchFromCMS('portfolios');
+return {
+    paths: portfolios.map((portfolio) =&gt; ({
+      params: {
+        slug: portfolio.slug,
+      },
+    })),
+    fallback: false,
+  };
+}
+// ....</code></pre>
+
+<p>Это будет использовано во время сборки. Она извлекает все портфолио и создает URL из имени <strong>slug</strong>. Мы сможем получать статические страницы вместо того, чтобы каждый раз запрашивать данные у базы данных. Обратите внимание, что мы использовали <code>revalidate</code> в функции <code>getStaticProps()</code>. Скорее всего, вы захотите установить его на что-то большее, чем 1 в производстве, в противном случае это вроде как сбивает всю цель.</p>
+
+<p>Теперь мы можем использовать переданный аргумент в нашей клиентской функции. Весь <strong>[slug].jsx</strong> теперь выглядит так:</p>
+
+<pre><code class="language-javascript">// pages/portfolio/[slug].js
+import Image from 'next/image';
+import Layout from '../../components/Layout';
+import fetchFromCMS from '../../lib/service';
+const PortfolioItem = ({ portfolio }) =&gt; {
+  return (
+    &lt;Layout&gt;
+      &lt;div className="row"&gt;
+        &lt;div className="portfolio-image text-center mb-4"&gt;
+          &lt;div className="col-md-12"&gt;
+            &lt;Image
+              src={portfolio.image.name}
+              width={1000}
+              height={500}
+            /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className="row"&gt;
+        &lt;div className="portfolio-content"&gt;
+          &lt;div className="col-md-12"&gt;
+            &lt;div className="portfolio-headline text-center m-2"&gt;
+              &lt;h1&gt;{portfolio.Headline}&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;div dangerouslySetInnerHTML={{ __html: portfolio.content }}/&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/Layout&gt;
+  );
+};
+export async function getStaticPaths() {
+  const portfolios = await fetchFromCMS('portfolios');
+return {
+    paths: portfolios.map((portfolio) =&gt; ({
+      params: {
+        slug: portfolio.slug,
+      },
+    })),
+    fallback: false,
+  };
+}
+export async function getStaticProps({ params }) {
+  const portfolio = await fetchFromCMS(`portfolios?slug=${params.slug}`);
+return {
+    props: { portfolio: portfolio[0] },
+    revalidate: 1,
+  };
+}
+export default PortfolioItem;</code></pre>
+
+<p>И если вы попробуете:</p>
+
+<div>
+<figure><img src="images/strapi-next-portfolio.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Данные отображаются правильно!</p>
+
+<p>Данные представлены в формате <strong>Markdown</strong>. Чтобы их правильно отформатировать, вам нужно использовать какой-то парсер Markdown. Что вы можете сделать, так это добавить новый файл в вашу папку <strong>lib</strong> с функцией, которая обрабатывает текстовое содержимое, прежде чем вы передадите его клиентской функции. Например:</p>
+
+<pre><code class="language-javascript">// lib/processMarkdown.js
+import remark from 'remark';
+import html from 'remark-html';
+
+// process markdown to html and return
+const processMarkdown = async (markdown) =&gt; {
+  const process = await remark()
+    .use(html, {sanitize: true})
+    .process(markdown.content);
+
+  return process.toString();
+};
+
+export default processMarkdown;</code></pre>
+
+<p>Это было весело. Я надеюсь, что это было так же весело, как и писать это руководство. Next.js и <strong>Strapi</strong> — потрясающая комбинация и моя технология для создания быстрых и надежных динамических веб-сайтов. А что лучше всего?</p>
+
+<div>
+<figure><img src="images/strapi-itog-1024x154.jpg" alt="" class="img-fluid"></figure></div>
+
+<p>Все отображается на стороне сервера! Поисковым роботам легко узнать ваш сайт. Посетителям легко найти вашу информацию! Использовать Strapi, вероятно, проще, чем писать новую панель инструментов для добавления статей, элементов или всего, что вам нужно добавить в базу данных.</p>
+
+<p>И что самое лучшее? Всё легко настраивается. Плюс ко всему — это открытый исходный код. Вы можете сделать так, чтобы он выглядел именно так, как вы хотите. Он также пользуется большой поддержкой сообщества и самих Strapi.</p>
+
+<p>То же самое можно сказать и о Next.js. Это невероятно удобная штука для создания высокоэффективных веб-сайтов, которые выводят динамический контент (который ведет себя как статический). И его очень легко развернуть. Я рекомендую разместить ваше приложение NextJS на Vercel. Поддержка со стороны ребят из NextJS тоже отличная.</p>
+
+<p>Мы использовали Bootstrap 5, но лишь поверхностно. Если хотите, я всегда могу написать об этом в блоге. Однако самое замечательное в Bootstrap 5 — это то, что он больше не поставляется с jQuery, что, на мой взгляд, является очень хорошим решением команды Bootstrap.</p>
+
+<p>Репозиторий проекта:</p>
+
+<pre><code>https://github.com/Devalo/create-portfolio-with-next-strapi</code></pre>
+			
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 30 июля 2022 в 11:02</span><br>Теги: JavaScript
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">Uzabila</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/js/app.js"></script>
+	<script src="../../../assets/js/prism.js"></script>	
+
+  </body>
+</html>

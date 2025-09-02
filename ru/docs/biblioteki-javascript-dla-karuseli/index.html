@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../../assets/css/style.css">
+
+    <title>Отличные библиотеки JavaScript для создания каруселей &#8212; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+		<div class="col-12 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">Отличные библиотеки JavaScript для создания каруселей</h1>
+
+<p>Рассмотрим несколько удивительно легких и свободных от зависимостей библиотек JavaScript для создания каруселей на вашем сайте.</p>
+
+<h2>Что такое карусель?</h2>
+
+<p>Карусель в основном отображает изображения, продукты, логотипы, цитаты или отзывы в формате слайд-шоу. Мы можем сдвигать элементы карусели влево или вправо с помощью щелчка мыши, сенсорного ввода или стрелок клавиатуры.</p>
+
+<div class="mb-3 mb-md-4">
+<figure><img src="images/carusel-primer.gif" alt="" class="img-fluid"></figure>
+</div>
+
+<p>Иногда карусели путают со слайдерами, хотя по сути это очень близкие понятия и оба эти понятия мы часто видим на сайтах любой направленности, будь то просмотр фото, отзывов или какой-либо другой информации. Один из ярких примеров статичной карусели — это пост в Инстаграм с несколькими фото.</p>
+
+
+
+<h2>1. Glide.js</h2>
+
+<p>Не зависящий от JavaScript ES6 слайдер и карусель. Он легкий, гибкий и быстрый. Предназначен для слайдеров. Функционала в нем ровно столько сколько нужно, не меньше, не больше.</p>
+
+<p>Это одна из самых популярных библиотек JavaScript для создания каруселей. Карусели в этой библиотеке могут содержать несколько элементов управления, например, стрелки и буллеты.</p>
+
+<p>Самое приятной, что весит такая библиотека всего ~28 кб (~8 кб в Zip).</p>
+
+<p><strong>Ссылка:</strong> <a href="https://glidejs.com/" target="_blank" rel="noreferrer noopener nofollow">glidejs.com</a><br><strong>Демо: </strong><a href="https://glidejs.com/docs/" target="_blank" rel="noreferrer noopener nofollow">glidejs.com/docs</a></p>
+
+<h2>2. Splide</h2>
+
+<p>Splide — это легкий, мощный и гибкий слайдер и карусель, написанный на чистом (ванильном) JavaScript без каких-либо зависимостей. </p>
+
+<p>Имеет небольшой размер, менее 29 кБ (11 кБ в сжатом виде). Библиотека также имеет такие возможности, как гибкость и расширяемость, множественность слайдов, отзывчивость и поддержка точек прерывания, использование относительных единиц CSS, таких как <code>vw</code>, <code>%</code>, <code>rem</code> и т.д.</p>
+
+<p><strong>Ссылка: </strong><a href="https://splidejs.com/" target="_blank" rel="noreferrer noopener nofollow">splidejs.com</a><br><strong>Демо: </strong><a href="https://splidejs.com/thumbnail-slider/" target="_blank" rel="noreferrer noopener nofollow">splidejs.com/thumbnail-slider</a></p>
+
+<h2>3. Swiper</h2>
+
+<p>Swiper — это самый современный бесплатный мобильный сенсорный слайдер с аппаратным ускорением переходов и удивительным нативным поведением. </p>
+
+<p>Он предназначен для использования в мобильных веб-сайтах, мобильных веб-приложениях и мобильных нативных/гибридных приложениях, но мы также можем использовать его для десктопных версий в качестве карусельного слайдера.</p>
+
+<p><strong>Ссылка:</strong> <a href="https://swiperjs.com/" target="_blank" rel="noreferrer noopener nofollow">swiperjs.com</a><br><strong>Демо:</strong> <a href="https://swiperjs.com/demos" target="_blank" rel="noreferrer noopener nofollow">swiperjs.com/demos</a></p>
+
+<h2>4. Flickity</h2>
+
+<p>Flickity — это потрясающая сенсорная, отзывчивая, перелистываемая библиотека каруселей. Она проста в использовании. Flickity делает карусели, галереи и слайдеры живыми и легкими.</p>
+
+<p><strong>Ссылка:</strong> <a href="https://flickity.metafizzy.co/" target="_blank" rel="noreferrer noopener nofollow">flickity.metafizzy.co</a><br><strong>Демо:</strong> <a href="https://flickity.metafizzy.co/#feature-showcase" target="_blank" rel="noreferrer noopener nofollow">flickity.metafizzy.co/#feature-showcase</a></p>
+
+<h2>5. Glider.js</h2>
+
+<div class="attention-red"><strong>Внимание</strong>! Не путать в Glide.js (см. выше)!</div>
+
+<p>Молниеносно быстрый, безумно маленький, полностью отзывчивый, удобный для мобильных устройств, свободный от зависимостей, нативный прокручивающийся список с элементами управления пагинацией.</p>
+
+<p>Вес библиотеки в сжатом виде &lt; 2.8 кб. Заявленная инициализация всего 25 мс. Создана на ванильном JS!</p>
+
+<p>Glider.js сохраняет возможность использования нативной прокрутки, создавая естественное ощущение на любом устройстве с поддержкой сенсорного ввода, и при этом обеспечивает базовую эстетику и функциональность карусели. Отлично подходит для десктопных версий!</p>
+
+<p><strong>Ссылка:</strong> <a href="https://nickpiscitelli.github.io/Glider.js/" target="_blank" rel="noreferrer noopener nofollow">nickpiscitelli.github.io/Glider.js</a><br><strong>Демо:</strong> <a href="https://nickpiscitelli.github.io/Glider.js/#demos" target="_blank" rel="noreferrer noopener nofollow">nickpiscitelli.github.io/Glider.js/#demos</a></p>
+
+<h2>6. Embla Carousel</h2>
+
+<p>Легкая библиотека каруселей с плавным движением и высокой точностью пролистывания.</p>
+
+<p>Вы можете сами расширять Embla Carousel с помощью собственных CSS и JavaScript для создания собственных удивительные каруселей.</p>
+
+<p><strong>Ссылка:</strong> <a href="https://www.embla-carousel.com/" target="_blank" rel="noreferrer noopener nofollow">embla-carousel.com</a><br><strong>Демо:</strong> <a href="https://www.embla-carousel.com/examples/" target="_blank" rel="noreferrer noopener nofollow">embla-carousel.com/examples</a></p>
+
+<h2>7. Tiny Slider 2</h2>
+
+<p>Крошечный слайдер для любых целей, созданный по мотивам Owl Carousel.</p>
+
+<p>Owl Carousel — это старый карусельный слайдер на основе jQuery, который сейчас считается устаревшим и почти не используется.</p>
+
+<p>Tiny slider имеет удивительные возможности, такие как цикл, перемотка, пролистывание, ленивая загрузка, отзывчивость и многое другое.</p>
+
+<p><strong>Ссылка:</strong> <a href="http://ganlanyuan.github.io/tiny-slider/" target="_blank" rel="noreferrer noopener">ganlanyuan.github.io/tiny-slider</a><br><strong>Демо:</strong> <a href="http://ganlanyuan.github.io/tiny-slider/demo/" target="_blank" rel="noreferrer noopener">ganlanyuan.github.io/tiny-slider/demo</a></p>
+
+<h2>Заключение</h2>
+
+<p>Я надеюсь, что эти JavaScript библиотеки каруселей помогут вам быстро создавать удивительные карусели и обеспечат все основные эстетические и функциональные возможности.</p>
+
+<p>Если вы знаете еще какие-нибудь свободные от зависимостей JavaScript-библиотеки каруселей, которые вы предпочитаете использовать для этих целей, пожалуйста, напишите о них в комментариях ниже. Это поможет многим коллегам.</p>
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 21 декабря 2022 в 19:44</span><br>Теги: JavaScript
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">Uzabila</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/js/app.js"></script>
+	<script src="../../../assets/js/prism.js"></script>	
+
+  </body>
+</html>

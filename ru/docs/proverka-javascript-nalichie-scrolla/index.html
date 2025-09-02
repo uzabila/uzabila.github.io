@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="../../../assets/css/prism.css">
 	<link rel="stylesheet" href="../../../assets/css/style.css">
 
-    <title> &#8212; Uzabila</title>
+    <title>Как на JavaScript проверить, отображается ли у блока полоса прокрутки? &#8212; Uzabila</title>
   </head>
 <body class="position-relative">
  <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
@@ -85,10 +85,69 @@
 	<div class="row mb-3 mb-md-4 mb-lg-5">
 		<div class="col-12 single-content-column">
 			<p><a href="../" class="link-secondary">Доки</a></p>
-			<h1 class="fw-600"></h1>
+			<h1 class="fw-600">Как на JavaScript проверить, отображается ли у блока полоса прокрутки?</h1>
 
+<p>Рассмотрим как с помощью свойств объектной модели документа (DOM) проверить, есть ли у блока полосы прокрутки.</p>
 
-			
+<p>Это довольно просто реализовать, если знать про два свойства элементов DOM — <code>clientHeight</code> и <code>scrollHeight</code>. </p>
+
+<p>Свойство <code>clientHeight</code> показывает высоту клиентской области элемента, то есть той области, в которой отображается его содержимое. Свойство <code>scrollHeight</code> хранит высоту всего содержимого. В том числе и выходящего за клиентскую область, когда она имеет полосу прокрутки (scroll bar), в результате чего всю внутреннюю область не видно. Таким образом, сравнив эти два параметра, можно выяснить, отображается ли у блока вертикальный скролл (scroll bar).</p>
+
+<p>При наличии полосы прокрутки свойство <code>scrollHeight</code> будет больше, чем <code>clientHeight</code>. Тот же принцип действует и в случае с горизонтальной прокруткой и, соответственно, свойствами <code>clientWidth</code> и <code>scrollWidth</code>.</p>
+
+<p>Пример кода:</p>
+
+<pre><code class="language-html">&lt;html&gt;
+
+&lt;head&gt;
+    &lt;script&gt;
+    function isVScroll(node) {
+        return node.scrollHeight &gt; node.clientHeight;
+    }
+
+    function isHScroll(node) {
+        return node.scrollWidth &gt; node.clientWidth;
+    }
+
+    function testOne(id) {
+        let node = document.getElementById(id);
+        alert(id + '. Верт. скролл: ' + isVScroll(node) + ', гор. скролл: ' + isHScroll(node));
+    }
+
+    function test() {
+        for (n = 1; n &lt; 5; n++)
+            testOne('d' + n);
+    }
+    &lt;/script&gt;
+    &lt;style&gt;
+    div {
+        width: 200px;
+        height: 40px;
+        font-size: 14px;
+        border: 3px solid red;
+        overflow: auto;
+    }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;button onclick='test();'&gt;тестировать&lt;/button&gt;
+    &lt;div id='d1'&gt;asdshakdjshadkjshajdkhsakjdhkjsahdjkashdjksahdsjakhdjksahdjsahdjkhdjsahdsakjhdsajdhjksadsahjkhdsjahdjksahdjsahdjksahdkjsadksahdkjahdskadkasjhdsjahd&lt;/div&gt;
+    &lt;div id='d2'&gt;asds&lt;br /&gt;asdsad&lt;br /&gt;assafsaf&lt;br /&gt;asdsad&lt;br /&gt;asd&lt;/div&gt;
+    &lt;div id='d3'&gt;asdshakdjshadkjshajdkhsakjdhkjsahd&lt;br /&gt;jkashdjksahdsjakhdjksahdjsahdjkhdjsahdsakj&lt;br /&gt;hdsajdhjksadsahjkhdsjahdjksahdjsahdjksahdkjsadksahdkjahdskadkasjhdsjahd&lt;/div&gt;
+    &lt;div id='d4'&gt;asdsha&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+<p>Этот код можно вставить в файл с расширением <strong>.html</strong>. Однако, после этого может понадобиться заменить кавычки, ограничивающие строки, на правильные, иначе программа может не работать, потому что в некоторых случаях они могут копироваться через буфер обмена с искажениями.</p>
+
+<p>Тут функция <code>isVScroll</code> проверяет наличие вертикальной полосы для прокрутки с помощью сравнения свойств <code>scrollHeight</code> и <code>clientHeight</code>. Функция <code>isHScroll</code> проверяет, присутствует ли горизонтальный scroll bar. Функция <code>testOne</code> тестирует один блок на наличие полос и выводит информацию об их присутствии с помощью <code>alert</code>. Она принимает один параметр — идентификатор блока. Функция <code>test</code> в цикле тестирует все 4 блока.</p>
+
+<p>Внутри тега <code>body</code> находятся 4 блока <code>div</code>, заполненные содержимым так, что у первого отображается горизонтальная прокрутка, у второго — вертикальная, у третьего — обе. У четвертого из них этих полос нет.</p>
+
+<p>Что касается стилей, то они просто задают размер блоков <code>div</code>, наличие у них красной рамки и размер шрифта.</p>
+
 		</div>
 	</div>
 </div>
@@ -107,7 +166,7 @@
 			</div> 
 		</div>
 		<div class="col-12 col-md-5">
-			<span class="text-muted">Опубликовано 11 августа 2024 в 22:53</span><br>Теги: CSS, Email, HTML
+			<span class="text-muted">Опубликовано 13 мая 2023 в 19:27</span><br>Теги: JavaScript
 		</div>
 	</div>
 </div>
