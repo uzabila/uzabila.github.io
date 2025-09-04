@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../../assets/css/style.css">
+
+    <title>Настройка режима Figma Dev Mode в VS Code &#8212; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+		<div class="col-12 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">Настройка режима Figma Dev Mode в VS Code</h1>
+
+<p>Рассмотрим настройку редактора для веб-проектирования Figma в Visual Studio Code, мощного рабочего процесса проектирования и разработки.</p>
+
+<h2>Введение</h2>
+
+<p>В современных условиях быстрого развития дизайна и разработки эффективная совместная работа и бесперебойная передача данных между дизайнерами и разработчиками имеют решающее значение.</p>
+
+<p>Figma, популярный облачный инструмент проектирования, предлагает мощную функцию под названием «Figma Dev Mode», которая улучшает рабочий процесс проектирования и разработки. В этой статье мы рассмотрим, как настроить Figma Dev Mode в Visual Studio Code (VS Code), и обсудим преимущества использования этой интеграции.</p>
+
+<h2>Что такое режим Figma Dev Mode?</h2>
+
+<p>Figma Dev Mode — это функция, позволяющая дизайнерам и разработчикам преодолеть барьер между файлами дизайна и воплощением кода.</p>
+
+<div class="attention-blue"><strong>Справка</strong>. В большинстве случаев в подобных статьях на английском языке под разработчиками подразумеваются верстальщики.</div>
+
+<p>В режиме Dev Mode разработчики могут просматривать компоненты дизайна, извлекать свойства CSS и даже копировать фрагменты кода непосредственно из файлов дизайна Figma.</p>
+
+<p>Это позволяет повысить эффективность совместной работы, предоставляя разработчикам прямой доступ к спецификациям дизайна и сокращая необходимость в ручном преобразовании.</p>
+
+<h2>Настройка режима Figma Dev Mode в VS Code</h2>
+
+<p>Настройка режима «Фигма для разработчиков» происходит в 4 шага.</p>
+
+<h3>Шаг 1: Установка плагина Figma для VS Code</h3>
+
+<p>Чтобы начать работу с Figma Dev Mode в VS Code, необходимо установить плагин Figma. Для этого выполните следующие действия:</p>
+
+<ol>
+<li>Откройте вид «Extensions» (Расширения) в VS Code.</li>
+<li>Найдите «Figma» и установите плагин Figma от компании Figma Design, Inc.</li>
+</ol>
+
+<h3>Шаг 2: Получение токена персонального доступа к Figma</h3>
+
+<p>Чтобы получить доступ к файлам дизайна Figma через плагин, необходимо получить «Personal Access Token» (Персональный токен доступа). Вот как это сделать:</p>
+
+<ol>
+<li>Войдите в свою учетную запись Figma и перейдите к настройкам учетной записи (Account settings).</li>
+<li>В разделе «Personal Access Tokens» сгенерируйте новый токен.</li>
+<li>Скопируйте сгенерированный токен, так как он потребуется в дальнейшем.</li>
+</ol>
+
+<h3>Шаг 3: Настройка Figma Dev Mode в VS Code</h3>
+
+<p>Теперь, когда плагин Figma установлен и токен доступа готов, можно настроить режим <strong>Figma Dev Mode</strong> в VS Code. Для этого выполните следующие действия:</p>
+
+<ol>
+<li>Откройте палитру команд в VS Code (Ctrl/Cmd + Shift + P).</li>
+<li>Найдите команду «Figma: Configure Token» и выберите ее.</li>
+<li>Вставьте полученный ранее токен персонального доступа Figma и нажмите Enter.</li>
+<li>Должно появиться сообщение об успешной настройке.</li>
+</ol>
+
+<h2>Шаг 4: Включение режима Figma Dev Mode</h2>
+
+<p>После завершения настройки можно включить режим Figma Dev Mode для файлов дизайна. Для этого выполните следующие действия:</p>
+
+<ol>
+<li>Откройте файл проекта Figma в настольном приложении Figma или в браузере.</li>
+<li>В VS Code откройте палитру команд и найдите «Figma: Enable Dev Mode».</li>
+<li>Выберите опцию для включения режима Dev Mode.</li>
+</ol>
+
+<h2>Шаг 5: Знакомство с режимом Dev Mode и его использование</h2>
+
+<p>Включив режим Figma Dev Mode, вы можете использовать его широкие возможности. Вот как это сделать:</p>
+
+<ol>
+<li>Щелкните правой кнопкой мыши на любом элементе в файле проекта Figma и выберите пункт «Inspect Element» или воспользуйтесь сочетанием клавиш «Cmd + Shift + X».</li>
+<li>В режиме Dev Mode откроется панель в VS Code, на которой будут отображены свойства выбранного элемента, такие как цвета, шрифт и размеры.</li>
+<li>Можно копировать свойства CSS, генерировать фрагменты кода и изучать структуру файла дизайна.</li>
+</ol>
+
+<h2>Преимущества использования</h2>
+
+<p>Поговорим об основных плюсах использования этого режима в редакторе от Майкрософт.</p>
+
+<p><strong>Оптимизация совместной работы</strong></p>
+
+<p>Режим Dev Mode способствует эффективному сотрудничеству между дизайнерами и разработчиками, обеспечивая общее понимание замысла проекта. Разработчики получают прямой доступ к спецификациям проекта, что сокращает количество переписок и возможных недоразумений.</p>
+
+<p><strong>Ускорение процесса разработки</strong></p>
+
+<p>Извлечение CSS-свойств и копирование фрагментов кода из файлов дизайна Figma ускоряет процесс внешней разработки. Разработчики могут быстро реализовать стили оформления, что приводит к повышению эффективности рабочего процесса.</p>
+
+<p><strong>Последовательная реализация дизайна</strong></p>
+
+<p>Используя режим Dev Mode, разработчики могут точно согласовывать детали дизайна с дизайнерами, обеспечивая пиксельно идеальную реализацию. Согласованность дизайна и кода помогает поддерживать общий пользовательский опыт и фирменный стиль.</p>
+
+<p><strong>Интеграция с системами проектирования</strong></p>
+
+<p>Figma Dev Mode легко интегрируется с системами проектирования, позволяя разработчикам ссылаться на компоненты проектирования и использовать их повторно. Такая интеграция упрощает внедрение и сопровождение систем проектирования в различных проектах.</p>
+
+<h2>Заключение</h2>
+
+<p>Установка режима Figma Dev Mode в VS Code позволяет разработчикам тесно сотрудничать с дизайнерами и устранить разрыв между проектированием и реализацией кода. Используя возможности режима Dev Mode, разработчики могут оптимизировать свой рабочий процесс, повысить качество проектирования и эффективно интегрировать системы проектирования. </p>
+
+<p>Использование этой мощной интеграции проектирования и разработки позволяет повысить эффективность совместной работы над проектами, что в конечном итоге приводит к улучшению пользовательского опыта.</p>
+
+<p>Начните использовать Figma Dev Mode в своей среде VS Code и убедитесь в том, какое огромное влияние он может оказать на ваш рабочий процесс разработки.</p>
+			
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 2 ноября 2023 в 00:25</span><br>Теги: Figma, IDE
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">Uzabila</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/js/app.js"></script>
+	<script src="../../../assets/js/prism.js"></script>	
+
+  </body>
+</html>
