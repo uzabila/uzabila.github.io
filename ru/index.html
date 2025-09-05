@@ -18,66 +18,23 @@
   	<link rel="stylesheet" href="../assets/css/style.css">
 
     <title>Uzabila &mdash; Дизайн, верстка и фронтенд-разработка</title>
+
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.js"
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+		crossorigin="anonymous">
+	</script>
+	<script> 
+	$(function(){
+		$("#header").load("header.html"); 
+		$("#footer").load("footer.html"); 
+	});
+	</script> 
   </head>
 <body class="position-relative">
  <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
 
-<!-- navbar section -->
-<section class="navbar-section">
-	<nav class="navbar navbar-expand-lg navbar-light bg-white">
-		<div class="container">
-			<a class="navbar-brand d-flex gap-3 align-items-center" href="./">
-				<img src="../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
-				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
-			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
-
-					<li class="nav-item">
-						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="about/">Обо мне</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="services/">Услуги</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="portfolio/">Портфолио</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="docs/">Доки</a>
-					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="terms/">Термины</a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="book/">Книга</a>
-					</li>
-		
-					<li class="nav-item">
-						<a class="nav-link" href="contacts/">Контакты</a>
-					</li>
-				</ul>
-				<div class="ms-auto">
-                    <a href="../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
-                </div>
-
-			</div>
-		</div>
-	</nav>
-</section>
-<!-- end navbar section -->
-
+<div id="header"></div>
 <!-- END HEADER -->
 
 <!-- new hero section -->
@@ -311,25 +268,9 @@
 </section>
 
 <!-- START FOOTER -->
-
-<footer class="py-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-4 my-auto">
-				<span class="fw-500 text-muted">Uzabila</span>
-			</div>
-			<div class="col-12 col-md-4 text-center my-auto">
-				<img src="../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
-			</div>
-			<div class="col-12 col-md-4 my-auto text-end">
-				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
-			</div>
-		</div>
-	</div>
-</footer>
+<div id="footer"></div>
 
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/app.js"></script>
-
-  </body>
+</body>
 </html>

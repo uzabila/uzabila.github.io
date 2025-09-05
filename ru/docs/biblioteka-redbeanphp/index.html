@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="../../../assets/icons/site.webmanifest">
+	<link rel="mask-icon" href="../../../assets/icons/safari-pinned-tab.svg" color="#787878">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="theme-color" content="#ffffff">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../../assets/css/prism.css">
+	<link rel="stylesheet" href="../../../assets/css/style.css">
+
+    <title>Библиотека RedBeanPHP для работы с Базами Данных &#8212; Uzabila</title>
+  </head>
+<body class="position-relative">
+ <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103624056', 'ym');      ym(103624056, 'init', {ssr:true, clickmap:true, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/103624056" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->   
+
+<!-- navbar section -->
+<section class="navbar-section">
+	<nav class="navbar navbar-expand-lg navbar-light bg-white">
+		<div class="container">
+			<a class="navbar-brand d-flex gap-3 align-items-center" href="../../">
+				<img src="../../../assets/images/sergei-150.png" alt="" width="80" height="80" class="d-inline-block align-middle">
+				<div class="logo-block"><span class="fw-bold">Uzabila</span><br><span class="small-font">Сергей Ермилов</span></div>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-0 ms-md-5 mb-2 mb-lg-0">
+
+					<li class="nav-item">
+						<a class="nav-link" title="GitHub" target="_blank" href="https://github.com/uzabila"><img src="../../../assets/images/gh.svg" alt="GitHub" width="32" height="32" class="mx-3" style="margin-top:-5px"></a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../about/">Обо мне</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../services/">Услуги</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../portfolio/">Портфолио</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../docs/">Доки</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="../../terms/">Термины</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="../../book/">Книга</a>
+					</li>
+		
+					<li class="nav-item">
+						<a class="nav-link" href="../../contacts/">Контакты</a>
+					</li>
+				</ul>
+				<div class="ms-auto">
+                    <a href="../../../" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">English</a>
+                </div>
+
+			</div>
+		</div>
+	</nav>
+</section>
+<!-- ---------- --> 
+<!-- END HEADER -->
+<!-- ---------- -->
+
+<div class="container">
+	<div class="row mb-3 mb-md-4 mb-lg-5">
+		<div class="col-12 single-content-column">
+			<p><a href="../" class="link-secondary">Доки</a></p>
+			<h1 class="fw-600">Библиотека RedBeanPHP для работы с Базами Данных</h1>
+
+<p>Библиотека RedBeanPHP — является ORM (англ. — Object-Relational Mapping или объектно-реляционное отображение) технологией для взаимодействия с реляционной базой данных, сохранения объектов в нее и извлечения.</p>
+
+<h2>Установка RedBeanPHP</h2>
+
+<p>Данная технология позволяет преобразовывать несовместимые типы моделей в Объектно-Ориентированном Программировании (ООП), в частности, между хранилищем данных и объектами программирования.</p>
+
+<div class="attention-blue"><a href="https://redbeanphp.com/" target="_blank" rel="noreferrer noopener">Официальный сайт</a>.</div>
+
+<p>Скачать библиотеку RedBeanPHP можно на&nbsp;<a href="https://redbeanphp.com/index.php?p=/download" target="_blank" rel="noreferrer noopener">официальном сайте</a>. Библиотека состоит из одного файла.</p>
+
+<p>После скачивания файла, распакуйте его и поместите в ваш проект. Подключить библиотеку можно через функцию <code>require</code>:</p>
+
+<pre><code class="language-json">require 'libs/rb.php';</code></pre>
+
+<h2>Установка через Composer</h2>
+
+<p>Только для версий RedBeanPHP ниже 4.0.</p>
+
+<p>Создать файл&nbsp;<code>composer.json</code>&nbsp;с таким содержимым:</p>
+
+<pre><code class="language-json">{
+  "require": {
+    "gabordemooij/redbean": "dev-master"
+  }
+}</code></pre>
+
+<p>В консоли выполняем следующую команду:</p>
+
+<pre><code class="language-bash">composer install</code></pre>
+
+<h2>Разрешаем подчеркивания</h2>
+
+<p>Очень много разработчиков сталкиваются с проблемой при использовании RedBeanPHP, когда PHP выдает ошибку:</p>
+
+<div class="attention-red"><strong>Fatal error: Uncaught RedBeanPHP\RedException: Invalid type</strong></div>
+
+<div class="attention-red"><strong>Внимание</strong>! В RedBean нельзя по умолчанию использовать подчеркивания в названиях таблиц Баз Данных, т.е. в этой библиотеке подчеркивания нужны для обозначения отношений двух таблиц.</div>
+
+<p>Но разрешить работу с таблицами, в названии которых есть нижнее подчеркивание все-таки можно, так как многие фреймворки и CMS имеют в именах таблиц префиксы. Это касается, кстати и WordPress в которой для названий используется префикс wp_.</p>
+
+<p>Изначально RedBean не понимает, вернее не разрешает использование <code>_</code> подчеркиваний.</p>
+
+<p>Как обойти эту проверку?</p>
+
+<p>Для решения задачи нам нужно написать небольшой плагин (фрагмент кода):</p>
+
+<pre><code class="language-php">R::ext('xdispense', function($table_name){
+return R::getRedBean()-&gt;dispense($table_name);
+});</code></pre>
+
+<p>И потом создаем таблицу через <code>xdispense</code>:</p>
+
+<pre><code class="language-php">$note = R::xdispense('lead_notes');</code></pre>
+
+<p>Решение найдено на <a href="https://ru.stackoverflow.com/questions/811484/redbean-%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B8%D1%82%D1%8C-%D0%BF%D0%BE%D0%B4%D1%87%D0%B5%D1%80%D0%BA%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B2-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B8-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%8B" target="_blank" rel="noreferrer noopener">stackoverflow.com</a> и потом я нашел решение на официальном сайте RedBeanPHP по <a href="https://redbeanphp.com/index.php?p=/prefixes" target="_blank" rel="noreferrer noopener">этой ссылке</a>.</p>
+
+<p>На официальном сайте есть следующее объяснение:</p>
+
+<div class="attention-yellow">В RedBeanPHP символ подчеркивания ‘_’ используется для обозначения отношения между двумя таблицами. Например, таблица book_tag используется для связывания книг с тегами.</div>
+
+<p>Итак, если вы хотите использовать префиксы таблиц, такие как <strong>cms_</strong> или <strong>tbl_</strong>, вам придется обойти проверку политики схемы RedBeanPHP следующим образом:</p>
+
+<pre><code class="language-php">R::ext('xdispense', function( $type ){ 
+        return R::getRedBean()-&gt;dispense( $type ); 
+    });</code></pre>
+
+<p>Теперь вы можете использовать подчеркивание в вашем типе (type) bean-компонента:</p>
+
+<pre><code class="language-php">$page = R::xdispense( 'cms_page' );</code></pre>
+
+<p>Однако название типа все равно выглядит странно. Используя константу, вы можете улучшить читаемость этого кода:</p>
+
+<pre><code class="language-php">define( 'PAGE', 'cms_page' );
+$page = R::xdispense( PAGE );</code></pre>
+
+<p>Это также работает для отношений:</p>
+
+<pre><code class="language-php">define( 'PAGES', 'ownCms_page' );
+$pages = $site-&gt;{PAGES};</code></pre>
+
+<p>Вот полный пример:</p>
+
+<pre><code class="language-php">//Define your mappings like this
+    define( 'POEM', 'tbl_poem' );
+    define( 'BOOK', 'tbl_book' );
+    define( 'AUTHOR', 'tbl_author' );
+    define( 'CATEGORY', 'tbl_category' );
+    define( 'POEMS', 'ownTblPoem' );
+    define( 'CATEGORIES', 'sharedTblCategory' );
+
+    //Create an extension to by-pass security check in R::dispense
+    R::ext('xdispense', function( $type ){
+        return R::getRedBean()-&gt;dispense( $type );
+    });
+
+    //Use tbl_book_category instead of tbl_book_tbl_category
+    R::renameAssociation([
+        'tbl_book_tbl_category' =&gt; 'tbl_book_category' 
+    ]);
+
+    //Use them like this:
+    $poem = R::xdispense( POEM );
+    $poem-&gt;title = 'Trees';
+    $author = R::xdispense( AUTHOR );
+    $author-&gt;name = 'Joyce Kilmer';
+    $book = R::xdispense( BOOK );
+    $book-&gt;title = 'Trees and other poems';
+    $category = R::xdispense( CATEGORY );
+    $category-&gt;name = 'nature';
+    $book-&gt;{AUTHOR} = $author;
+    $book-&gt;{POEMS}[] = $poem;
+    $book-&gt;{CATEGORIES}[] = $category;
+    $id = R::store( $book );
+
+    //For testing purposes let's output something:
+    $book = R::load( BOOK, $id );
+    $poem = reset( $book-&gt;{POEMS} );
+    $author = $book-&gt;{AUTHOR};
+    $category = reset( $book-&gt;{CATEGORIES} );
+
+    echo "Have you ever read '{$poem-&gt;title}' ({$book-&gt;title}) by {$author-&gt;name} ?
+    it's a beautiful poem about {$category-&gt;name}.";</code>
+</pre>
+
+<p>Этот код выведет:</p>
+
+<div class="attention-yellow">Have you ever read ‘Trees’ (Trees and other poems) by Joyce Kilmer ? it’s a beautiful poem about nature.</div>
+
+<h2>Подключение RedBeanPHP</h2>
+
+<p>В корне проекта создаем файл&nbsp;<code>index.php</code>. В файле подключаем автозагрузчик компоузера (если использовали composer) <code>autoload.php</code>, или скачанную библиотеку напрямую. Затем подключаемся к базе данных MySQL:</p>
+
+<pre><code class="language-php">// Подключаем автозагрузчик composer
+require_once __DIR__.'/vendor/autoload.php';
+
+// Или: require "libs/rb.php";
+ 
+// Создаём псевдоним для указанного класса
+class_alias('\RedBeanPHP\R', '\R');
+ 
+/**
+ * Подключаемся к базе данных
+ * Последний (4-й) параметр по умолчанию выставлен в FALSE
+ * Если нужно применить заморозку таблиц в БД (отменить создание на лету),
+ * то нужно данный параметр выставить в TRUE
+ * или так: R::freeze(true);
+ */
+R::setup( 'mysql:host=localhost;dbname=redbeanphp','root', '', false);
+ 
+// Проверка подключения к БД
+if(!R::testConnection()) die('No DB connection!');
+ 
+/**
+ * Если нужно работать с таблицами, в названии которых
+ * присутствует знак подчёркивания (_), то необходимо воспользоваться 
+ * таким методом
+ */
+R::ext('xdispense', function( $type ){
+  return R::getRedBean()-&gt;dispense( $type );
+});
+// Использовать так:
+$test = R::xdispense('test_table');
+// Code...
+R::store($test);</code>
+</pre>
+
+<p>Чтобы не работать с алиасами секции&nbsp;<code class="">use .. as ..</code>в каждом контроллере:</p>
+
+<pre><code class="language-php">use RedBean_Facade as R;</code></pre>
+
+<p>Используем функцию&nbsp;<code>class_alias</code>:</p>
+
+<pre><code class="language-php">class_alias('RedBean_Facade', 'R');</code></pre>
+
+<h2>Создание таблицы и записей</h2>
+
+<p>В RedBeanPHP есть уникальная способность создавать таблицы на лету и заносить в них данные:</p>
+
+<pre><code class="language-php">// Создаем таблицу users
+$user = R::dispense('users');
+
+// добавляем в таблицу необходимые записи
+$user-&gt;login = $data['login'];
+$user-&gt;email = $data['email'];
+$user-&gt;name = $data['name'];
+$user-&gt;family = $data['family'];
+
+// Сохраняем таблицу
+R::store($user);</code></pre>
+
+<p>Или еще пример:</p>
+
+<pre><code class="language-php">// Указываем, что будем работать с таблицей book
+$book = R::dispense('book');
+// Заполняем объект свойствами
+$book-&gt;title = 'Призрак победы';
+$book-&gt;price = 199;
+// Можно обращаться как к массиву
+$book['author'] = 'Макс Глебов';
+// Сохраняем объект
+R::store($book);</code></pre>
+
+<h2>Чтение данных</h2>
+
+<p>Если нужно получить данные без каких-либо условий, то легче это сделать методами&nbsp;<strong>load()</strong>&nbsp;и&nbsp;<strong>loadAll()</strong>. Пример:</p>
+
+<pre><code class="language-php">// Получаем все записи, ID которых указаны в массиве ids
+$ids = [1,2,3];
+$books = R::loadAll('book', $ids);
+foreach ($books as $book){
+  echo $book-&gt;title.'&lt;br/&gt;';
+}
+ 
+// Получаем одну запись по её ID
+$id = 1;
+$books = R::load('books', $id);
+echo $books-&gt;title;</code>
+</pre>
+
+<p>Если по каким-то причинам вам понадобится именно массив данных, то на этот случай есть метод&nbsp;<code>export()</code>:</p>
+
+<pre><code class="language-php">$id = 1;
+$book = R::load('book', $id);
+$book = $book-&gt;export();
+echo $book['title'];</code></pre>
+
+<h2>Обновление записи</h2>
+
+<pre><code class="language-php">$id = 1;
+// Загружаем объект с ID = 1
+$book = R::load('book', $id);
+// Обращаемся к свойству объекта и назначаем ему новое значение
+$book-&gt;price = 210;
+// Сохраняем объект
+R::store($book);</code></pre>
+
+<h2>Удаление записей с помощью RedBeanPHP</h2>
+
+<p>Данные мы уже считали, обновили, и теперь посмотрим как с помощью RedBeanPHP можно данные удалять. Процесс не сложный. Удалим запись с&nbsp;<code>ID = 5</code>:</p>
+
+<pre><code class="language-php">$id = 5;
+$book = R::load('book', $id);
+R::trash($book);</code></pre>
+
+<p>Удалить записи с&nbsp;<code>ID = 6,7</code>:</p>
+
+<pre><code class="language-php">$ids = [6, 7];
+$book = R::loadAll('book', $ids);
+R::trashAll($book);
+ 
+// Начиная с версии 5.1 данную задачу лучше выполнить методом R::trashBatch(). В таком случае нет необходимости создавать (получать) бин - объект RedBeanPHP
+$ids = [6, 7];
+R::trashBatch('book', $ids);
+ 
+// Удаление записи с ID = 3
+$id = 3;
+R::hunt('book', 'id = ?', [$id]);</code></pre>
+
+<p>Метод&nbsp;<code>R::wipe()</code>&nbsp;полностью очищает указанную таблицу:</p>
+
+<pre><code class="language-php">R::wipe('book');</code></pre>
+
+<p>Метод&nbsp;<code>R::nuke()</code>&nbsp;полностью очищает всю базу данных. Режим заморозки должен быть выключен:</p>
+
+<pre><code class="language-php">R::freeze(false);
+R::nuke();</code></pre>
+			
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-md-7">
+			<div class="mb-3 mb-mb-4 d-flex gap-3">
+				<div>
+					<img alt="Сергей Ермилов" src="../../../assets/images/sergei-450.png" height="68" width="68">
+				</span>
+				</div>
+				<div>
+					<a href="../../about/" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Сергей Ермилов</a><br>
+					<span>Дизайнер, верстальщик, фронтенд-разработчик, PHP и WordPress энтузиаст, главный редактор сайта</span>
+				</div>
+			</div> 
+		</div>
+		<div class="col-12 col-md-5">
+			<span class="text-muted">Опубликовано 5 февраля 2023 в 15:35</span><br>Теги: MySQL
+		</div>
+	</div>
+</div>
+
+<!-- ------------ -->
+<!-- START FOOTER -->
+<!-- ------------ -->
+<footer class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-4 my-auto">
+				<span class="fw-500 text-muted">Uzabila</span>
+			</div>
+			<div class="col-12 col-md-4 text-center my-auto">
+				<img src="../../../assets/images/sergei-150.png" alt="Sergei Ermilov" width="80" height="80">
+			</div>
+			<div class="col-12 col-md-4 my-auto text-end">
+				<span class="fw-500 text-muted">&copy; 2008-<script>document.write(new Date().getFullYear())</script></span>
+			</div>
+		</div>
+	</div>
+</footer>
+
+	<script src="../../../assets/js/bootstrap.bundle.min.js"></script>
+	<script src="../../../assets/js/app.js"></script>
+	<script src="../../../assets/js/prism.js"></script>	
+
+  </body>
+</html>
